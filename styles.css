@@ -17,14 +17,14 @@ body {
     padding: 0;
     font-family: 'Open Sans', Arial, sans-serif;
     scroll-behavior: smooth;
-    background-color: #2f2f2f; /* Dark grey background */
+    background-color: #1e1e2f; /* Deep navy background */
     color: #e0e0e0; /* Light grey text for readability */
 }
 
 header {
     position: relative;
     text-align: center;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('images/image.webp') center/cover no-repeat; /* Dark gradient with photo */
+    background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0.6)), url('images/image.webp') center/cover no-repeat; /* Dark gradient with photo */
     height: 100vh;
     display: flex; 
     flex-direction: column;
@@ -46,7 +46,7 @@ nav {
 }
 
 nav a {
-    color: #e0e0e0; /* Light grey text color for navigation links */
+    color: #f5f5f5; /* Off-white text color for navigation links */
     text-decoration: none;
     margin: 0 15px;
     font-weight: 500;
@@ -55,7 +55,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #b0b0b0; /* Lighter grey color on hover */
+    color: #f0b42f; /* Gold color on hover */
 }
 
 .header-content {
@@ -73,6 +73,7 @@ nav a:hover {
     font-weight: normal;
     letter-spacing: 2px;
     text-transform: capitalize;
+    color: #f5f5f5; /* Off-white color */
 }
 
 .header-content h2 {
@@ -81,6 +82,7 @@ nav a:hover {
     font-weight: bold;
     margin: 0;
     line-height: 1;
+    color: #f0b42f; /* Gold color */
 }
 
 .header-content h3 {
@@ -89,12 +91,12 @@ nav a:hover {
     font-weight: normal;
     margin-top: 10px;
     letter-spacing: 3px;
-    color: #b0b0b0; /* Lighter grey color for the subtitle */
+    color: #d0b8a8; /* Soft tan color */
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #4f4f4f; /* Medium dark grey button */
+    background-color: #6d6dff; /* Electric blue button */
     color: white;
     padding: 12px 24px;
     border-radius: 5px;
@@ -106,12 +108,12 @@ nav a:hover {
 }
 
 .cta-button:hover {
-    background-color: #3c3c3c; /* Darker grey on hover */
+    background-color: #5a5aff; /* Darker electric blue on hover */
 }
 
 footer {
-    background-color: #2f2f2f; /* Dark grey footer */
-    color: #e0e0e0; /* Light grey text */
+    background-color: #1e1e2f; /* Deep navy footer */
+    color: #f5f5f5; /* Off-white text */
     text-align: center;
     padding: 20px 0;
 }
@@ -139,8 +141,8 @@ footer p {
 
 #about {
     padding: 50px 0;
-    background: #2f2f2f; /* Dark grey background */
-    color: #e0e0e0; /* Light grey text */
+    background: #2c2c40; /* Darker navy background */
+    color: #f5f5f5; /* Off-white text */
     text-align: center;
 }
 
@@ -152,7 +154,6 @@ footer p {
     margin: 0 auto;
 }
 
-
 .about-text {
     margin-top: 20px;
 }
@@ -161,7 +162,7 @@ footer p {
     font-size: 36px;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    color: #e0e0e0;
+    color: #f0b42f; /* Gold color */
     margin-bottom: 10px;
 }
 
@@ -172,11 +173,12 @@ footer p {
     max-width: 700px;
     margin: 0 auto;
 }
+
 /* Experience Section */
 #experience {
     padding: 50px 20px;
-    background-color: #2f2f2f; /* Dark grey background for the experience section */
-    color: #e0e0e0;
+    background-color: #2c2c40; /* Darker navy background for the experience section */
+    color: #f5f5f5; /* Off-white text */
     text-align: center;
 }
 
@@ -184,7 +186,7 @@ footer p {
     font-size: 36px;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    color: #e0e0e0;
+    color: #f0b42f; /* Gold color */
     margin-bottom: 20px;
 }
 
@@ -199,7 +201,7 @@ footer p {
 
 /* Individual Experience Card */
 .experience-card {
-    background-color: #3a3a3a; /* Darker grey background for the card */
+    background-color: #3a3a4f; /* Slightly lighter navy for the card */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     padding: 15px; /* Reduce padding */
@@ -216,20 +218,19 @@ footer p {
 .experience-card h4 {
     font-size: 20px; /* Reduce font size */
     font-family: 'TT Bluescreens Thin', sans-serif;
+    color: #f0b42f; /* Gold color */
     margin-top: 0;
 }
 
 .experience-card p {
     font-family: 'Open Sans', Arial, sans-serif;
-    color: #e0e0e0; /* Light grey text color */
+    color: #f5f5f5; /* Off-white text color */
     margin: 10px 0;
     font-size: 16px; /* Reduce font size */
 }
 
-
-
 .more-info-button {
-    background-color: #4f4f4f;
+    background-color: #6d6dff; /* Electric blue button */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -239,7 +240,7 @@ footer p {
 }
 
 .more-info-button:hover {
-    background-color: #3c3c3c;
+    background-color: #5a5aff; /* Darker electric blue on hover */
 }
 
 /* Modal Styles */
@@ -257,13 +258,13 @@ footer p {
 }
 
 .modal-content {
-    background-color: #2f2f2f;
+    background-color: #2c2c40; /* Darker navy background */
     border-radius: 8px;
     padding: 20px;
     max-width: 600px;
     width: 90%;
     position: relative;
-    color: #e0e0e0;
+    color: #f5f5f5; /* Off-white text */
 }
 
 .close {
@@ -272,17 +273,17 @@ footer p {
     right: 20px;
     font-size: 24px;
     cursor: pointer;
+    color: #f5f5f5; /* Off-white close button */
 }
 
 .close:hover {
-    color: #b0b0b0;
+    color: #f0b42f; /* Gold color on hover */
 }
 
-
 #portfolio {
-    padding: -50px 0;
-    background: #2f2f2f; /* Dark grey background for the portfolio section */
-    color: #e0e0e0;
+    padding: 50px 0;
+    background: #2c2c40; /* Darker navy background for the portfolio section */
+    color: #f5f5f5; /* Off-white text */
     text-align: center;
     position: relative;
 }
@@ -291,13 +292,13 @@ footer p {
     font-size: 36px;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    color: #e0e0e0;
+    color: #f0b42f; /* Gold color */
     margin-bottom: 20px;
 }
 
 .featured-event-details {
     padding: 20px;
-    background-color: #3a3a3a; /* Darker grey background for the details */
+    background-color: #3a3a4f; /* Darker navy background for the details */
     border-radius: 8px;
     max-width: 900px;
     margin: 20px auto;
@@ -314,7 +315,7 @@ footer p {
 
 .event-description {
     font-family: 'Open Sans', Arial, sans-serif;
-    color: #e0e0e0; /* Light grey text for descriptions */
+    color: #f5f5f5; /* Off-white text for descriptions */
     margin-bottom: 20px;
 }
 
@@ -368,65 +369,6 @@ footer p {
     filter: brightness(1.1); /* Slightly brighten the image on hover */
 }
 
-#lower-section {
-    padding: 50px 20px;
-    background-color: #3a3a3a; /* Darker grey background */
-    color: #e0e0e0;
-    text-align: center;
-    position: relative;
-    overflow: hidden; /* Ensure no overflow */
-}
-
-.lower-section-background {
-    background: url('images/texture.png') repeat; /* Adjust path to your texture image */
-    opacity: 0.2; /* Adjust opacity as needed */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.lower-section-content {
-    position: relative;
-    z-index: 1; /* Ensure content is above the texture */
-}
-
-.lower-section-content h3 {
-    margin-top: 20px;
-}
-
-.testimonials, .contact-form, .newsletter-signup, .social-media {
-    margin-bottom: 20px;
-}
-
-.social-media {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.social-media a {
-    font-size: 25px; /* Larger text size */
-    display: flex;
-    align-items: center;
-    color: #e0e0e0;
-    text-decoration: none;
-    margin: 0 10px; /* Space between each social link */
-    transition: color 0.3s ease;
-}
-
-.social-media a:hover {
-    color: #b0b0b0; /* Lighter grey color on hover */
-}
-
-.social-logo {
-    width: 44px; /* Larger logo size */
-    height: auto;
-    margin-right: 8px; /* Space between logo and text */
-}
-
 /* Fullscreen Image Viewer */
 .fullscreen-viewer {
     display: none;
@@ -446,3 +388,43 @@ footer p {
     max-height: 90%;
 }
 
+/* Social Media and Contact Info Styles */
+.social-media, .contact-info {
+    display: flex;
+    flex-direction: row; /* Ensure horizontal alignment of items */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin-top: 20px;
+}
+
+.social-media a, .contact-info a {
+    color: #f5f5f5; /* Off-white text color */
+    text-decoration: none;
+    margin: 0 10px; /* Space between items */
+    font-size: 18px;
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.social-logo, .contact-logo {
+    width: 54px; /* Adjust as needed */
+    height: 54px; /* Adjust as needed */
+    vertical-align: middle; /* Align with text */
+    margin-right: 8px; /* Space between logo and text */
+}
+
+.contact-logo {
+    width: 40px; /* Adjust as needed */
+    height: 30px; /* Adjust as needed to match the height of the social logos */
+    margin-right: 8px; /* Space between logo and text */
+}
+
+/* Hover effects */
+.social-media img:hover, .contact-info img:hover {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+.contact-info {
+    flex-direction: column; /* Stack contact info vertically if needed */
+    align-items: center; /* Center items horizontally */
+}
