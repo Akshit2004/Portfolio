@@ -298,7 +298,7 @@ footer p {
 
 .featured-event-details {
     padding: 20px;
-    background-color: #3a3a4f; /* Darker navy background for the details */
+    background-color: #3a3a4f; /* Slightly lighter navy background for the details */
     border-radius: 8px;
     max-width: 900px;
     margin: 20px auto;
@@ -311,6 +311,7 @@ footer p {
     font-family: Arial, sans-serif;
     font-weight: normal;
     margin-top: 20px;
+    color: #f0b42f; /* Gold color */
 }
 
 .event-description {
@@ -388,6 +389,74 @@ footer p {
     max-height: 90%;
 }
 
+.fullscreen-viewer .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.fullscreen-viewer .close:hover {
+    color: #f0b42f; /* Gold color on hover */
+}
+/* Contact Section */
+#contact {
+    padding: 50px 0;
+    background: #2c2c40; /* Darker navy background for the contact section */
+    color: #f5f5f5; /* Off-white text */
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #f0b42f; /* Gold color */
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #f0b42f; /* Gold border */
+    background-color: #3a3a4f; /* Slightly lighter navy background */
+    color: #f5f5f5; /* Off-white text */
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+}
+
+.contact-form button {
+    background-color: #6d6dff; /* Electric blue button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #5a5aff; /* Darker electric blue on hover */
+}
+
 /* Social Media and Contact Info Styles */
 .social-media, .contact-info {
     display: flex;
@@ -407,14 +476,19 @@ footer p {
 }
 
 .social-logo, .contact-logo {
-    width: 54px; /* Adjust as needed */
-    height: 54px; /* Adjust as needed */
+    width: 44px; /* Adjust as needed */
+    height: 44px; /* Adjust as needed */
     vertical-align: middle; /* Align with text */
     margin-right: 8px; /* Space between logo and text */
 }
 
+/* Specific adjustments for Instagram logo */
+.social-media a.instagram {
+    margin-right: 12px; /* Increase margin for Instagram logo */
+}
+
 .contact-logo {
-    width: 40px; /* Adjust as needed */
+    width: 30px; /* Adjust as needed */
     height: 30px; /* Adjust as needed to match the height of the social logos */
     margin-right: 8px; /* Space between logo and text */
 }
@@ -422,9 +496,4 @@ footer p {
 /* Hover effects */
 .social-media img:hover, .contact-info img:hover {
     transform: scale(1.1); /* Slightly enlarge the icon on hover */
-}
-
-.contact-info {
-    flex-direction: column; /* Stack contact info vertically if needed */
-    align-items: center; /* Center items horizontally */
 }
