@@ -1,4 +1,3 @@
-/* Font-face definitions */
 @font-face {
     font-family: 'TT Bluescreens Thin';
     src: url('font/TT Bluescreens Trial Thin.ttf') format('truetype');
@@ -13,7 +12,6 @@
     font-style: normal;
 }
 
-/* Basic styles */
 body {
     margin: 0;
     padding: 0;
@@ -23,7 +21,6 @@ body {
     color: #e0e0e0; /* Light grey text for readability */
 }
 
-/* Header styles */
 header {
     position: relative;
     text-align: center;
@@ -95,32 +92,92 @@ nav a:hover {
     color: #b0b0b0; /* Lighter grey color for the subtitle */
 }
 
-/* About section styles */
-#about {
-    padding: 50px 20px;
-    background: #2f2f2f; /* Dark grey background */
-    color: #e0e0e0;
+.cta-button {
+    display: inline-block;
+    background-color: #4f4f4f; /* Medium dark grey button */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#about h2 {
+.cta-button:hover {
+    background-color: #3c3c3c; /* Darker grey on hover */
+}
+
+footer {
+    background-color: #2f2f2f; /* Dark grey footer */
+    color: #e0e0e0; /* Light grey text */
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.section-background {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/background-lower-section.jpg') center/cover no-repeat;
+    opacity: 0.3; /* Adjust opacity as needed */
+    z-index: -1;
+}
+
+#about {
+    padding: 50px 0;
+    background: #2f2f2f; /* Dark grey background */
+    color: #e0e0e0; /* Light grey text */
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+.about-text {
+    margin-top: 20px;
+}
+
+.about-text h2 {
     font-size: 36px;
     font-family: Arial, sans-serif;
     font-weight: bold;
     color: #e0e0e0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-#about p {
+.about-text p {
     font-family: 'Open Sans', Arial, sans-serif;
-    color: #e0e0e0;
+    font-size: 18px;
     line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
 }
-
-/* Experience section styles */
+/* Experience Section */
 #experience {
     padding: 50px 20px;
-    background: #2f2f2f; /* Dark grey background */
+    background-color: #2f2f2f; /* Dark grey background for the experience section */
     color: #e0e0e0;
+    text-align: center;
 }
 
 #experience h2 {
@@ -131,43 +188,103 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
+/* Experience Cards Container */
 .experience-cards {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Adjust the gap between cards */
+    padding: 20px; /* Optional padding around the grid */
+    align-items: center; /* Center align cards horizontally */
 }
 
+/* Individual Experience Card */
 .experience-card {
-    background-color: #3a3a3a; /* Darker grey background for the cards */
+    background-color: #3a3a3a; /* Darker grey background for the card */
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    padding: 15px; /* Reduce padding */
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Set a maximum width for the card */
+    margin: 0 auto; /* Center the card horizontally */
+    transition: transform 0.3s ease;
 }
 
-.experience-card h3 {
-    font-size: 24px;
+.experience-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.experience-card h4 {
+    font-size: 20px; /* Reduce font size */
     font-family: 'TT Bluescreens Thin', sans-serif;
-    font-weight: normal;
     margin-top: 0;
 }
 
 .experience-card p {
     font-family: 'Open Sans', Arial, sans-serif;
+    color: #e0e0e0; /* Light grey text color */
+    margin: 10px 0;
+    font-size: 16px; /* Reduce font size */
+}
+
+
+
+.more-info-button {
+    background-color: #4f4f4f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.more-info-button:hover {
+    background-color: #3c3c3c;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #2f2f2f;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
     color: #e0e0e0;
 }
 
-.experience-card ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    font-family: 'Open Sans', Arial, sans-serif;
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-/* Portfolio section styles */
+.close:hover {
+    color: #b0b0b0;
+}
+
+
 #portfolio {
-    padding: 50px 20px;
-    background: #2f2f2f; /* Dark grey background */
+    padding: -50px 0;
+    background: #2f2f2f; /* Dark grey background for the portfolio section */
     color: #e0e0e0;
     text-align: center;
+    position: relative;
 }
 
 #portfolio h2 {
@@ -201,10 +318,9 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-/* Featured event photos grid */
 .featured-event-photos {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Adjusted column sizes */
+    grid-template-columns: 2fr 3fr;
     grid-template-rows: auto auto;
     gap: 15px;
 }
@@ -228,15 +344,15 @@ nav a:hover {
 }
 
 .featured-photo.portrait {
-    grid-column: 1 / 3; /* Span from column 1 to column 3 */
-    grid-row: 1 / 3; /* Span from row 1 to row 3 */
-    height: 500px; /* Adjust height as needed for a larger size */
+    grid-column: 2;
+    grid-row: 1 / 3;
+    height: 405px;
 }
 
 .featured-photo.square {
-    grid-column: 2; /* Square photo should be in the second column */
-    grid-row: 2; /* Place in the second row */
-    height: 200px; /* Adjust height if needed to match layout */
+    grid-column: 1;
+    grid-row: 2;
+    height: 200px;
 }
 
 .featured-photo img {
@@ -250,6 +366,65 @@ nav a:hover {
 
 .featured-photo img:hover {
     filter: brightness(1.1); /* Slightly brighten the image on hover */
+}
+
+#lower-section {
+    padding: 50px 20px;
+    background-color: #3a3a3a; /* Darker grey background */
+    color: #e0e0e0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Ensure no overflow */
+}
+
+.lower-section-background {
+    background: url('images/texture.png') repeat; /* Adjust path to your texture image */
+    opacity: 0.2; /* Adjust opacity as needed */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.lower-section-content {
+    position: relative;
+    z-index: 1; /* Ensure content is above the texture */
+}
+
+.lower-section-content h3 {
+    margin-top: 20px;
+}
+
+.testimonials, .contact-form, .newsletter-signup, .social-media {
+    margin-bottom: 20px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media a {
+    font-size: 25px; /* Larger text size */
+    display: flex;
+    align-items: center;
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 10px; /* Space between each social link */
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #b0b0b0; /* Lighter grey color on hover */
+}
+
+.social-logo {
+    width: 44px; /* Larger logo size */
+    height: auto;
+    margin-right: 8px; /* Space between logo and text */
 }
 
 /* Fullscreen Image Viewer */
@@ -271,14 +446,3 @@ nav a:hover {
     max-height: 90%;
 }
 
-/* Footer styles */
-footer {
-    background-color: #2f2f2f; /* Dark grey footer */
-    color: #e0e0e0; /* Light grey text */
-    text-align: center;
-    padding: 20px 0;
-}
-
-footer p {
-    margin: 0;
-}

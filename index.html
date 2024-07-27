@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59P9M24L1T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-59P9M24L1T');
-    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-59P9M24L1T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-59P9M24L1T');
+</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +24,7 @@
             <a href="#">Home</a>
             <a href="#about">About</a>
             <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
+            <a href="#">Contact</a>
         </nav>
         <div class="header-content">
             <h1>Hello, I'm</h1>
@@ -128,25 +130,21 @@
             </div>
         </div>
     </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <form id="contact-form">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+    
+    <section id="lower-section">
+        <div class="lower-section-background"></div>
+        <div class="lower-section-content">
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/akshit0mahajan/" target="_blank">
+                    <img src="images/linkedin-logo.png.png" alt="LinkedIn Logo" class="social-logo"> LinkdIn
+                </a>
+                <a href="https://www.instagram.com/_akshitmahajan/" target="_blank">
+                    <img src="images/instagram-logo.png.png" alt="Instagram Logo" class="social-logo"> Instagram
+                </a>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit">Send Message</button>
-        </form>
+        </div>
     </section>
+     
 
     <footer>
         <p>&copy; 2023 Akshit Mahajan. All rights reserved.</p>
