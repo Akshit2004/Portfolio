@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshit Mahajan - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="overlay"></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="header-content">
+            <h1>Hello, I'm</h1>
+            <h2>Akshit Mahajan</h2>
+            <h3>This is my world</h3>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I'm Akshit Mahajan, a passionate designer with experience in creating stunning visuals for various events and campaigns. I enjoy exploring new creative avenues. To add more recently I have been exploring more of the technical side and started learning app development. Still pretty new, I have yet to create a project in it so till then exploring my other skills. Here, you'll find a selection of my work that highlights my skills and the diversity of my design experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-cards">
+            <div class="experience-card">
+                <h3>Graphic Designer/Video Editor - Part-Time Intern</h3>
+                <p><strong>Nov 2023 - Jan 2024</strong></p>
+                <p>I was given the task of making daily Instagram posts and reels on the latest sports affairs. This internship sharpened my following skills:</p>
+                <ul>
+                    <li>Enhanced research abilities to stay updated with the latest trends</li>
+                    <li>Transformed conceptual ideas into engaging graphics and videos</li>
+                    <li>Improved time management and workload balancing</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Graphic Design Lead - TMP Club</h3>
+                <p><strong>Sep 2022 - Present</strong></p>
+                <p>I was an integral part of the design team for my college's technical club, where we were entrusted with the full responsibility of designing all printables and social media posts. After successfully completing my first year in the club, I was promoted to the position of Team Lead, overseeing the entire design process and leading the team to new creative heights.</p>
+                <ul>
+                    <li>Led the design team to create visually appealing printables and social media posts</li>
+                    <li>Developed innovative design concepts that aligned with the club's branding</li>
+                    <li>Collaborated with team members to ensure cohesive and high-quality outputs</li>
+                    <li>Managed multiple design projects simultaneously, meeting tight deadlines</li>
+                    <li>Mentored junior designers, fostering a collaborative and creative environment</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Freelance Designer - College Event</h3>
+                <p><strong>Sep 2022 - May 2023</strong></p>
+                <p>Worked as a freelance designer for a major college event. Responsibilities included:</p>
+                <ul>
+                    <li>Designed marketing collateral to promote the event</li>
+                    <li>Created engaging website visuals to attract attendees</li>
+                    <li>Developed eye-catching event posters and banners</li>
+                    <li>Collaborated with the event team to ensure cohesive branding</li>
+                    <li>Enhanced skills in graphic design software and teamwork</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="featured-event-details">
+            <h3>Diskha</h3>
+            <p class="event-description">Were Given the Responsibility for Designing the Flexes, posters, and social media posts for the Diksha (Fresher's Night).</p>
+            <div class="featured-event-photos">
+                <div class="featured-photo landscape">
+                    <img src="images/diksha.png" alt="Sample 1" onclick="openFullScreen(this)">
+                </div>
+                <div class="featured-photo portrait">
+                    <img src="images/ramp_5.png" alt="Sample 2" onclick="openFullScreen(this)">
+                </div>
+                <div class="featured-photo square">
+                    <img src="images/new insta post.png" alt="Sample 3" onclick="openFullScreen(this)">
+                </div>
+            </div>
+        </div>
+        <div class="featured-event-details">
+            <h3>Le Fiestus'22</h3>
+            <p class="event-description">As it was our annual fest and we were in our first year we were high motivated to give our best and we delivered it. Few of the designs are below.</p>
+            <div class="featured-event-photos">
+                <div class="featured-photo landscape">
+                    <img src="images/final flex_3.png" alt="Sample 4" onclick="openFullScreen(this)">
+                </div>
+                <div class="featured-photo portrait">
+                    <img src="images/navjot poster.png" alt="Sample 5" onclick="openFullScreen(this)">
+                </div>
+                <div class="featured-photo square">
+                    <img src="images/Artboard 1 copy 3.png" alt="Sample 6" onclick="openFullScreen(this)">
+                </div>
+            </div>
+        </div>
+        <div class="featured-event-details">
+            <h3>Murious'24</h3>
+            <p class="event-description">Murious is our college's biggest tech fest, and as part of the Tech Club which hosts Murious. Every competition was held beautifully and the overall event was a success.</p>
+            <div class="featured-event-photos">
+                <div class="featured-photo landscape">
+                    <img src="images/Screenshot 2024-07-26 151942.png" alt="Workshop Sample 1" onclick="openFullScreen(this)">
+                </div>
+                <div class="featured-photo portrait">
+                    <img src="images/murious poster.png" alt="Workshop Sample 2" onclick="openFullScreen(this)">
+                </div>
+                <div class="featured-photo square">
+                    <img src="images/dates post.png" alt="Workshop Sample 3" onclick="openFullScreen(this)">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Akshit Mahajan. All rights reserved.</p>
+    </footer>
+
+    <!-- Fullscreen Image Viewer -->
+    <div id="fullscreen-viewer" class="fullscreen-viewer" onclick="closeFullScreen()">
+        <img id="fullscreen-image" src="" alt="Fullscreen Image">
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+@font-face {
+    font-family: 'TT Bluescreens Thin';
+    src: url('font/TT Bluescreens Trial Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peace Sans';
+    src: url('font/Peace Sans Webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    scroll-behavior: smooth;
+    background-color: #2f2f2f; /* Dark grey background */
+    color: #e0e0e0; /* Light grey text for readability */
+}
+
+header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('images/image.webp') center/cover no-repeat; /* Dark gradient with photo */
+    height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #e0e0e0; /* Light grey text color */
+    overflow: hidden;
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    z-index: 1;
+}
+
+nav a {
+    color: #e0e0e0; /* Light grey text color for navigation links */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #b0b0b0; /* Lighter grey color on hover */
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    max-width: 600px; /* Limit content width */
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+    font-family: 'TT Bluescreens Thin', sans-serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.header-content h2 {
+    font-size: 48px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+}
+
+.header-content h3 {
+    font-size: 40px;
+    font-family: 'TT Bluescreens Thin', sans-serif;
+    font-weight: normal;
+    margin-top: 10px;
+    letter-spacing: 3px;
+    color: #b0b0b0; /* Lighter grey color for the subtitle */
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #4f4f4f; /* Medium dark grey button */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #3c3c3c; /* Darker grey on hover */
+}
+
+footer {
+    background-color: #2f2f2f; /* Dark grey footer */
+    color: #e0e0e0; /* Light grey text */
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.section-background {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/background-lower-section.jpg') center/cover no-repeat;
+    opacity: 0.3; /* Adjust opacity as needed */
+    z-index: -1;
+}
+
+#about {
+    padding: 50px 0;
+    background: #2f2f2f; /* Dark grey background */
+    color: #e0e0e0; /* Light grey text */
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+.about-text {
+    margin-top: 20px;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#experience {
+    padding: 50px 0;
+    background: #2f2f2f; /* Dark grey background */
+    color: #e0e0e0; /* Light grey text */
+    text-align: center;
+}
+
+.experience-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.experience-card {
+    background: #3a3a3a; /* Slightly lighter grey */
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+}
+
+.experience-card h3 {
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+}
+
+.experience-card p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #d0b8a8; /* Light beige for emphasis */
+}
+
+
+#portfolio {
+    padding: -50px 0;
+    background: #2f2f2f; /* Dark grey background for the portfolio section */
+    color: #e0e0e0;
+    text-align: center;
+    position: relative;
+}
+
+#portfolio h2 {
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.featured-event-details {
+    padding: 20px;
+    background-color: #3a3a3a; /* Darker grey background for the details */
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.featured-event-details h3 {
+    font-size: 28px;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    margin-top: 20px;
+}
+
+.event-description {
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #e0e0e0; /* Light grey text for descriptions */
+    margin-bottom: 20px;
+}
+
+.featured-event-photos {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto auto;
+    gap: 15px;
+}
+
+.featured-photo {
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.featured-photo:hover {
+    transform: scale(1.05);
+}
+
+.featured-photo.landscape {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    height: 200px;
+}
+
+.featured-photo.portrait {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    height: 405px;
+}
+
+.featured-photo.square {
+    grid-column: 1;
+    grid-row: 2;
+    height: 200px;
+}
+
+.featured-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add a glow effect */
+}
+
+.featured-photo img:hover {
+    filter: brightness(1.1); /* Slightly brighten the image on hover */
+}
+
+/* Fullscreen Image Viewer */
+.fullscreen-viewer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.fullscreen-viewer img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
