@@ -17,21 +17,22 @@ body {
     padding: 0;
     font-family: 'Open Sans', Arial, sans-serif;
     scroll-behavior: smooth;
-    background-color: #1e1e2f; /* Deep navy background */
+    background-color: #2f2f2f; /* Dark grey background */
     color: #e0e0e0; /* Light grey text for readability */
 }
 
 header {
     position: relative;
     text-align: center;
-    background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0.6)), url('images/image.webp') center/cover no-repeat; /* Dark gradient with photo */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(183, 196, 204, 0.6)), url('images/image.webp') center/cover no-repeat; /* Dark gradient with photo */
     height: 100vh;
     display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #e0e0e0; /* Light grey text color */
+    color: #ffffff; /* White text color */
     overflow: hidden;
+    filter: contrast(1.2) brightness(0.9); /* Adjust contrast and brightness */
 }
 
 nav {
@@ -46,7 +47,7 @@ nav {
 }
 
 nav a {
-    color: #f5f5f5; /* Off-white text color for navigation links */
+    color: #ffffff; /* White text color for navigation links */
     text-decoration: none;
     margin: 0 15px;
     font-weight: 500;
@@ -55,7 +56,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #f0b42f; /* Gold color on hover */
+    color: #FFD700; /* Golden color on hover */
 }
 
 .header-content {
@@ -73,7 +74,7 @@ nav a:hover {
     font-weight: normal;
     letter-spacing: 2px;
     text-transform: capitalize;
-    color: #f5f5f5; /* Off-white color */
+    color: #ffffff; /* White color for main heading */
 }
 
 .header-content h2 {
@@ -82,7 +83,7 @@ nav a:hover {
     font-weight: bold;
     margin: 0;
     line-height: 1;
-    color: #f0b42f; /* Gold color */
+    color: #ffffff; /* White color for sub-heading */
 }
 
 .header-content h3 {
@@ -91,12 +92,12 @@ nav a:hover {
     font-weight: normal;
     margin-top: 10px;
     letter-spacing: 3px;
-    color: #d0b8a8; /* Soft tan color */
+    color: #ffffff; /* White color for the subtitle */
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #6d6dff; /* Electric blue button */
+    background-color: #4f4f4f; /* Medium dark grey button */
     color: white;
     padding: 12px 24px;
     border-radius: 5px;
@@ -108,12 +109,12 @@ nav a:hover {
 }
 
 .cta-button:hover {
-    background-color: #5a5aff; /* Darker electric blue on hover */
+    background-color: #3c3c3c; /* Darker grey on hover */
 }
 
 footer {
-    background-color: #1e1e2f; /* Deep navy footer */
-    color: #f5f5f5; /* Off-white text */
+    background-color: #2f2f2f; /* Dark grey footer */
+    color: #e0e0e0; /* Light grey text */
     text-align: center;
     padding: 20px 0;
 }
@@ -139,151 +140,66 @@ footer p {
     z-index: -1;
 }
 
-#about {
+#about, #experience {
     padding: 50px 0;
-    background: #2c2c40; /* Darker navy background */
-    color: #f5f5f5; /* Off-white text */
+    background: #1e1e2e; /* Dark bluish background for the sections */
+    color: #e0e0e0;
     text-align: center;
+    position: relative;
 }
 
-.about-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.about-text {
-    margin-top: 20px;
-}
-
-.about-text h2 {
+#about h2, #experience h2 {
     font-size: 36px;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    color: #f0b42f; /* Gold color */
-    margin-bottom: 10px;
-}
-
-.about-text p {
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* Experience Section */
-#experience {
-    padding: 50px 20px;
-    background-color: #2c2c40; /* Darker navy background for the experience section */
-    color: #f5f5f5; /* Off-white text */
-    text-align: center;
-}
-
-#experience h2 {
-    font-size: 36px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    color: #f0b42f; /* Gold color */
+    color: #FFD700; /* Golden color for section headings */
     margin-bottom: 20px;
 }
 
-/* Experience Cards Container */
+.about-text p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
 .experience-cards {
     display: flex;
-    flex-direction: column; /* Stack cards vertically */
-    gap: 20px; /* Adjust the gap between cards */
-    padding: 20px; /* Optional padding around the grid */
-    align-items: center; /* Center align cards horizontally */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-/* Individual Experience Card */
 .experience-card {
-    background-color: #3a3a4f; /* Slightly lighter navy for the card */
+    background-color: #2a2a3a; /* Darker bluish background for the experience cards */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    padding: 15px; /* Reduce padding */
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px; /* Set a maximum width for the card */
-    margin: 0 auto; /* Center the card horizontally */
-    transition: transform 0.3s ease;
+    padding: 20px;
+    max-width: 800px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
 }
 
-.experience-card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card on hover */
-}
-
-.experience-card h4 {
-    font-size: 20px; /* Reduce font size */
-    font-family: 'TT Bluescreens Thin', sans-serif;
-    color: #f0b42f; /* Gold color */
+.experience-card h3 {
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
     margin-top: 0;
+    color: #FFD700; /* Golden color for job titles */
 }
 
 .experience-card p {
     font-family: 'Open Sans', Arial, sans-serif;
-    color: #f5f5f5; /* Off-white text color */
-    margin: 10px 0;
-    font-size: 16px; /* Reduce font size */
+    color: #e0e0e0; /* Light grey text for descriptions */
 }
 
-.more-info-button {
-    background-color: #6d6dff; /* Electric blue button */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.more-info-button:hover {
-    background-color: #5a5aff; /* Darker electric blue on hover */
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background-color: #2c2c40; /* Darker navy background */
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    color: #f5f5f5; /* Off-white text */
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #f5f5f5; /* Off-white close button */
-}
-
-.close:hover {
-    color: #f0b42f; /* Gold color on hover */
+.experience-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 #portfolio {
     padding: 50px 0;
-    background: #2c2c40; /* Darker navy background for the portfolio section */
-    color: #f5f5f5; /* Off-white text */
+    background: #1e1e2e; /* Dark bluish background for the portfolio section */
+    color: #e0e0e0;
     text-align: center;
     position: relative;
 }
@@ -292,13 +208,13 @@ footer p {
     font-size: 36px;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    color: #f0b42f; /* Gold color */
+    color: #FFD700; /* Golden color for section heading */
     margin-bottom: 20px;
 }
 
 .featured-event-details {
     padding: 20px;
-    background-color: #3a3a4f; /* Slightly lighter navy background for the details */
+    background-color: #2a2a3a; /* Darker bluish background for the details */
     border-radius: 8px;
     max-width: 900px;
     margin: 20px auto;
@@ -311,12 +227,12 @@ footer p {
     font-family: Arial, sans-serif;
     font-weight: normal;
     margin-top: 20px;
-    color: #f0b42f; /* Gold color */
+    color: #FFD700; /* Golden color for event titles */
 }
 
 .event-description {
     font-family: 'Open Sans', Arial, sans-serif;
-    color: #f5f5f5; /* Off-white text for descriptions */
+    color: #e0e0e0; /* Light grey text for descriptions */
     margin-bottom: 20px;
 }
 
@@ -389,46 +305,29 @@ footer p {
     max-height: 90%;
 }
 
-.fullscreen-viewer .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #fff;
-    font-size: 40px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.fullscreen-viewer .close:hover {
-    color: #f0b42f; /* Gold color on hover */
-}
-/* Contact Section */
 #contact {
     padding: 50px 0;
-    background: #2c2c40; /* Darker navy background for the contact section */
-    color: #f5f5f5; /* Off-white text */
+    background: #1e1e2e; /* Dark bluish background for the contact section */
+    color: #e0e0e0;
     text-align: center;
+    position: relative;
 }
 
 #contact h2 {
     font-size: 36px;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    color: #f0b42f; /* Gold color */
+    color: #FFD700; /* Golden color for section heading */
     margin-bottom: 20px;
-}
-
-#contact p {
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto 20px;
 }
 
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
+    background-color: #2a2a3a; /* Darker bluish background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
 }
 
 .contact-form input, .contact-form textarea {
@@ -436,64 +335,59 @@ footer p {
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #f0b42f; /* Gold border */
-    background-color: #3a3a4f; /* Slightly lighter navy background */
-    color: #f5f5f5; /* Off-white text */
+    border: 1px solid #4f4f4f;
+    background-color: #1e1e2e; /* Dark bluish background for inputs */
+    color: #e0e0e0;
     font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 16px;
 }
 
 .contact-form button {
-    background-color: #6d6dff; /* Electric blue button */
+    display: inline-block;
+    background-color: #4f4f4f; /* Medium dark grey button */
     color: white;
-    padding: 10px 20px;
-    border: none;
+    padding: 12px 24px;
     border-radius: 5px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
-    background-color: #5a5aff; /* Darker electric blue on hover */
+    background-color: #3c3c3c; /* Darker grey on hover */
 }
 
-/* Social Media and Contact Info Styles */
-.social-media, .contact-info {
+/* Social Media Icons */
+.social-media {
     display: flex;
-    flex-direction: row; /* Ensure horizontal alignment of items */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
+    justify-content: center;
+    gap: 10px; /* Adjust spacing between icons */
     margin-top: 20px;
 }
 
-.social-media a, .contact-info a {
-    color: #f5f5f5; /* Off-white text color */
-    text-decoration: none;
-    margin: 0 10px; /* Space between items */
-    font-size: 18px;
+.social-media a {
     display: flex;
-    align-items: center; /* Align items vertically */
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Set a specific width for the icons */
+    height: 40px; /* Set a specific height for the icons */
+    padding: 10px; /* Adjust padding to fit the icons within the specified width and height */
+    border-radius: 50%; /* Make icons circular */
+    background-color: #4f4f4f; /* Background color for the icons */
+    color: #ffffff; /* Icon color */
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 40px;
 }
 
-.social-logo, .contact-logo {
-    width: 44px; /* Adjust as needed */
-    height: 44px; /* Adjust as needed */
-    vertical-align: middle; /* Align with text */
-    margin-right: 8px; /* Space between logo and text */
+.social-media a:hover {
+    background-color: #3c3c3c; /* Darker background on hover */
+    color: #FFD700; /* Golden color on hover */
 }
 
-/* Specific adjustments for Instagram logo */
-.social-media a.instagram {
-    margin-right: 12px; /* Increase margin for Instagram logo */
+.social-media a i {
+    font-size: 20px; /* Adjust the icon font size */
 }
 
-.contact-logo {
-    width: 30px; /* Adjust as needed */
-    height: 30px; /* Adjust as needed to match the height of the social logos */
-    margin-right: 8px; /* Space between logo and text */
-}
-
-/* Hover effects */
-.social-media img:hover, .contact-info img:hover {
-    transform: scale(1.1); /* Slightly enlarge the icon on hover */
-}
