@@ -12,7 +12,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akshit Mahajan - Portfolio</title>
+    <meta name="description" content="Akshit Mahajan's portfolio showcasing skills in graphic design, video editing, app development, and web design.">
+    <meta name="keywords" content="Akshit Mahajan, Portfolio, Graphic Design, Video Editing, App Development, Web Design">
+    <meta name="author" content="Akshit Mahajan">
+     <title>Akshit Mahajan - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -54,19 +57,13 @@
                 <div class="skill">
                     <h3>Video Editing</h3>
                     <div class="progress-bar">
-                        <div class="progress" data-skill="80%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <h3>App Development</h3>
-                    <div class="progress-bar">
-                        <div class="progress" data-skill="60%"></div>
+                        <div class="progress" data-skill="65%"></div>
                     </div>
                 </div>
                 <div class="skill">
                     <h3>Web Design</h3>
                     <div class="progress-bar">
-                        <div class="progress" data-skill="75%"></div>
+                        <div class="progress" data-skill="35%"></div>
                     </div>
                 </div>
             </div>
@@ -100,7 +97,7 @@
             </div>
             <div class="experience-card">
                 <h3>Freelance Designer - College Event</h3>
-                <p><strong>Sep 2022 - Sep 2022</strong></p>
+                <p><strong>Sep 2022 - May 2023</strong></p>
                 <p>Worked as a freelance designer for a major college event. Responsibilities included:</p>
                 <ul>
                     <li>Designed marketing collateral to promote the event</li>
@@ -174,6 +171,8 @@
         <p>&copy; 2024 Akshit Mahajan. All rights reserved.</p>
     </footer>
 
+    <button id="back-to-top">↑</button>
+
     <!-- Fullscreen Image Viewer -->
     <div id="fullscreen-viewer" class="fullscreen-viewer" onclick="closeFullScreen()">
         <img id="fullscreen-image" src="" alt="Full Screen Image">
@@ -224,6 +223,36 @@
 
         window.addEventListener('scroll', onScroll);
         window.addEventListener('load', onScroll);
+
+        // Experience card animations
+        function animateExperienceCards() {
+            var experienceCards = document.querySelectorAll('.experience-card');
+            experienceCards.forEach(function(card, index) {
+                setTimeout(function() {
+                    card.classList.add('show');
+                }, index * 200);
+            });
+        }
+
+        window.addEventListener('load', animateExperienceCards);
+    
+        
+    // Show the button when the user scrolls down 20px from the top
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("back-to-top").style.display = "block";
+        } else {
+            document.getElementById("back-to-top").style.display = "none";
+        }
+    };
+
+    // Scroll to the top of the document when the user clicks the button
+    document.getElementById("back-to-top").onclick = function() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    };
+
+    
     </script>
 </body>
 </html>
