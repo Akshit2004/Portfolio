@@ -48,19 +48,25 @@
                 <div class="skill">
                     <h3>Graphic Design</h3>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 90%;"></div>
+                        <div class="progress" data-skill="90%"></div>
                     </div>
                 </div>
                 <div class="skill">
                     <h3>Video Editing</h3>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 60%;"></div>
+                        <div class="progress" data-skill="80%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>App Development</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-skill="60%"></div>
                     </div>
                 </div>
                 <div class="skill">
                     <h3>Web Design</h3>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 35%;"></div>
+                        <div class="progress" data-skill="75%"></div>
                     </div>
                 </div>
             </div>
@@ -94,7 +100,7 @@
             </div>
             <div class="experience-card">
                 <h3>Freelance Designer - College Event</h3>
-                <p><strong>Sep 2022 - May 2023</strong></p>
+                <p><strong>Sep 2022 - Sep 2022</strong></p>
                 <p>Worked as a freelance designer for a major college event. Responsibilities included:</p>
                 <ul>
                     <li>Designed marketing collateral to promote the event</li>
@@ -174,6 +180,7 @@
     </div>
 
     <script>
+        // Fullscreen image viewer
         function openFullScreen(img) {
             var viewer = document.getElementById('fullscreen-viewer');
             var viewerImage = document.getElementById('fullscreen-image');
@@ -185,6 +192,38 @@
             var viewer = document.getElementById('fullscreen-viewer');
             viewer.style.display = 'none';
         }
+
+        // Animate progress bars
+        function animateProgressBars() {
+            var progressBars = document.querySelectorAll('.progress');
+            progressBars.forEach(function(bar) {
+                var skillLevel = bar.getAttribute('data-skill');
+                bar.style.width = skillLevel;
+            });
+        }
+
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // On scroll event handler
+        function onScroll() {
+            var skillsSection = document.getElementById('skills');
+            if (isElementInViewport(skillsSection)) {
+                animateProgressBars();
+                window.removeEventListener('scroll', onScroll);
+            }
+        }
+
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('load', onScroll);
     </script>
 </body>
 </html>
