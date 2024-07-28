@@ -17,14 +17,14 @@ body {
     padding: 0;
     font-family: 'Open Sans', Arial, sans-serif;
     scroll-behavior: smooth;
-    background-color: #2f2f2f; /* Dark grey background */
+    background-color: #1e1e2e; /* Dark bluish background */
     color: #e0e0e0; /* Light grey text for readability */
 }
 
 header {
     position: relative;
     text-align: center;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(183, 196, 204, 0.6)), url('images/image.webp') center/cover no-repeat; /* Dark gradient with photo */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(89, 99, 104, 0.6)), url('images/image.webp') center/cover no-repeat; /* Dark gradient with photo */
     height: 100vh;
     display: flex; 
     flex-direction: column;
@@ -140,7 +140,7 @@ footer p {
     z-index: -1;
 }
 
-#about, #experience {
+#about, #experience, #skills {
     padding: 50px 0;
     background: #1e1e2e; /* Dark bluish background for the sections */
     color: #e0e0e0;
@@ -148,7 +148,7 @@ footer p {
     position: relative;
 }
 
-#about h2, #experience h2 {
+#about h2, #experience h2, #skills h2 {
     font-size: 36px;
     font-family: Arial, sans-serif;
     font-weight: bold;
@@ -161,6 +161,39 @@ footer p {
     margin: 0 auto;
     font-size: 18px;
     line-height: 1.6;
+}
+
+.skills-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill {
+    text-align: left;
+}
+
+.skill h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    background: #FFD700; /* Golden color for progress bars */
+    height: 20px;
+    border-radius: 10px 0 0 10px;
 }
 
 .experience-cards {
@@ -305,89 +338,21 @@ footer p {
     max-height: 90%;
 }
 
-#contact {
-    padding: 50px 0;
-    background: #1e1e2e; /* Dark bluish background for the contact section */
-    color: #e0e0e0;
-    text-align: center;
-    position: relative;
-}
-
-#contact h2 {
-    font-size: 36px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    color: #FFD700; /* Golden color for section heading */
-    margin-bottom: 20px;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #2a2a3a; /* Darker bluish background for the form */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
-}
-
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #4f4f4f;
-    background-color: #1e1e2e; /* Dark bluish background for inputs */
-    color: #e0e0e0;
-    font-family: 'Open Sans', Arial, sans-serif;
-}
-
-.contact-form button {
-    display: inline-block;
-    background-color: #4f4f4f; /* Medium dark grey button */
-    color: white;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: pointer;
-}
-
-.contact-form button:hover {
-    background-color: #3c3c3c; /* Darker grey on hover */
-}
-
-/* Social Media Icons */
+/* Social Media Tab */
 .social-media {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Adjust spacing between icons */
-    margin-top: 20px;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px; /* Gap between social media buttons and the footer */
 }
 
 .social-media a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px; /* Set a specific width for the icons */
-    height: 40px; /* Set a specific height for the icons */
-    padding: 10px; /* Adjust padding to fit the icons within the specified width and height */
-    border-radius: 50%; /* Make icons circular */
-    background-color: #4f4f4f; /* Background color for the icons */
-    color: #ffffff; /* Icon color */
-    text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-bottom: 40px;
+    color: #e0e0e0;
+    font-size: 24px;
+    transition: color 0.3s ease;
 }
 
-.social-media a:hover {
-    background-color: #3c3c3c; /* Darker background on hover */
+social-media a:hover {
     color: #FFD700; /* Golden color on hover */
 }
-
-.social-media a i {
-    font-size: 20px; /* Adjust the icon font size */
-}
-

@@ -41,6 +41,32 @@
         </div>
     </section>
 
+    <section id="skills">
+        <div class="skills-content">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill">
+                    <h3>Graphic Design</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>Video Editing</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>Web Design</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 35%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="experience">
         <h2>Experience</h2>
         <div class="experience-cards">
@@ -142,19 +168,22 @@
         <p>&copy; 2024 Akshit Mahajan. All rights reserved.</p>
     </footer>
 
+    <!-- Fullscreen Image Viewer -->
+    <div id="fullscreen-viewer" class="fullscreen-viewer" onclick="closeFullScreen()">
+        <img id="fullscreen-image" src="" alt="Full Screen Image">
+    </div>
+
     <script>
-        function openFullScreen(imgElement) {
-            var fullScreenViewer = document.createElement("div");
-            fullScreenViewer.className = "fullscreen-viewer";
-            fullScreenViewer.onclick = function() {
-                document.body.removeChild(fullScreenViewer);
-            };
+        function openFullScreen(img) {
+            var viewer = document.getElementById('fullscreen-viewer');
+            var viewerImage = document.getElementById('fullscreen-image');
+            viewerImage.src = img.src;
+            viewer.style.display = 'flex';
+        }
 
-            var img = document.createElement("img");
-            img.src = imgElement.src;
-            fullScreenViewer.appendChild(img);
-
-            document.body.appendChild(fullScreenViewer);
+        function closeFullScreen() {
+            var viewer = document.getElementById('fullscreen-viewer');
+            viewer.style.display = 'none';
         }
     </script>
 </body>
