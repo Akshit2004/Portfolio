@@ -19,6 +19,11 @@ body {
     scroll-behavior: smooth;
     background-color: #1e1e2e; /* Dark bluish background */
     color: #e0e0e0; /* Light grey text for readability */
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 header {
@@ -189,6 +194,412 @@ footer p {
     margin: 0 0 10px;
     font-size: 1.2em;
     color: #ffffff;
+}
+@font-face {
+    font-family: 'TT Bluescreens Thin';
+    src: url('font/TT Bluescreens Trial Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peace Sans';
+    src: url('font/Peace Sans Webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    scroll-behavior: smooth;
+    background-color: #1e1e2e;
+    color: #e0e0e0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(89, 99, 104, 0.6)), url('images/image.webp') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+    filter: contrast(1.2) brightness(0.9);
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    z-index: 1;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #FFD700;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+    font-family: 'TT Bluescreens Thin', sans-serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    color: #ffffff;
+}
+
+.header-content h2 {
+    font-size: 48px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.header-content h3 {
+    font-size: 40px;
+    font-family: 'TT Bluescreens Thin', sans-serif;
+    font-weight: normal;
+    margin-top: 10px;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #4f4f4f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #3c3c3c;
+}
+
+footer {
+    background-color: #2f2f2f;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.section-background {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/background-lower-section.jpg') center/cover no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+#about, #experience, #skills {
+    padding: 50px 0;
+    background: #1e1e2e;
+    color: #e0e0e0;
+    text-align: center;
+    position: relative;
+}
+
+#about h2, #experience h2, #skills h2 {
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Skills section */
+#skills {
+    padding: 50px 0;
+}
+
+.skills-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.skill h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background-color: #8d493a;
+    width: 0;
+    transition: width 2s ease, background-color 0.3s ease;
+}
+
+.skill:hover .progress {
+    background-color: #d0b8a8;
+}
+
+.progress-bar {
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    background: #FFD700;
+    height: 20px;
+    border-radius: 10px 0 0 10px;
+}
+
+/* Experience section */
+#experience {
+    padding: 50px 0;
+}
+
+.experience-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.experience-card {
+    background-color: #2a2a3a;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.experience-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.experience-card p {
+    margin: 5px 0;
+    color: #ffffff;
+}
+
+.experience-card ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    color: #ffffff;
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.experience-card:hover h3 {
+    color: #d4893a;
+}
+
+@media (max-width: 768px) {
+    .experience-card {
+        width: calc(90% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-card {
+        width: 100%;
+    }
+}
+
+#portfolio {
+    padding: 50px 0;
+    background: #1e1e2e;
+    color: #e0e0e0;
+    text-align: center;
+    position: relative;
+}
+
+#portfolio h2 {
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.featured-event-details {
+    padding: 20px;
+    background-color: #2a2a3a;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.featured-event-details h3 {
+    font-size: 28px;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    margin-top: 20px;
+    color: #FFD700;
+}
+
+.event-description {
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.featured-event-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.featured-event-photos img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.featured-event-photos img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .featured-event-photos {
+        grid-template-columns: 1fr;
+    }
+}
+
+footer {
+    background-color: #2f2f2f;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 20px; /* Add gap between social media buttons and footer */
+}
+
+.social-media a {
+    color: #e0e0e0;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #FFD700;
+}
+
+@media (max-width: 600px) {
+    .header-content h1 {
+        font-size: 36px;
+    }
+
+    .header-content h2 {
+        font-size: 28px;
+    }
+
+    .header-content h3 {
+        font-size: 24px;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .experience-card {
+        padding: 10px;
+    }
+
+    #about h2, #experience h2, #skills h2, #portfolio h2 {
+        font-size: 24px;
+    }
 }
 
 .progress-bar {
