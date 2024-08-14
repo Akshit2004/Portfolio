@@ -84,6 +84,30 @@ nav {
     width: 100%;
 }
 
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .logo {
+        margin-bottom: 10px;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    header nav a {
+        font-size: 16px;
+        padding: 10px 0;
+        width: 100%;
+        text-align: left;
+    }
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -321,20 +345,42 @@ section.visible {
 
 .sort-buttons {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .sort-btn {
     padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
+    margin: 10px; /* Add margin to separate buttons */
+    border: 2px solid var(--primary-color); /* Use the primary color for the border */
+    background-color: var(--primary-color); /* Use the primary color for the background */
+    color: var(--button-text-color); /* Use the button text color */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sort-btn:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover-bg-color); /* Use the hover background color */
+    color: var(--button-hover-text-color); /* Use the hover text color */
+}
+
+/* Responsive Styles */
+@media (max-width: 300px) {
+    .sort-buttons {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+
+    .sort-btn {
+        width: auto; /* Adjust width to fit content */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        margin: 5px 0; /* Adjust margin for vertical stacking */
+    }
+
+    .thumbnail {
+        width: 100px; /* Set max width for images on small screens */
+        height: 100px; /* Set max height for images on small screens */
+    }
 }
 
 .image-grid {
@@ -345,8 +391,8 @@ section.visible {
 }
 
 .thumbnail {
-    width: 300px;
-    height: 300px;
+    width: 250px; /* Set max width for images on larger screens */
+    height: 250px; /* Set max height for images on larger screens */
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.3s ease;
