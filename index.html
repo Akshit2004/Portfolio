@@ -1,224 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59P9M24L1T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-59P9M24L1T');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Akshit Mahajan's portfolio showcasing skills in graphic design, video editing, app development, and web design.">
-    <meta name="keywords" content="Akshit Mahajan, Portfolio, Graphic Design, Video Editing, App Development, Web Design">
-    <meta name="author" content="Akshit Mahajan">
-    <title>Akshit Mahajan - Portfolio</title>
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="overlay"></div>
         <nav>
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#portfolio">Portfolio</a>
+            <div class="logo">AM</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
         </nav>
-        <div class="header-content">
-            <h1>Hello, I'm</h1>
-            <h2>Akshit Mahajan</h2>
-            <h3>This is my world</h3>
-        </div>
     </header>
 
-    <section id="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>About Me</h2>
-                <p>A passionate designer with experience in creating stunning visuals for various events and campaigns. I enjoy exploring new creative avenues. Recently, I've been exploring more of the technical side and started learning app development. I'm still pretty new to it and yet to create a project in it, so until then, I'm exploring my other skills. Here, you'll find a selection of my work that highlights my skills and the diversity of my design experience.</p>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hidden-text-reveal">Akshit Mahajan</h1>
+                <h2 class="typewriter">Web Developer & UI/UX Designer</h2>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills">
-        <div class="skills-content">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill">
-                    <h3>Graphic Design</h3>
-                    <div class="progress-bar">
-                        <div class="progress" data-skill="90%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <h3>Video Editing</h3>
-                    <div class="progress-bar">
-                        <div class="progress" data-skill="65%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <h3>Web Design</h3>
-                    <div class="progress-bar">
-                        <div class="progress" data-skill="35%"></div>
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-img-text">
+                        <div class="profile-img-wrapper">
+                            <img src="IMG_0277-min.JPG" alt="Profile Image" class="profile-img">
+                            <div class="profile-img-overlay"></div>
+                        </div>
+                        <div class="about-text">
+                            <p>I'm a passionate web developer with a keen eye for design. With expertise in front-end and back-end technologies, I create seamless, user-centric web experiences that drive results.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience-cards">
-            <div class="experience-card">
-                <h3>Graphic Designer/Video Editor - Part-Time Intern</h3>
-                <p><strong>Nov 2023 - Jan 2024</strong></p>
-                <p>I was given the task of making daily Instagram posts and reels on the latest sports affairs. This internship sharpened my following skills:</p>
-                <ul>
-                    <li>Enhanced research abilities to stay updated with the latest trends</li>
-                    <li>Transformed conceptual ideas into engaging graphics and videos</li>
-                    <li>Improved time management and workload balancing</li>
-                </ul>
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <p>Graphic Design</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-video"></i>
+                        <p>Video Editing</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <p>HTML</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <p>CSS</p>
+                    </div>
+                </div>
             </div>
-            <div class="experience-card">
-                <h3>Graphic Design Lead - TMP Club</h3>
-                <p><strong>Sep 2022 - Present</strong></p>
-                <p>I was an integral part of the design team for my college's technical club, where we were entrusted with the full responsibility of designing all printables and social media posts. After successfully completing my first year in the club, I was promoted to the position of Team Lead, overseeing the entire design process and leading the team to new creative heights.</p>
-                <ul>
-                    <li>Led the design team to create visually appealing printables and social media posts</li>
-                    <li>Developed innovative design concepts that aligned with the club's branding</li>
-                    <li>Collaborated with team members to ensure cohesive and high-quality outputs</li>
-                    <li>Managed multiple design projects simultaneously, meeting tight deadlines</li>
-                    <li>Mentored junior designers, fostering a collaborative and creative environment</li>
-                </ul>
-            </div>
-            <div class="experience-card">
-                <h3>Freelance Designer - College Event</h3>
-                <p><strong>Sep 2022 - Sep 2022</strong></p>
-                <p>Worked as a freelance designer for a major college event. Responsibilities included:</p>
-                <ul>
-                    <li>Designed marketing collateral to promote the event</li>
-                    <li>Created engaging website visuals to attract attendees</li>
-                    <li>Developed eye-catching event posters and banners</li>
-                    <li>Collaborated with the event team to ensure cohesive branding</li>
-                    <li>Enhanced skills in graphic design software and teamwork</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <div class="featured-event-details">
-            <h3>Diksha</h3>
-            <p class="event-description">I was responsible for designing the flexes, posters, and social media posts for Diksha (Fresher's Night).</p>
-            <div class="featured-event-photos">
-                <div class="featured-photo landscape">
-                    <img src="images/diksha.png" alt="Sample 1" onclick="openFullScreen(this)">
+        <section id="image-banner" class="image-banner">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="sort-buttons">
+                    <button class="sort-btn" data-category="all">All</button>
+                    <button class="sort-btn" data-category="murious">Murious</button>
+                    <button class="sort-btn" data-category="freelance">Freelance</button>
+                    <button class="sort-btn" data-category="le-fiestus">Le Fiestus</button>
+                    <button class="sort-btn" data-category="diksha">Diksha</button>
                 </div>
-                <div class="featured-photo portrait">
-                    <img src="images/ramp_5.png" alt="Sample 2" onclick="openFullScreen(this)">
-                </div>
-                <div class="featured-photo square">
-                    <img src="images/new insta post.png" alt="Sample 3" onclick="openFullScreen(this)">
-                </div>
-            </div>
-        </div>
-        <div class="featured-event-details">
-            <h3>Le Fiestus'22</h3>
-            <p class="event-description">As it was our annual fest and we were in our first year, we were highly motivated to give our best and we delivered it. A few of the designs are below.</p>
-            <div class="featured-event-photos">
-                <div class="featured-photo landscape">
-                    <img src="images/final flex_3.png" alt="Sample 4" onclick="openFullScreen(this)">
-                </div>
-                <div class="featured-photo portrait">
-                    <img src="images/navjot poster.png" alt="Sample 5" onclick="openFullScreen(this)">
-                </div>
-                <div class="featured-photo square">
-                    <img src="images/Artboard 1 copy 3.png" alt="Sample 6" onclick="openFullScreen(this)">
+                <div class="image-grid">
+                    <img src="work/Artboard 1 copy 3.png" alt="Image 1" class="thumbnail" data-category="le-fiestus">
+                    <img src="work/Screenshot 2024-07-26 151942.png" alt="Image 2" class="thumbnail" data-category="murious">
+                    <img src="work/ramp_5.png" alt="Image 3" class="thumbnail" data-category="diksha">
+                    <img src="work/new insta post.png" alt="Image 4" class="thumbnail" data-category="diksha">
+                    <img src="work/navjot poster.png" alt="Image 5" class="thumbnail" data-category="le-fiestus">
+                    <img src="work/murious poster.png" alt="Image 6" class="thumbnail" data-category="murious">
+                    <img src="work/diksha.png" alt="Image 7" class="thumbnail" data-category="diksha">
+                    <img src="work/dates post.png" alt="Image 8" class="thumbnail" data-category="murious">
+                    <img src="work/cwc schedule.png" alt="Image 9" class="thumbnail" data-category="freelance">
+                    <img src="work/mbape.png" alt="Image 10" class="thumbnail" data-category="freelance">
+                    <img src="work/tennies.png" alt="Image 11" class="thumbnail" data-category="freelance">
+                    <img src="work/archery.png" alt="Image 12" class="thumbnail" data-category="freelance">
+                    <img src="work/final flex_3.png" alt="Image 13" class="thumbnail" data-category="le-fiestus">
                 </div>
             </div>
+        </section>
+        
+        <!-- Modal for full-size image -->
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="fullImage">
         </div>
-        <div class="featured-event-details">
-            <h3>Murious'24</h3>
-            <p class="event-description">Murious is our college's biggest tech fest. As part of the Tech Club, which hosts Murious, we ensured that every competition was held beautifully and the overall event was a success.</p>
-            <div class="featured-event-photos">
-                <div class="featured-photo landscape">
-                    <img src="images/Screenshot 2024-07-26 151942.png" alt="Sample 7" onclick="openFullScreen(this)">
-                </div>
-                <div class="featured-photo portrait">
-                    <img src="images/murious poster.png" alt="Sample 8" onclick="openFullScreen(this)">
-                </div>
-                <div class="featured-photo square">
-                    <img src="images/dates post.png" alt="Sample 9" onclick="openFullScreen(this)">
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <footer>
-        <div class="social-media">
-            <a href="https://www.instagram.com/_akshitmahajan/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/akshit0mahajan/" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
+        <div class="social-links">
+            <a href="https://www.instagram.com/_akshitmahajan/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/akshit0mahajan/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Akshit2004" target="_blank"><i class="fab fa-github"></i></a>
         </div>
         <p>&copy; 2024 Akshit Mahajan. All rights reserved.</p>
     </footer>
-
-    <script>
-        // JavaScript to handle progress bar animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const progressBars = document.querySelectorAll('.progress');
-            progressBars.forEach(bar => {
-                const skillLevel = bar.getAttribute('data-skill');
-                bar.style.width = skillLevel;
-            });
-        });
-
-        // JavaScript to handle image full screen view
-        function openFullScreen(img) {
-            const modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.top = '0';
-            modal.style.left = '0';
-            modal.style.width = '100%';
-            modal.style.height = '100%';
-            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            modal.style.display = 'flex';
-            modal.style.justifyContent = 'center';
-            modal.style.alignItems = 'center';
-            modal.style.zIndex = '1000';
-            modal.onclick = function() {
-                document.body.removeChild(modal);
-            };
-
-            const fullScreenImg = document.createElement('img');
-            fullScreenImg.src = img.src;
-            fullScreenImg.style.maxWidth = '90%';
-            fullScreenImg.style.maxHeight = '90%';
-            modal.appendChild(fullScreenImg);
-            document.body.appendChild(modal);
-        }
-
-        // Defer non-essential JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            const scripts = [
-                'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js'
-            ];
-
-            scripts.forEach(src => {
-                const script = document.createElement('script');
-                script.src = src;
-                script.defer = true;
-                document.body.appendChild(script);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
