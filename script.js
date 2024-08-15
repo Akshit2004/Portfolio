@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         element.style.opacity = "0";
         element.style.transform = "translateY(30px)";
         element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        element.style.willChange = "opacity, transform";
         elementObserver.observe(element);
     };
 
@@ -44,7 +45,28 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", function () {
         nav.classList.toggle("scrolled", window.scrollY > 50);
     });
+
+    // Advanced animation for skill items
+    const skillSection = document.querySelector("#skills");
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                anime({
+                    targets: '.skill-item',
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    delay: anime.stagger(100),
+                    easing: 'easeOutExpo',
+                    duration: 1000
+                });
+                observer.unobserve(skillSection);
+            }
+        });
+    }, observerOptions);
+
+    skillObserver.observe(skillSection);
 });
+
 document.addEventListener('DOMContentLoaded', function() {
     const aboutSection = document.querySelector('.about-content');
 

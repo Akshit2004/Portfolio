@@ -301,30 +301,57 @@ section.visible {
     gap: 2rem;
 }
 
+
+
+/* Base styles for skill items */
 .skill-item {
-    background: var(--background-color);
-    border-radius: 10px;
-    padding: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    will-change: opacity, transform;
+    transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+    padding: 20px;
+    background-color: #0F0E17; /* Use card background color from root */
+    border-radius: 8px;
     text-align: center;
-    color: var(--text-color);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    color: var(--text-color); /* Use text color from root */
 }
 
+/* Hover animation for skill items */
 .skill-item:hover {
-    transform: translateY(-5px);
+    background-color: var(--primary-color); /* Change background color on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
 }
 
-.skill-item i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
+/* Container for skill items */
+.skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .skill-item {
+        flex: 1 1 calc(33.333% - 40px); /* 3 items per row */
+    }
+}
+
+@media (max-width: 992px) {
+    .skill-item {
+        flex: 1 1 calc(50% - 40px); /* 2 items per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-item {
+        flex: 1 1 calc(100% - 40px); /* 1 item per row */
+    }
+}
 /* Image Banner Styles */
 .image-banner {
     padding: 60px 40px;
@@ -438,12 +465,20 @@ section.visible {
     text-decoration: none;
     cursor: pointer;
 }
-/* Footer */
+/* Footer styles */
 footer {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: #4a4b4d; /* Light Steel Blue */
+    color: var(--text-color); /* Use text color from root */
+    padding: 20px;
     text-align: center;
-    padding: 2rem 0;
+    border-top: 1px solid var(--primary-color); /* Optional: Add a border for separation */
+}
+
+/* Responsive styles for footer */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+    }
 }
 
 .social-links {
