@@ -179,3 +179,54 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("imageModal");
+    const fullImage = document.getElementById("fullImage");
+    const thumbnails = document.querySelectorAll(".thumbnail");
+    const sortButtons = document.querySelectorAll(".sort-btn");
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener("click", function () {
+            modal.style.display = "block";
+            fullImage.src = this.src;
+        });
+    });
+
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal || e.target.className === "close") {
+            modal.style.display = "none";
+        }
+    });
+
+    sortButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const category = this.getAttribute("data-category");
+            thumbnails.forEach(thumbnail => {
+                if (category === "all" || thumbnail.getAttribute("data-category") === category) {
+                    thumbnail.style.display = "block";
+                } else {
+                    thumbnail.style.display = "none";
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});

@@ -496,6 +496,57 @@ footer {
     color: var(--primary-color);
 }
 
+/* Add smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add hover effects to navigation links */
+.nav-links li a {
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff6347; /* Change to a color of your choice */
+}
+
+/* Add hover effects to skill items */
+.skill-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add hover effects to project thumbnails */
+.thumbnail {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the modal close button */
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: #ff6347; /* Change to a color of your choice */
+    cursor: pointer;
+}
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
