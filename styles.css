@@ -465,6 +465,162 @@ section.visible {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Existing styles */
+.experience {
+    padding: 60px 0;
+    background-color: #1a353a59; /* Match the background color with the rest of the site */
+    color: #fff; /* Ensure text is readable on dark background */
+}
+
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 80%;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: #fff; /* Use white for the timeline line */
+}
+
+.timeline-item {
+    position: relative;
+    margin: 20px 0;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially moved down */
+    animation: fadeInUp 0.6s ease forwards; /* Animation */
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #333; /* Match the background color */
+    border: 4px solid #fff; /* Use white for the border */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content {
+    position: relative;
+    width: 40%; /* Reduce width to bring boxes closer to the timeline */
+    padding: 20px;
+    background-color: #2e2f3e; /* Darker background for content */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for hover effect */
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    left: 45%; /* Adjust left position to bring closer to the timeline */
+    transform: translateX(-100%);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    left: 55%; /* Adjust left position to bring closer to the timeline */
+    transform: translateX(0);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid #444; /* Match the background color */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-right: 10px solid #444; /* Match the background color */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.timeline-item.internship .timeline-content {
+    background-color: #555; /* Different background for internships */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #fff; /* Ensure the title is readable */
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 10px; /* Move the timeline line to the left */
+        transform: none;
+    }
+
+    .timeline-item::before {
+        left: 10px; /* Move the timeline dots to the left */
+        transform: none;
+    }
+
+    .timeline-content {
+        width: calc(100% - 40px); /* Full width minus padding */
+        left: 30px; /* Move content to the right */
+        transform: none;
+        margin-bottom: 20px; /* Add margin to separate items */
+        padding: 15px; /* Adjust padding for better spacing */
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        left: 30px; /* Ensure both odd and even items are aligned */
+        transform: none;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after,
+    .timeline-item:nth-child(even) .timeline-content::after {
+        left: -10px; /* Adjust the position of the arrow */
+        right: auto;
+        border-left: 10px solid transparent;
+        border-right: 10px solid #444; /* Match the background color */
+    }
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect for timeline content */
+.timeline-content:hover {
+    transform: scale(1.05); /* Slightly enlarge the item */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add a more pronounced shadow */
+}
+
 /* Footer styles */
 footer {
     background-color: #4a4b4d; /* Light Steel Blue */

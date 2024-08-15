@@ -91,35 +91,42 @@ document.addEventListener('DOMContentLoaded', function() {
     onScroll(); // Check if the element is already in view
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const heroSection = document.querySelector('.hero');
-    const heroTitle = heroSection.querySelector('h1');
+document.addEventListener("DOMContentLoaded", function () {
+    function createExplosion(x, y) {
+        const explosion = document.createElement('div');
+        explosion.classList.add('explosion');
+        explosion.style.left = `${x}px`;
+        explosion.style.top = `${y}px`;
+        document.body.appendChild(explosion);
 
-    function createRipple(x, y) {
-        const ripple = document.createElement('div');
-        ripple.classList.add('ripple');
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-        heroSection.appendChild(ripple);
-
-        ripple.addEventListener('animationend', () => {
-            ripple.remove();
+        explosion.addEventListener('animationend', () => {
+            explosion.remove();
         });
     }
 
-    function triggerRippleEffect() {
-        const rect = heroTitle.getBoundingClientRect();
-        const x = rect.left + rect.width / 2;
-        const y = rect.top + rect.height / 2;
-        createRipple(x, y);
-    }
-
-    // Trigger the ripple effect when the name appears
-    triggerRippleEffect();
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Example: Trigger explosion effect on thumbnail click
     const thumbnails = document.querySelectorAll(".thumbnail");
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener("click", function (event) {
+            const rect = thumbnail.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            createExplosion(x, y);
+        });
+    });
+
+    // Example: Trigger explosion effect on button click
+    const sortButtons = document.querySelectorAll(".sort-btn");
+    sortButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            const rect = button.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            createExplosion(x, y);
+        });
+    });
+
+    // Existing code for modal functionality
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("fullImage");
     const closeBtn = document.querySelector(".close");
@@ -135,10 +142,20 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
     });
 
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
             modal.style.display = "none";
         }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 });
 
