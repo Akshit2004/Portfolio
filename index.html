@@ -1,695 +1,392 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
-
-  <!-- Meta Tags -->
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Laralink">
-  <!-- Page Title -->
-  <title>Akshit - Personal Portfolio</title>
-  <!-- Favicon Icon -->
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/css/fontawesome.css" />
-  <link rel="stylesheet" href="assets/css/slick.css" />
-  <link rel="stylesheet" href="assets/css/lightgallery.min.css" />
-  <link rel="stylesheet" href="assets/css/animate.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-59P9M24L1T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-59P9M24L1T');
-</script>
-
-<body id="home">
-  <!-- Start Header Section -->
-  <header class="st-site-header st-style1 st-sticky-header">
-    <div class="st-main-header">
-      <div class="container">
-        <div class="st-main-header-in">
-          <div class="st-main-header-right">
-            <div class="st-nav">
-              <ul class="st-nav-list st-onepage-nav">
-                <li><a href="#home" class="st-smooth-move">Home</a></li>
-                <li><a href="#about" class="st-smooth-move">About</a></li>
-                <li><a href="#resume" class="st-smooth-move">Resume</a></li>
-                <li><a href="#portfolio" class="st-smooth-move">Portfolio</a></li>
-                <li><a href="#contact" class="st-smooth-move">Contact</a></li>
-              </ul>
-              <div class="sp-phone">
-                <svg viewBox="0 0 513.64 513.64">
-                  <g>
-                    <g>
-                      <path d="M499.66,376.96l-71.68-71.68c-25.6-25.6-69.12-15.359-79.36,17.92c-7.68,23.041-33.28,35.841-56.32,30.72c-51.2-12.8-120.32-79.36-133.12-133.12c-7.68-23.041,7.68-48.641,30.72-56.32c33.28-10.24,43.52-53.76,17.92-79.36l-71.68-71.68c-20.48-17.92-51.2-17.92-69.12,0l-48.64,48.64c-48.64,51.2,5.12,186.88,125.44,307.2c120.32,120.32,256,176.641,307.2,125.44l48.64-48.64C517.581,425.6,517.581,394.88,499.66,376.96z" />
-                    </g>
-                  </g>
-                </svg>
-                <div class="sp-phone-no">+91 8894606932</div>
-              </div>
-            </div>
-          </div>
+<body>
+    <header>
+        <div class="logo">
+            <h1>AM</h1>
         </div>
-      </div>
-    </div>
-  </header>
-  <!-- End Header Section -->
+        <nav>
+            <ul>
+                <li><button class="nav-btn active" data-section="home">Home</button></li>
+                <li><button class="nav-btn" data-section="about">About</button></li>
+                <li><button class="nav-btn" data-section="projects">Projects</button></li>
+                <li><button class="nav-btn" data-section="contact">Contact</button></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Start Hero Seciton -->
-  <div class="st-height-b80 st-height-lg-b80"></div>
-  <section class="st-hero-wrap st-parallax">
-    <div class="st-hero st-style1 st-ripple-version">
-      <div class="container">
-        <div class="st-hero-text">
-          <h3>Hello, I’m</h3>
-          <h1>Akshit <br>Mahajan
-          </h1>
-          <h2>Visual Designer</h2>
-          <div class="st-hero-btn">
-            <a href="#contact" class="st-btn st-style1 st-color1 st-smooth-move">Hire me</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Hero Image - Social Link Group -->
-    <div class="st-hero-img st-to-right">
-      <img class="wow fadeInRight" src="assets/img/section/WhatsApp Image 2024-08-21 at 12.55.20 PM.jpeg.png" alt="Hero">
-      <div class="st-social-group wow fadeInLeft">
-        <div class="st-social-link">
-          <a href="https://instagram.com/_akshitmahajan/" class="st-social-btn active">
-            <span class="st-social-icon"><i class="fab fa-instagram"></i></span>
-            <span class="st-icon-name">Instagram</span>
-          </a>
-          <a href="https://github.com/Akshit2004" class="st-social-btn">
-            <span class="st-social-icon"><i class="fab fa-github"></i></span>
-            <span class="st-icon-name">Github</span>
-          </a>
-          <a href="https://www.linkedin.com/in/akshit0mahajan/" class="st-social-btn">
-            <span class="st-social-icon"><i class="fab fa-linkedin"></i></span>
-            <span class="st-icon-name">LinkedIn</span>
-          </a>
-          
-        </div>
-      </div>
-    </div>
-    <div id="particles-js"></div>
-  </section>
-  <!-- End Hero Seciton -->
-
-  <!-- Start About Seciton -->
-  <section id="about" class="st-about-wrap">
-    <div class="st-height-b100 st-height-lg-b80"></div>
-    <div class="container">
-      <div class="st-section-heading st-style1">
-        <h4 class="st-section-heading-title">ABOUT ME</h4>
-        <h2 class="st-section-heading-subtitle">ABOUT ME</h2>
-      </div>
-      <div class="st-height-b25 st-height-lg-b25"></div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 wow fadeInLeft">
-          <div class="st-about-img-wrap">
-            <div class="st-about-img st-dynamic-bg st-bg" data-src="assets/img/section/IMG_0277-min.JPG"></div>
-          </div>
-          <div class="st-height-b0 st-height-lg-b30"></div>
-        </div>
-        <div class="col-lg-6">
-          <div class="st-vertical-middle">
-            <div class="st-vertical-middle-in">
-              <div class="st-text-block st-style1">
-                <h2 class="st-text-block-title">Hi There! I'm Akshit Mahajan</h2>
-                <h4 class="st-text-block-subtitle">Visual Designer</h4>
-                <div class="st-text-block-text">
-                  <p>I'm Akshit Mahajan, a UI/UX and Graphic Designer with a passion for creating visually engaging content. Currently pursuing a B.Tech in Computer Science, I've gained experience in designing for college events, managing creative projects, and freelancing. Proficient in Adobe Photoshop, Premiere Pro, and Figma, I constantly strive to push my creative boundaries.<p>
+    <main>
+        <!-- Home section with cleaner structure -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero-wrapper">
+                    <div class="hero-content">
+                        <div class="hero-greeting">Hello, my name is</div>
+                        <h1>Your Name<span class="highlight">.</span></h1>
+                        <h2>I build things for the web</h2>
+                        <div class="hero-description">
+                            <p>I'm a web developer specializing in building exceptional digital experiences. 
+                            Currently, I'm focused on creating accessible, human-centered products.</p>
+                        </div>
+                        <div class="hero-buttons">
+                            <button class="btn primary" data-section="projects">View My Work</button>
+                            <button class="btn" data-section="contact">Get In Touch</button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="avatar-container">
+                            <img src="assets/WhatsApp Image 2025-03-22 at 6.47.45 PM.jpeg" alt="Profile Picture">
+                        </div>
+                    </div>
                 </div>
-                <ul class="st-text-block-details st-mp0">
-                  <li><span>Birthday</span> : <span>Sep 13, 2004</span></li>
-                  <li><span>Phone</span> : <span>+91 8894606932</span></li>
-                  <li><span>Email</span> : <span>akshumahajan2004@gmail.com</span></li>
-                  <li><span>From</span> : <span>Solan, Himachal Pradesh, India</span></li>
-                  <li><span>Language</span> : <span>English, Hindi</span></li>
-                  <li><span>Freelance</span> : <span>Available</span></li>
-                </ul>
-                <div class="st-text-block-btn">
-                  <a href="https://drive.google.com/uc?export=download&id=1UaChvhgRbAJXjvrf7_U8ZBOZ6thgwkzR" class="st-btn st-style1 st-color1">Download CV</a>
+                
+                <!-- Feature Boxes - simplified -->
+                <div class="feature-boxes">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Building responsive and dynamic websites using modern technologies and best practices.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Creating intuitive interfaces with a focus on usability and beautiful user experiences.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Responsive Design</h3>
+                        <p>Developing sites that work flawlessly across all devices and screen sizes.</p>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End About Seciton -->
-
-  <!-- Start Service Seciton -->
-  <section>
-    <div class="st-height-b100 st-height-lg-b80"></div>
-    <div class="container">
-      <div class="st-section-heading st-style1">
-        <h4 class="st-section-heading-title">SERVICES</h4>
-        <h2 class="st-section-heading-subtitle">SERVICES</h2>
-      </div>
-      <div class="st-height-b25 st-height-lg-b25"></div>
-    </div>
-
-    <!-- Iconbox Container -->
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="st-iconbox st-style1">
-            <div class="st-iconbox-icon">
-              <svg viewBox="0 0 512 512">
-                <g>
-                  <path d="m336 144a8 8 0 0 0 -8 8v104a8 8 0 0 0 16 0v-104a8 8 0 0 0 -8-8z" />
-                  <path d="m336 272a8 8 0 0 0 -8 8v8a8 8 0 0 0 16 0v-8a8 8 0 0 0 -8-8z" />
-                  <path
-                    d="m496 24h-480a8 8 0 0 0 -8 8v352a8 8 0 0 0 8 8h288v64a32 32 0 0 0 64 0v-64h48a8.008 8.008 0 0 0 5.66-2.34l80-80a8.008 8.008 0 0 0 2.34-5.66v-272a8 8 0 0 0 -8-8zm-144 432a16 16 0 0 1 -32 0v-16h32zm0-32h-32v-8h32zm0-24h-32v-264h32zm0-280h-32v-6.11l.94-1.89h30.12l.94 1.89zm-23.06-24 7.06-14.11 7.06 14.11zm95.06 268.69v-52.69h52.69zm64-68.69h-72a8 8 0 0 0 -8 8v72h-40v-264a8.081 8.081 0 0 0 -.84-3.58l-24-48a8.009 8.009 0 0 0 -14.32 0l-24 48a8.081 8.081 0 0 0 -.84 3.58v264h-280v-336h464z" />
-                  <path d="m48 72h72a8 8 0 0 0 0-16h-72a8 8 0 0 0 0 16z" />
-                  <path d="m80 88a8 8 0 0 0 -8-8h-24a8 8 0 0 0 0 16h24a8 8 0 0 0 8-8z" />
-                  <path
-                    d="m288 88a104.118 104.118 0 0 0 -104 104 8 8 0 0 0 16 0 88.1 88.1 0 0 1 88-88 8 8 0 0 0 0-16z" />
-                  <path
-                    d="m240 184a8 8 0 0 0 -8 8 80.091 80.091 0 0 1 -80 80 8 8 0 0 0 0 16 96.108 96.108 0 0 0 96-96 8 8 0 0 0 -8-8z" />
-                  <path
-                    d="m456 192a8 8 0 0 0 16 0 80.091 80.091 0 0 0 -80-80 8 8 0 0 0 0 16 64.072 64.072 0 0 1 64 64z" />
-                  <path
-                    d="m168 216a48 48 0 1 0 -48 48 48.053 48.053 0 0 0 48-48zm-48 32a32 32 0 1 1 32-32 32.036 32.036 0 0 1 -32 32z" />
-                  <path
-                    d="m264 288a24 24 0 1 0 24 24 24.028 24.028 0 0 0 -24-24zm0 32a8 8 0 1 1 8-8 8.009 8.009 0 0 1 -8 8z" />
-                  <path
-                    d="m432 112a24 24 0 1 0 -24-24 24.028 24.028 0 0 0 24 24zm0-32a8 8 0 1 1 -8 8 8.009 8.009 0 0 1 8-8z" />
-                </g>
-              </svg>
-            </div>
-
-            <h2 class="st-iconbox-title">UI/UX Design</h2>
-            <div class="st-iconbox-text">Crafting intuitive and aesthetically pleasing interfaces that enhance user interaction and experience. I focus on user-centric designs that are not only visually engaging but also functional and easy to navigate.</div>
-          </div>
-          <div class="st-height-b30 st-height-lg-b30"></div>
-        </div><!-- .col -->
-        <div class="col-lg-4 col-md-6">
-          <div class="st-iconbox st-style1">
-            <div class="st-iconbox-icon">
-              <svg viewBox="0 0 64 64">
-                <path
-                  d="m62.618 45-5-10h-1.618v-34h-14v34h-19v-17.217l-4.676-10.286c-.413-.909-1.325-1.497-2.324-1.497s-1.911.588-2.324 1.496l-4.676 10.287v17.217h-2.618l-5 10h5.618v18h50v-18zm-18.618-14h6v-2h-6v-2h4v-2h-4v-2h6v-2h-6v-2h4v-2h-4v-2h6v-2h-6v-2h4v-2h-4v-2h6v-2h-6v-2h10v32h-10zm12.382 6 3 6h-21.764l-3-6zm-39.387-2v-15.132l2.002 1.333 2.003-1.334v15.133zm3.743-17.361-1.741 1.159-3.002-2.001-2.998 2-1.735-1.158 1.654-3.639h6.167zm-5.242-9.316c.18-.393.828-.394 1.008.001l1.67 3.676h-4.349zm-4.496 11.547 1.997 1.333 1.998-1.333v15.13h-3.995zm-3.382 17.13h21.764l-3 6h-21.764zm1.382 8h18.618l3.382-6.764v22.764h-22zm46 16h-22v-22.764l3.382 6.764h18.618z" />
-                <path d="m19 57h2v2h-2z" />
-                <path d="m11 57h2v2h-2z" />
-                <path d="m15 57h2v2h-2z" />
-                <path d="m11 53h10v2h-10z" />
-                <path
-                  d="m28 9.657c0-1.465 1.192-2.657 2.657-2.657h.686c1.465 0 2.657 1.192 2.657 2.657 0 .709-.276 1.376-.778 1.879l-5.222 5.222v8.242h6v-5.758l3.464-3.464c1.636-1.635 2.536-3.809 2.536-6.121 0-4.773-3.884-8.657-8.657-8.657h-.686c-4.773 0-8.657 3.884-8.657 8.657v2.343h6zm-2 0v.343h-2v-.343c0-3.671 2.986-6.657 6.657-6.657h.686c3.671 0 6.657 2.986 6.657 6.657 0 1.777-.692 3.449-1.95 4.707l-4.05 4.05v4.586h-2v-5.414l4.637-4.636c.879-.881 1.363-2.051 1.363-3.293 0-2.568-2.089-4.657-4.657-4.657h-.686c-2.568 0-4.657 2.089-4.657 4.657z" />
-                <path
-                  d="m28 30c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm4 0c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1z" />
-              </svg>
-            </div>
-            <h2 class="st-iconbox-title">Product Design</h2>
-            <div class="st-iconbox-text">Transforming ideas into tangible products by blending creativity with technical expertise. I work from concept to completion, ensuring that each product is innovative, efficient, and meets user needs.</div>
-          </div>
-          <div class="st-height-b30 st-height-lg-b30"></div>
-        </div><!-- .col -->
-        <div class="col-lg-4 col-md-6">
-          <div class="st-iconbox st-style1">
-            <div class="st-iconbox-icon">
-              <svg viewBox="0 0 512 512">
-                <g>
-                  <path d="M216,456H160a8,8,0,0,0,0,16h56a8,8,0,0,0,0-16Z" />
-                  <path d="M248,456h-8a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16Z" />
-                  <path
-                    d="M442.68,363.48,392,312.8V165.27l22.4-22.4a7.953,7.953,0,0,0,1.93-3.13L433.3,88.82A8,8,0,0,0,423.18,78.7L392,89.09V40A32.042,32.042,0,0,0,360,8H152a32.042,32.042,0,0,0-32,32V86.53L69.32,137.21a8,8,0,0,0,0,11.31L120,199.2V346.74L80.63,386.11A32.005,32.005,0,0,0,120,436.01V472a32.042,32.042,0,0,0,32,32H360a32.042,32.042,0,0,0,32-32V425.47l50.68-50.68A8,8,0,0,0,442.68,363.48ZM413.06,98.94l-4.99,14.97-9.98-9.98Zm-31.95,10.64,21.31,21.31-.67,2-4.32,4.32-22.64-22.64,4.32-4.32ZM306.92,227.72l-5.66-5.66,67.88-67.88a8,8,0,1,0-11.32-11.32l-67.88,67.88-5.66-5.65,79.2-79.2,22.63,22.64-7.74,7.74-.05.05ZM376,181.27V296.8l-57.76-57.76ZM293.44,24l-4.5,16H222.25l-4-16ZM136,40a16.021,16.021,0,0,1,16-16h49.75l6.49,25.94A8,8,0,0,0,216,56h79a8,8,0,0,0,7.7-5.83L310.06,24H360a16.021,16.021,0,0,1,16,16V94.42l-3.74,1.25a7.953,7.953,0,0,0-3.13,1.93l-96.16,96.17L148.52,69.32a8,8,0,0,0-11.31,0L136,70.53ZM114.59,420.05a16.005,16.005,0,1,1-22.64-22.63l11.31-11.32,22.64,22.64Zm-.01-45.26,5.66-5.65,22.62,22.62-5.65,5.66Zm90.51-90.5,22.63,22.63-73.54,73.54-22.63-22.64ZM136,330.74V215.2l57.77,57.77ZM376,472a16.021,16.021,0,0,1-16,16H152a16.021,16.021,0,0,1-16-16V421.26L239.04,318.24,363.48,442.68a8,8,0,0,0,11.31,0l1.21-1.21Zm-6.86-46.29-22.63-22.63,5.66-5.66a8,8,0,0,0-11.32-11.31l-5.65,5.65-11.32-11.31,16.97-16.97a8,8,0,0,0-11.31-11.31l-16.97,16.97-11.32-11.32,5.66-5.65a8,8,0,0,0-11.31-11.32l-5.66,5.66L278.63,335.2l16.97-16.97a8,8,0,0,0-11.32-11.32l-16.97,16.97L256,312.57l5.66-5.66a8,8,0,1,0-11.32-11.31l-5.65,5.65a.035.035,0,0,1-.02-.01l-11.3-11.3,16.97-16.97a8,8,0,0,0-11.31-11.31l-16.97,16.97-11.29-11.29c-.01-.01-.01-.02-.02-.03l5.65-5.65a8,8,0,1,0-11.31-11.32L199.43,256l-11.31-11.31,16.97-16.97a8,8,0,0,0-11.32-11.32L176.8,233.37l-11.31-11.31,5.66-5.66a8,8,0,0,0-11.32-11.31l-5.65,5.66-11.32-11.32,16.97-16.97a8,8,0,0,0-11.31-11.31l-16.97,16.97L120.24,176.8l5.65-5.65a8,8,0,0,0-11.31-11.32l-5.66,5.66L86.29,142.86l39.6-39.59L408.73,386.11Zm50.91-50.92L137.21,91.95l5.65-5.66L267.29,210.72c.01.01.01.02.02.03s.02.01.03.02l16.93,16.94c.01,0,.01,0,.01.01s.01,0,.01.01l16.95,16.94c.01.01.01.02.02.03s.02.01.03.02l77.02,77.02a.234.234,0,0,0,.07.07l47.33,47.33Z" />
-                </g>
-              </svg>
-            </div>
-            <h2 class="st-iconbox-title">Motion Graphics</h2>
-            <div class="st-iconbox-text">Bringing stories to life through dynamic motion graphics. My expertise in creating visually compelling animations ensures your message is delivered in a captivating and memorable way.</div>
-          </div>
-          <div class="st-height-b0 st-height-lg-b30"></div>
-        </div><!-- .col -->
-        <div class="col-lg-4 col-md-6">
-          <div class="st-iconbox st-style1">
-            <div class="st-iconbox-icon">
-              <svg viewBox="0 0 512 512">
-                <g id="XMLID_1568_">
-                  <g id="XMLID_652_">
-                    <path id="XMLID_676_"
-                      d="m482 278h-37.673v-54c0-14.602-10.489-26.795-24.327-29.455v-104.529c0-19.859-16.157-36.016-36.017-36.016h-128.983c-5.522 0-10 4.477-10 10s4.478 10 10 10h128.983c8.832 0 16.017 7.185 16.017 16.016v103.984h-129.667c-16.542 0-30 13.458-30 30v63.228h-220.333v-197.212c0-8.831 7.185-16.016 16.017-16.016h128.983c5.522 0 10-4.477 10-10s-4.478-10-10-10h-128.983c-19.86 0-36.017 16.157-36.017 36.016v229.268c0 19.859 16.157 36.017 36.017 36.017h123.33v36.063c0 19.688-9.953 37.694-26.624 48.168-3.774 2.371-5.523 6.953-4.29 11.235 1.233 4.283 5.152 7.232 9.609 7.232h343.958c16.542 0 30-13.458 30-30v-119.999c0-16.542-13.458-30-30-30zm-211.667-64h143.994c5.514 0 10 4.486 10 10v54h-14.327c-16.542 0-30 13.458-30 30v120c0 3.506.61 6.87 1.72 10h-111.387c-5.514 0-10-4.486-10-10v-204c0-5.514 4.486-10 10-10zm-250.333 105.284v-12.057h220.333v28.073h-70.986-133.33c-8.832.001-16.017-7.184-16.017-16.016zm159.347 72.08v-36.063h60.986v72.699c0 3.506.61 6.87 1.72 10h-78.402c10.071-13.169 15.696-29.427 15.696-46.636zm312.653 36.636c0 5.514-4.486 10-10 10h-72c-5.514 0-10-4.486-10-10v-120c0-5.514 4.486-10 10-10h72c5.514 0 10 4.486 10 10z" />
-                    <path id="XMLID_1626_"
-                      d="m58 114.614c-5.522 0-10 4.477-10 10v112c0 5.523 4.478 10 10 10h88c5.522 0 10-4.477 10-10v-112c0-5.523-4.478-10-10-10zm78 112h-68v-92h68z" />
-                    <path id="XMLID_1627_"
-                      d="m194 134.614h101c5.522 0 10-4.477 10-10s-4.478-10-10-10h-101c-5.522 0-10 4.477-10 10s4.478 10 10 10z" />
-                    <path id="XMLID_1628_"
-                      d="m194 230.61c2.63 0 5.21-1.06 7.069-2.92 1.86-1.87 2.931-4.44 2.931-7.08 0-2.63-1.07-5.21-2.931-7.07-1.859-1.86-4.439-2.93-7.069-2.93s-5.21 1.07-7.07 2.93-2.93 4.44-2.93 7.07 1.069 5.21 2.93 7.08c1.86 1.86 4.44 2.92 7.07 2.92z" />
-                    <path id="XMLID_1639_"
-                      d="m194 182.614h37.5c5.522 0 10-4.477 10-10s-4.478-10-10-10h-37.5c-5.522 0-10 4.477-10 10s4.478 10 10 10z" />
-                    <path id="XMLID_1674_"
-                      d="m446 398c-2.63 0-5.21 1.069-7.07 2.93s-2.93 4.44-2.93 7.07 1.069 5.21 2.93 7.069c1.86 1.86 4.44 2.931 7.07 2.931s5.21-1.07 7.069-2.931c1.861-1.859 2.931-4.439 2.931-7.069s-1.07-5.21-2.931-7.07c-1.859-1.861-4.439-2.93-7.069-2.93z" />
-                    <path id="XMLID_1677_"
-                      d="m342.33 418c2.63 0 5.21-1.07 7.069-2.931 1.86-1.859 2.931-4.439 2.931-7.069s-1.07-5.21-2.931-7.07c-1.859-1.86-4.439-2.93-7.069-2.93s-5.21 1.069-7.07 2.93-2.93 4.44-2.93 7.07 1.069 5.21 2.93 7.069c1.86 1.861 4.44 2.931 7.07 2.931z" />
-                    <path id="XMLID_1681_"
-                      d="m210 74c2.63 0 5.21-1.07 7.069-2.93 1.861-1.86 2.931-4.44 2.931-7.07s-1.07-5.21-2.931-7.07c-1.859-1.86-4.439-2.93-7.069-2.93s-5.21 1.07-7.07 2.93-2.93 4.44-2.93 7.07 1.069 5.21 2.93 7.07 4.44 2.93 7.07 2.93z" />
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <h2 class="st-iconbox-title">Responsive Design</h2>
-            <div class="st-iconbox-text">Designing websites and applications that adapt seamlessly to any device, providing an optimal viewing experience. I ensure that your content is accessible and looks great on all screen sizes, from desktops to smartphones.</div>
-          </div>
-          <div class="st-height-b0 st-height-lg-b30"></div>
-        </div><!-- .col -->
-      </div>
-    </div>
-    <div class="st-height-b100 st-height-lg-b80"></div>
-  </section>
-  <!-- End Service Seciton -->
-
-  <!-- Start Skill Seciton -->
-  <section class="st-dark-bg">
-    <div class="st-height-b100 st-height-lg-b80"></div>
-    <div class="container">
-      <div class="st-section-heading st-style1">
-        <h4 class="st-section-heading-title">MY SKILLS</h4>
-        <h2 class="st-section-heading-subtitle">MY SKILLS</h2>
-      </div>
-      <div class="st-height-b25 st-height-lg-b25"></div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="st-skill-wrap">
-            <div class="st-skill-heading">
-              <h2 class="st-skill-title">Versatile Skill Set for Creative and Technical Challenges.</h2>
-              <div class="st-skill-subtitle">I bring a diverse set of skills that blend creativity with technical expertise. My advanced proficiency in Adobe Photoshop and Adobe Premiere Pro allows me to create compelling graphics and edit videos with precision. I'm also skilled in Figma, where I design intuitive and user-friendly interfaces.
-              </div>
-            </div><!-- .st-skill-heading -->
-          </div>
-        </div>
-
-        <!-- Progressbar -->
-
-        <div class="col-lg-6">
-          <div class="st-height-b0 st-height-lg-b30"></div>
-          <div class="st-progressbar-wrap">
-            <div class="st-single-progressbar">
-              <div class="st-progressbar-heading">
-                <h3 class="st-progressbar-title">Photoshop</h3>
-                <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.5s">95%</div>
-              </div>
-              <div class="st-progressbar" data-progress="95">
-                <div class="st-progressbar-in wow fadeInLeft"></div>
-              </div>
-            </div><!-- .st-single-progressbar -->
-            <div class="st-height-b30 st-height-lg-b20"></div>
-            <div class="st-single-progressbar">
-              <div class="st-progressbar-heading">
-                <h3 class="st-progressbar-title">Motion Graphic</h3>
-                <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.5s">75%</div>
-              </div>
-              <div class="st-progressbar" data-progress="75">
-                <div class="st-progressbar-in wow fadeInLeft"></div>
-              </div>
-            </div><!-- .st-single-progressbar -->
-            <div class="st-height-b30 st-height-lg-b20"></div>
-            <div class="st-single-progressbar">
-              <div class="st-progressbar-heading">
-                <h3 class="st-progressbar-title">Premiere Pro</h3>
-                <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.5s">55%</div>
-              </div>
-              <div class="st-progressbar" data-progress="55">
-                <div class="st-progressbar-in wow fadeInLeft"></div>
-              </div>
-            </div><!-- .st-single-progressbar -->
-            <div class="st-height-b30 st-height-lg-b20"></div>
-            <div class="st-single-progressbar">
-              <div class="st-progressbar-heading">
-                <h3 class="st-progressbar-title">UX Design</h3>
-                <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.5s">85%</div>
-              </div>
-              <div class="st-progressbar" data-progress="85">
-                <div class="st-progressbar-in wow fadeInLeft"></div>
-              </div>
-            </div><!-- .st-single-progressbar -->
-            <div class="st-height-b30 st-height-lg-b20"></div>
-            <div class="st-single-progressbar">
-              <div class="st-progressbar-heading">
-                <h3 class="st-progressbar-title">Web development</h3>
-                <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.5s">70%</div>
-              </div>
-              <div class="st-progressbar" data-progress="70">
-                <div class="st-progressbar-in wow fadeInLeft"></div>
-              </div>
-            </div><!-- .st-single-progressbar -->
-           
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Skill Seciton -->
-
-  <!-- Start Resume Seciton -->
-  <section id="resume" class="st-dark-bg">
-    <div class="st-height-b100 st-height-lg-b80"></div>
-    <div class="container">
-      <div class="st-section-heading st-style1">
-        <h4 class="st-section-heading-title">RESUME</h4>
-        <h2 class="st-section-heading-subtitle">RESUME</h2>
-      </div>
-      <div class="st-height-b25 st-height-lg-b25"></div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <!-- Experience -->
-        <div class="col-lg-6">
-          <div class="st-resume-wrap">
-            <div class="st-resume-heading">
-              <img src="assets/img/icon/resume-icon1.png" alt="resume-icon">
-              <h2 class="st-resume-heading-title">Experience</h2>
-            </div>
-
-            <div class="st-height-b50 st-height-lg-b30"></div>
-
-            <div class="st-resume-timeline-wrap">
-              <div class="st-resume-timeline">
-                <h3 class="st-resume-timeline-title">Video Editor</h3>
-                <div class="st-resume-timeline-duration">Nov 2023 - January 2024</div>
-                <h4 class="st-resume-timeline-subtitle">Sportit, Internship</h4>
-                <div class="st-resume-timeline-text">
-                  <p>
-                    During my internship, I was responsible for creating daily Instagram posts and reels on the latest sports news. This experience honed my research skills, enhanced my ability to conceptualize information into engaging graphics and videos, and improved my workload management under tight deadlines.</p>
-                </div>
-              </div> <!-- st-resume-timeline -->
-              <div class="st-height-b50 st-height-lg-b30"></div>
-              <div class="st-resume-timeline">
-                <h3 class="st-resume-timeline-title">Graphic Designer</h3>
-                <div class="st-resume-timeline-duration">Sep 2022 - Present</div>
-                <h4 class="st-resume-timeline-subtitle">JYC, Part-Time Internship</h4>
-                <div class="st-resume-timeline-text">
-                  <p>I began my journey in my college's tech club as a graphic design member,
-                     where my creativity and dedication led to a promotion as the design lead. Recently, I advanced to the role of club coordinator, overseeing the club's design initiatives and leading the team to new heights.</p>
-                </div>
-              </div> <!-- st-resume-timeline -->
-              <div class="st-height-b50 st-height-lg-b30"></div>
-              <div class="st-resume-timeline">
-                <h3 class="st-resume-timeline-title">Freelance Designer</h3>
-                <div class="st-resume-timeline-duration">Sep 2021 - September 2021</div>
-                <h4 class="st-resume-timeline-subtitle">Freelance</h4>
-                <div class="st-resume-timeline-text">
-                  <p>As a freelancer for a college fest, I was responsible for designing a series of eye-catching posters that effectively captured the essence of the event. Each design was tailored to resonate with the target audience, showcasing my ability to combine creativity with strategic communication. </p>
-                </div>
-              </div> <!-- st-resume-timeline -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div class="col-lg-6">
-
-          <div class="st-height-b0 st-height-lg-b50"></div>
-          <div class="st-resume-wrap">
-            <div class="st-resume-heading">
-              <img src="assets/img/icon/resume-icon2.png" alt="resume-icon">
-              <h2 class="st-resume-heading-title">Education</h2>
-            </div>
-            <div class="st-height-b50 st-height-lg-b30"></div>
-
-            <div class="st-resume-timeline-wrap">
-              <div class="st-resume-timeline">
-                <h3 class="st-resume-timeline-title">Bachelor of Technology in Computer Science</h3>
-                <div class="st-resume-timeline-duration">2022 - Ongoing(2026)</div>
-                <h4 class="st-resume-timeline-subtitle">Jaypee University of Information Technology</h4>
-                <div class="st-resume-timeline-text">
-                  <p>At Jaypee University of Information Technology, 
-                    I'm pursuing a Bachelor of Technology in Computer Science, where 
-                    I am gaining a strong foundation in computer science principles.
-                     My coursework includes cutting-edge topics in software 
-                     development, algorithms, and data structures, equipping me with the knowledge 
-                    and skills to excel in the tech industry.</p>
-                </div>
-              </div> <!-- st-resume-timeline -->
-              <div class="st-height-b50 st-height-lg-b30"></div>
-              <div class="st-resume-timeline">
-                <h3 class="st-resume-timeline-title">12th Standard(Non-Medical)</h3>
-                <div class="st-resume-timeline-duration">2021 - 2022</div>
-                <h4 class="st-resume-timeline-subtitle">MRA DAV Public school</h4>
-                <div class="st-resume-timeline-text">
-                  <p>I completed my Senior Secondary education in Science
-                     at MRA DAV Public School, where I developed a solid
-                      grounding in subjects such as Physics, Chemistry, 
-                      and Mathematics. My time here was marked by a 
-                      commitment to academic excellence, 
-                    which laid the foundation for my further studies in computer science. </p>
+                
+                <!-- Enhanced Stats Section -->
+                <div class="stats-container">
+                    <h3 class="stats-heading">My Journey in Numbers</h3>
+                    <div class="stats-section">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-count" data-count="3">0</div>
+                                <div class="stat-title">Projects Completed</div>
+                                <div class="stat-bar"><span style="width: 30%"></span></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-count" data-count="500">0</div>
+                                <div class="stat-title">Hours Coded</div>
+                                <div class="stat-bar"><span style="width: 60%"></span></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-count" data-count="3">0</div>
+                                <div class="stat-title">Years Experience</div>
+                                <div class="stat-bar"><span style="width: 30%"></span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="st-height-b100 st-height-lg-b80"></div>
-  </section>
-  <!-- End Resume Seciton -->
+        </section>
 
-  <!-- Start Portfolio Seciton -->
-  <section id="portfolio">
-    <div class="st-height-b100 st-height-lg-b80"></div>
-    <div class="container">
-      <div class="st-section-heading st-style1">
-        <h4 class="st-section-heading-title">PORTFOLIOS</h4>
-        <h2 class="st-section-heading-subtitle">PORTFOLIOS</h2>
-      </div>
-      <div class="st-height-b25 st-height-lg-b25"></div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="st-portfolio-single st-style1 st-lightgallery">
-            <div class="st-portfolio-item">
-              <a href="assets/img/portfolio/Artboard 1 copy 3.png" class="st-portfolio st-zoom st-lightbox-item">
-                <div class="st-portfolio-img st-zoom-in">
-                  <img src="assets/img/portfolio/Artboard 1 copy 3.png" alt="portfolio">
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="about-intro">
+                            <div class="about-bio">
+                                <h3>Front-End Developer & Designer</h3>
+                                <p>Aspiring Front-End Developer with hands-on experience in UI/UX design, HTML, CSS, JavaScript, and responsive web development. Passionate about creating user-friendly, dynamic websites and continuously improving my technical skills.</p>
+                                <p>I focus on building accessible, well-designed websites that deliver exceptional user experiences. When I'm not coding, I enjoy exploring new technologies and contributing to open-source projects.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-cards">
+                            <div class="about-card education">
+                                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <h4>B.Tech, Computer Science</h4>
+                                        <p class="timeline-date">Aug 2022 – June 2026</p>
+                                        <p>Jaypee University of Information Technology</p>
+                                        <p>CGPA: 7.1</p>
+                                        <p>Related coursework: Object-Oriented Programming, Data Structures and Algorithms, Programming in Python, Web Development, Database Management Systems.</p>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h4>Non-Medical</h4>
+                                        <p class="timeline-date">March 2021 – May 2022</p>
+                                        <p>MRA DAV School</p>
+                                        <p>Percentage: 70%</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="about-card experience">
+                                <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <h4>Front-End Developer</h4>
+                                        <p class="timeline-date">Oct 2024 – Nov 2024</p>
+                                        <p>Call Centre – Virtual</p>
+                                        <ul>
+                                            <li>Designed and developed a business website to showcase a call centre's services, capabilities, and client solutions.</li>
+                                            <li>Built a responsive and user-friendly interface using HTML, CSS, and JavaScript, ensuring compatibility across devices.</li>
+                                            <li>Used Python to manage form submissions and automate basic customer queries.</li>
+                                            <li>Delivered a business-facing website that facilitates client engagement and communicates service offerings.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h4>UI/UX Designer</h4>
+                                        <p class="timeline-date">Jan 2024 – Feb 2024</p>
+                                        <p>JYC – Virtual</p>
+                                        <ul>
+                                            <li>Led the UI/UX design for the official app of the "MURIOUS" Tech Fest, used by 500+ attendees.</li>
+                                            <li>Collaborated with developers to ensure the translation of design mockups into a responsive user interface.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-container">
+                            <div class="skills">
+                                <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">HTML5</span>
+                                    <span class="skill-tag">CSS3</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Node.js</span>
+                                    <span class="skill-tag">UI/UX Design</span>
+                                    <span class="skill-tag">Responsive Design</span>
+                                    <span class="skill-tag">Git</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tools">
+                                <h3><i class="fas fa-tools"></i> Tools & Environments</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">VS Code</span>
+                                    <span class="skill-tag">GitHub</span>
+                                    <span class="skill-tag">npm</span>
+                                    <span class="skill-tag">Figma</span>
+                                    <span class="skill-tag">Chrome DevTools</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="extra-curricular">
+                            <h3><i class="fas fa-award"></i> Extra Curricular Activities</h3>
+                            <ul>
+                                <li><strong>Tech Club Coordinator</strong> Led and organized technical workshops, coding competitions, and knowledge-sharing sessions to foster a tech-driven community.</li>
+                                <li><strong>Open Source Contributor</strong> Contributed to web development projects on GitHub, improving efficiency.</li>
+                                <li><strong>Coding Competition Finalist</strong> Secured a top position in a university-level web development contest.</li>
+                                <li><strong>Hackathon Participant</strong> Engaged in 18-hour coding competitions, building innovative web solutions.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="st-portfolio-item-hover">
-                  <i class="fas fa-plus-circle"></i>
-                  <h5>Instagram Post Design</h5>
-                  <p>Design / Promotion</p>
-                </div>
-              </a>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="st-portfolio-single st-style1 st-lightgallery">
-            <div class="st-portfolio-item">
-              <a href="assets/img/portfolio/navjot poster.png" class="st-portfolio st-zoom st-lightbox-item">
-                <div class="st-portfolio-img st-zoom-in">
-                  <img src="assets/img/portfolio/navjot poster.png" alt="portfolio">
-                </div>
-                <div class="st-portfolio-item-hover">
-                  <i class="fas fa-plus-circle"></i>
-                  <h5>Poster Design</h5>
-                  <p>Design / Promotion</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="st-portfolio-single st-style1 st-lightgallery">
-            <div class="st-portfolio-item">
-              <a href="assets/img/portfolio/Sunset.png" class="st-portfolio st-zoom st-lightbox-item">
-                <div class="st-portfolio-img st-zoom-in">
-                  <img src="assets/img/portfolio/Sunset.png" alt="portfolio">
-                </div>
-                <div class="st-portfolio-item-hover">
-                  <i class="fas fa-plus-circle"></i>
-                  <h5>Instagram Story</h5>
-                  <p>Design / Selfwork</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="st-portfolio-single st-style1 st-lightgallery">
-            <div class="st-portfolio-item">
-              <a href="assets/img/portfolio/final flex_3.png" class="st-portfolio st-zoom st-lightbox-item">
-                <div class="st-portfolio-img st-zoom-in">
-                  <img src="assets/img/portfolio/final flex_3.png" alt="portfolio">
-                </div>
-                <div class="st-portfolio-item-hover">
-                  <i class="fas fa-plus-circle"></i>
-                  <h5>Flex Design</h5>
-                  <p>Design / Promotion</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="st-portfolio-single st-style1 st-lightgallery">
-            <div class="st-portfolio-item">
-              <a href="assets/img/portfolio/mbape.png" class="st-portfolio st-zoom st-lightbox-item">
-                <div class="st-portfolio-img st-zoom-in">
-                  <img src="assets/img/portfolio/mbape.png" alt="portfolio">
-                </div>
-                <div class="st-portfolio-item-hover">
-                  <i class="fas fa-plus-circle"></i>
-                  <h5>Instagram Post Design</h5>
-                  <p>Design / Awarness</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="st-portfolio-single st-style1 st-lightgallery">
-            <div class="st-portfolio-item">
-              <a href="assets/img/portfolio/ramp_5.png" class="st-portfolio st-zoom st-lightbox-item">
-                <div class="st-portfolio-img st-zoom-in">
-                  <img src="assets/img/portfolio/ramp_5.png" alt="portfolio">
-                </div>
-                <div class="st-portfolio-item-hover">
-                  <i class="fas fa-plus-circle"></i>
-                  <h5>Poster Design</h5>
-                  <p>Design / Promotion</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12 text-center">
-          <div class="st-portfolio-btn">
-            <a href="https://drive.google.com/drive/folders/1UR4R-0q2WFy0mwY-f-SPjR-c7p6K1ypV?usp=drive_link" class="st-btn st-style1 st-color1">Load More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="st-height-b100 st-height-lg-b80"></div>
-  </section>
-  <!-- End Portfolio Seciton -->
+        </section>
 
-  <!-- Start Contact Seciton -->
-  <section id="contact" class="st-dark-bg">
-    <div class="st-height-b100 st-height-lg-b80"></div>
-    <div class="container">
-      <div class="st-section-heading st-style1">
-        <h4 class="st-section-heading-title">CONTACT ME</h4>
-        <h2 class="st-section-heading-subtitle">CONTACT ME</h2>
-      </div>
-      <div class="st-height-b25 st-height-lg-b25"></div>
-    </div>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                
+                <div class="projects-tabs">
+                    <button class="project-tab active" data-target="web-projects">Web Development</button>
+                    <button class="project-tab" data-target="graphic-projects">Graphics & Design</button>
+                </div>
+                
+                <div class="projects-content">
+                    <!-- Web Development Projects -->
+                    <div class="project-category active" id="web-projects">
+                        <h3 class="category-title">Web Development Projects</h3>
+                        <p class="category-description">Modern, responsive websites and web applications built with the latest technologies.</p>
+                        
+                        <div class="projects-grid">
+                            <div class="project-card">
+                                <div class="project-image" style="background-image: url('assets/portfolio.png'); background-size: cover; background-position: center;"></div>
+                                <div class="project-content">
+                                    <h3>Portfolio Website</h3>
+                                    <p>A responsive portfolio website built with HTML, CSS and JavaScript that showcases my work and skills.</p>
+                                    <div class="project-tags">
+                                        <span>HTML</span>
+                                        <span>CSS</span>
+                                        <span>JavaScript</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://akshit-mahajan.netlify.app" class="btn small primary">View Live</a>
+                                        <a href="https://github.com/Akshit2004/Portfolio" class="btn small">Source Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card">
+                                <div class="project-image" style="background-image: url('assets/mafia.png'); background-size: cover; background-position: center;"></div>
+                                <div class="project-content">
+                                    <h3>Mafia Game</h3>
+                                    <p>A text-based implementation of the popular Mafia party game with role assignments, game logic, and interactive gameplay.</p>
+                                    <div class="project-tags">
+                                        <span>Python</span>
+                                        <span>Game Development</span>
+                                        <span>CLI</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://mafiamystry.netlify.app" class="btn small primary">View Live</a>
+                                        <a href="https://github.com/Akshit2004/MafiaGame" class="btn small">Source Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card">
+                                <div class="project-image" style="background-image: url('assets/pmvd.png'); background-size: cover; background-position: center;"></div>
+                                <div class="project-content">
+                                    <h3>Plant Medicinal Value Detection</h3>
+                                    <p>An image-based plant recognition system that identifies plants and provides information about their medicinal properties and uses in traditional medicine.</p>
+                                    <div class="project-tags">
+                                        <span>Python</span>
+                                        <span>Machine Learning</span>
+                                        <span>OpenCV</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://pmvd.netlify.app" class="btn small primary">View Demo</a>
+                                        <a href="https://github.com/Akshit2004/Minor-plant-medicnal-value-detection-/tree/main" class="btn small">Source Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Graphics & Design Projects -->
+                    <div class="project-category" id="graphic-projects">
+                        <h3 class="category-title">Graphics & Design Work</h3>
+                        <p class="category-description">Creative visual designs including UI/UX projects, branding, and digital illustrations.</p>
+                        
+                        <div class="projects-grid">
+                            <div class="project-card design-card">
+                                <div class="project-image" style="background-image: url('assets/projects/ui-design.jpg'); background-size: cover; background-position: center;"></div>
+                                <div class="project-content">
+                                    <h3>Mobile App UI Design</h3>
+                                    <p>A clean and modern UI design for a fitness tracking mobile application with dashboard, workout planner, and progress tracking screens.</p>
+                                    <div class="project-tags">
+                                        <span>UI/UX</span>
+                                        <span>Figma</span>
+                                        <span>Prototyping</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="#" class="btn small primary">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card design-card">
+                                <div class="project-image" style="background-image: url('assets/projects/brand-identity.jpg'); background-size: cover; background-position: center;"></div>
+                                <div class="project-content">
+                                    <h3>Brand Identity Design</h3>
+                                    <p>Complete brand identity including logo design, color palette, typography, and brand guidelines for a startup company.</p>
+                                    <div class="project-tags">
+                                        <span>Branding</span>
+                                        <span>Logo Design</span>
+                                        <span>Illustrator</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="#" class="btn small primary">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card design-card">
+                                <div class="project-image" style="background-image: url('assets/projects/illustrations.jpg'); background-size: cover; background-position: center;"></div>
+                                <div class="project-content">
+                                    <h3>Digital Illustrations</h3>
+                                    <p>A series of digital illustrations and artwork created for various purposes including social media, print, and web applications.</p>
+                                    <div class="project-tags">
+                                        <span>Illustration</span>
+                                        <span>Photoshop</span>
+                                        <span>Digital Art</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="#" class="btn small primary">View Gallery</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Contact Container -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>email@example.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+1 234 567 890</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Your Location</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/Akshit2004" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <h3 class="st-contact-title">Just say Hello</h3>
-          <div id="st-alert"></div>
-          <form
-  action="https://formspree.io/f/xnnarvpp"
-  method="POST"
->
-            <div class="st-form-field">
-              <input type="text" id="name" name="name" placeholder="Your Name" required>
-            </div>
-            <div class="st-form-field">
-              <input type="text" id="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="st-form-field">
-              <input type="text" id="subject" name="subject" placeholder="Your Subject" required>
-            </div>
-            <div class="st-form-field">
-              <textarea cols="30" rows="10" id="msg" name="msg" placeholder="Your Message" required></textarea>
-            </div>
-            <button class="st-btn st-style1 st-color1" type="submit" id="submit" name="submit">Send message</button>
-          </form>
-        </div>
-        <div class="st-height-b0 st-height-lg-b30"></div>
+    <footer>
+        <p>© 2023 Your Name. All Rights Reserved.</p>
+    </footer>
 
-        <div class="col-lg-6">
-          <div class="st-height-b0 st-height-lg-b40"></div>
-          <h3 class="st-contact-title">Contact Info</h3>
-          <div class="st-contact-text">
-            I’m always excited to connect with others! Whether you have a question, a collaboration idea, or just want to chat, feel free to drop me a message. I’d love to hear from you and explore how we can work together or share ideas.
-          </div>
-          <div class="st-contact-info-wrap">
-            <div class="st-single-contact-info">
-              <i class="fas fa-envelope"></i>
-              <div class="st-single-info-details">
-                <h4>Email</h4>
-                <a>akshumahajan2004@gmail.com</a>
-              </div>
-            </div>
-            <div class="st-single-contact-info">
-              <i class="fas fa-phone-alt"></i>
-              <div class="st-single-info-details">
-                <h4>Phone</h4>
-                <span>+91 8894606932</span>
-              </div>
-            </div>
-            <div class="st-single-contact-info">
-              <i class="fas fa-map-marker-alt"></i>
-              <div class="st-single-info-details">
-                <h4>Address</h4>
-                <span>Solan, Himachal Pradesh, India</span>
-              </div>
-            </div>
-            <div class="st-social-info">
-              <div class="st-social-text">Visit my social profile and get connected</div>
-              <div class="st-social-link">
-                <a href="https://instagram.com/_akshitmahajan/" class="st-social-btn active">
-                  <span class="st-social-icon"><i class="fab fa-instagram"></i></span>
-                  <span class="st-icon-name">Instagram</span>
-                </a>
-                <a href="https://github.com/Akshit2004" class="st-social-btn">
-                  <span class="st-social-icon"><i class="fab fa-github"></i></span>
-                  <span class="st-icon-name">Github</span>
-                </a>
-                <a href="https://www.linkedin.com/in/akshit0mahajan/" class="st-social-btn">
-                  <span class="st-social-icon"><i class="fab fa-linkedin"></i></span>
-                  <span class="st-icon-name">LinkedIn</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="st-height-b100 st-height-lg-b80"></div>
-  </section>
-  <!-- End Contact Seciton -->
-
-  <!-- Start Footer Seciton -->
-  <footer>
-    <div class="container">
-      <div class="st-copyright-wrap text-center">
-
-      </div>
-    </div>
-  </footer>
-  <!-- End Footer Seciton -->
-
-  <!-- Scripts -->
-  <script src="assets/js/jquery-1.12.4.min.js"></script>
-  <script src="assets/js/jquery.slick.min.js"></script>
-  <script src="assets/js/lightgallery.min.js"></script>
-  <script src="assets/js/wow.min.js"></script>
-  <script src="assets/js/ripples.min.js"></script>
-  <script src="assets/js/particles.min.js"></script>
-  <script src="assets/js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>
