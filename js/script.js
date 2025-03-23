@@ -275,6 +275,34 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add animation to skill tags when about section becomes visible
     const animateSkills = () => {
+        const skillItems = document.querySelectorAll('.skill-item');
+        const skillLevelBars = document.querySelectorAll('.skill-level-bar span');
+        
+        // Set animation delay for each skill item
+        skillItems.forEach((item, index) => {
+            item.style.setProperty('--i', index);
+            
+            // Set the level bar width based on data-level attribute
+            const levelBar = item.querySelector('.skill-level-bar span');
+            const level = item.getAttribute('data-level');
+            
+            if (levelBar && level) {
+                setTimeout(() => {
+                    levelBar.style.width = `${level}%`;
+                }, 300 + (index * 100));
+            }
+        });
+        
+        // Animate skill items with staggered delay
+        setTimeout(() => {
+            skillItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.animation = 'burstIn 0.6s forwards';
+                }, index * 100);
+            });
+        }, 200);
+        
+        // Skill tags animation (in case the old elements are still there)
         const skillTags = document.querySelectorAll('.skill-tag');
         skillTags.forEach((tag, index) => {
             tag.style.opacity = '0';
@@ -284,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tag.style.transition = 'all 0.3s ease';
                 tag.style.opacity = '1';
                 tag.style.transform = 'translateY(0)';
-            }, 100 + (index * 50)); // Staggered animation
+            }, 100 + (index * 50));
         });
     };
 
