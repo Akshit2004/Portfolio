@@ -30,11 +30,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overflow-x: hidden;
 }
 
 body {
@@ -48,12 +50,17 @@ body {
         radial-gradient(circle at 10% 20%, rgba(157, 78, 221, 0.05) 0%, transparent 20%),
         radial-gradient(circle at 90% 80%, rgba(106, 0, 244, 0.05) 0%, transparent 20%);
     background-attachment: fixed;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
 }
 
 .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Common animations */
@@ -481,6 +488,8 @@ nav ul {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin: 0 0 100px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .feature-box {
@@ -495,6 +504,9 @@ nav ul {
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 1000px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .feature-box::before {
@@ -565,6 +577,9 @@ nav ul {
     box-shadow: var(--box-shadow);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .stats-container::before {
@@ -606,6 +621,8 @@ nav ul {
     gap: 40px;
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 100%;
 }
 
 .stat-item {
@@ -618,6 +635,9 @@ nav ul {
     border: var(--card-border);
     transition: all 0.4s;
     backdrop-filter: blur(12px);
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .stat-item:hover {
@@ -761,6 +781,8 @@ nav ul {
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 40px;
     margin: 60px 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .about-card {
@@ -771,6 +793,9 @@ nav ul {
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .about-card::before {
@@ -805,11 +830,6 @@ nav ul {
     z-index: 1;
 }
 
-.about-card h3 i {
-    font-size: 24px;
-    color: var(--accent-color);
-}
-
 /* Timeline */
 .timeline {
     position: relative;
@@ -823,6 +843,9 @@ nav ul {
     padding-left: 20px;
     position: relative;
     z-index: 1;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .timeline-item::before {
@@ -928,6 +951,8 @@ nav ul {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 30px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .main-skill {
@@ -966,6 +991,9 @@ nav ul {
     overflow: hidden;
     transition: all 0.5s ease;
     margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .skill-category::before {
@@ -1011,6 +1039,8 @@ nav ul {
     gap: 15px;
     animation: fadeInStagger 1s forwards;
     margin-top: 0;
+    width: 100%;
+    max-width: 100%;
 }
 
 .skill-item {
@@ -1188,6 +1218,8 @@ nav ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Project cards */
@@ -1204,6 +1236,9 @@ nav ul {
     position: relative;
     transform-style: preserve-3d;
     perspective: 1000px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .project-card::before {
@@ -1342,6 +1377,9 @@ nav ul {
     backdrop-filter: blur(15px);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .extra-curricular::before {
@@ -1379,6 +1417,8 @@ nav ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 30px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .activity-card {
@@ -1390,6 +1430,9 @@ nav ul {
     transition: all 0.4s ease;
     transform-style: preserve-3d;
     perspective: 1000px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .activity-card:hover {
@@ -1533,6 +1576,9 @@ nav ul {
     box-shadow: var(--box-shadow);
     transform-style: preserve-3d;
     perspective: 1000px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .contact-info {
@@ -2040,6 +2086,26 @@ footer p {
     .extra-curricular {
         padding: 30px;
     }
+    
+    .avatar-container {
+        max-width: 240px;
+        margin: 0 auto;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1, h2, h3, p {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    img, video, iframe {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 /* Fix mobile menu button positioning */
@@ -2069,8 +2135,10 @@ footer p {
         position: absolute;
         top: 100%;
         left: 0;
+        overflow-x: hidden;
     }
-
+    
+    /* ...existing code for nav ul... */
 }
 
 @media (max-width: 480px) {
@@ -2085,7 +2153,7 @@ footer p {
     .hero-buttons {
         flex-direction: column;
     }
-
+    
     .about-text {
         padding: 20px;
     }
@@ -2101,7 +2169,7 @@ footer p {
     .timeline-item::before {
         left: -26px;
     }
-
+    
     .about-summary {
         padding: 20px 15px;
     }
@@ -2125,7 +2193,6 @@ footer p {
 }
 
 /* Mobile Responsiveness Fixes */
-
 /* Common adjustments for all screen sizes */
 img {
     max-width: 100%;
@@ -2243,7 +2310,32 @@ img {
 @media (max-width: 768px) {
     /* Mobile header and navigation */
     header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 15px 20px;
+    }
+    
+    /* Keep logo on left */
+    .logo {
+        flex: 0 0 auto;
+    }
+    
+    /* Position toggle button on right */
+    .mobile-menu-toggle {
+        display: flex !important; /* Force display to ensure it shows */
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        margin-left: auto;
+    }
+    
+    /* Fix nav positioning when expanded */
+    nav {
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
     }
     
     /* Adjust container padding */
@@ -2303,11 +2395,6 @@ img {
         font-size: 15px;
     }
     
-    /* Mobile menu toggle */
-    .mobile-menu-toggle {
-        display: block;
-    }
-    
     /* Mobile navigation */
     nav ul {
         position: fixed;
@@ -2324,12 +2411,14 @@ img {
         padding: 0;
         margin: 0;
         gap: 0;
+        display: none;
     }
     
     nav.active ul {
         height: auto;
         padding: 20px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
     }
     
     nav ul li {
@@ -2436,27 +2525,81 @@ img {
     }
 }
 
-/* Fix header and mobile menu */
+/* Enhanced Mobile Menu Button */
 .mobile-menu-toggle {
     display: none;
-    background: none;
-    border: none;
+    background: rgba(157, 78, 221, 0.1);
+    border: 1px solid rgba(157, 78, 221, 0.2);
     color: var(--accent-color);
-    font-size: 24px;
+    font-size: 18px;
     cursor: pointer;
     z-index: 1001;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: var(--glow-shadow);
+    overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
-    }
-    
-    nav ul {
-        display: none;
-    }
-    
-    nav.active ul {
-        display: flex;
-    }
+.mobile-menu-toggle::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: var(--gradient-glow);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.mobile-menu-toggle:hover {
+    background: rgba(157, 78, 221, 0.2);
+    transform: translateY(-3px);
+}
+
+.mobile-menu-toggle:hover::before {
+    opacity: 0.5;
+}
+
+.mobile-menu-toggle i {
+    transition: transform 0.4s ease, opacity 0.2s ease;
+}
+
+.mobile-menu-toggle .fa-bars {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mobile-menu-toggle .fa-times {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .fa-bars {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .fa-times {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.mobile-menu-toggle.active {
+    background: rgba(157, 78, 221, 0.25);
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+}
+
+/* Common adjustments for all screen sizes */
+img {
+    max-width: 100%;
+    height: auto;
 }

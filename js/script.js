@@ -417,23 +417,14 @@ document.addEventListener('DOMContentLoaded', () => {
     revealOnScroll();
     scrollSpy();
     
-    // Mobile menu functionality
+    // Mobile menu functionality - consolidated code
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.querySelector('nav');
 
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
-            
-            // Change icon based on menu state
-            const icon = mobileMenuToggle.querySelector('i');
-            if (nav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            mobileMenuToggle.classList.toggle('active');
         });
         
         // Close mobile menu when a nav link is clicked
@@ -441,35 +432,29 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 if (nav.classList.contains('active')) {
                     nav.classList.remove('active');
-                    const icon = mobileMenuToggle.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                    mobileMenuToggle.classList.remove('active');
                 }
             });
         });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('active') && 
+                !e.target.closest('nav') && 
+                !e.target.closest('.mobile-menu-toggle')) {
+                nav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+        
+        // Adjust layout on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
     }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (nav.classList.contains('active') && 
-            !e.target.closest('nav') && 
-            !e.target.closest('.mobile-menu-toggle')) {
-            nav.classList.remove('active');
-            const icon = mobileMenuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-
-    // Adjust layout on window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            const icon = mobileMenuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
 });
 
 // Enhanced cursor effect
