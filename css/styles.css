@@ -2042,6 +2042,37 @@ footer p {
     }
 }
 
+/* Fix mobile menu button positioning */
+@media (max-width: 768px) {
+    /* Ensure proper header layout */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    
+    /* Keep logo on left */
+    .logo {
+        flex: 0 0 auto;
+    }
+    
+    /* Position toggle button on right */
+    .mobile-menu-toggle {
+        flex: 0 0 auto;
+        margin-left: auto;
+    }
+    
+    /* Fix nav positioning when expanded */
+    nav {
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+}
+
 @media (max-width: 480px) {
     .hero-content h1 {
         font-size: 32px;
