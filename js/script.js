@@ -1,99 +1,196 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get all navigation buttons and sections
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const sections = document.querySelectorAll('.section');
-    const actionButtons = document.querySelectorAll('.btn[data-section]');
+    // Initialize particles background
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#9d4edd"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    animation: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#9d4edd",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 3
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    }
+
+    // Implement scroll progress indicator
+    const scrollProgress = document.querySelector('.scroll-progress');
     
-    // Function to switch active section with enhanced animations
-    const switchSection = (sectionId) => {
-        console.log(`Switching to section: ${sectionId}`);
+    window.addEventListener('scroll', () => {
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const progress = (window.pageYOffset / totalHeight) * 100;
+        if (scrollProgress) scrollProgress.style.width = progress + '%';
+    });
+
+    // Navigation links and scroll behavior
+    const navLinks = document.querySelectorAll('.nav-link');
+    const actionButtons = document.querySelectorAll('.btn[data-section]');
+    const sections = document.querySelectorAll('.section');
+    
+    // Highlight navigation based on current scroll position
+    const scrollSpy = () => {
+        const scrollPos = window.scrollY;
         
-        // Hide all sections first with a fade-out effect
         sections.forEach(section => {
-            if (section.classList.contains('active')) {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    section.classList.remove('active');
-                    section.style.display = 'none';
-                }, 400); // Longer fade for smoother transition
-            } else {
-                section.classList.remove('active');
-                section.style.display = 'none';
+            const offset = section.offsetTop - 100;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            
+            if (scrollPos >= offset && scrollPos < offset + height) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
-        
-        // Remove active class from all buttons
-        navButtons.forEach(btn => {
-            btn.classList.remove('active');
+    };
+    
+    // Apply active class to navigation items
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            navLinks.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
         });
-        
-        // Add active class to selected section and button after a short delay
-        setTimeout(() => {
+    });
+    
+    // Update action buttons to use href instead of data-section
+    actionButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sectionId = button.getAttribute('data-section');
             const targetSection = document.getElementById(sectionId);
-            const targetButton = document.querySelector(`.nav-btn[data-section="${sectionId}"]`);
             
-            if (targetSection && targetButton) {
-                targetSection.classList.add('active');
-                targetSection.style.display = 'block';
-                // Reset the transform for the animation to work
-                targetSection.style.opacity = '1';
-                targetSection.style.transform = 'translateY(0)';
-                targetButton.classList.add('active');
-                
-                // Scroll to top when changing sections
+            if (targetSection) {
                 window.scrollTo({
-                    top: 0,
+                    top: targetSection.offsetTop - 80,
                     behavior: 'smooth'
                 });
-                
-                // Animate elements within the section
-                const fadeElements = targetSection.querySelectorAll('.feature-box, .stat-item, .project-card, .about-card, .skills, .tools, .extra-curricular');
-                fadeElements.forEach((el, index) => {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(30px)';
+            }
+        });
+    });
+    
+    // Enhanced scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-up, .feature-box, .stat-item, .project-card, .about-card, .skills, .tools, .extra-curricular, .about-summary');
+    
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const revealPoint = 150;
+        
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            
+            if (elementTop < windowHeight - revealPoint) {
+                element.classList.add('active');
+            }
+        });
+        
+        // Trigger counters when stats section is in view
+        const statsSection = document.querySelector('.stats-container');
+        if (statsSection) {
+            const statsSectionTop = statsSection.getBoundingClientRect().top;
+            if (statsSectionTop < windowHeight - 150 && !countersStarted) {
+                startCounting();
+            }
+        }
+        
+        // Trigger skill animations when in view
+        const skillsSection = document.querySelector('.skills-container');
+        if (skillsSection) {
+            const skillsSectionTop = skillsSection.getBoundingClientRect().top;
+            if (skillsSectionTop < windowHeight - 150 && !skillsAnimated) {
+                animateSkills();
+                skillsAnimated = true;
+            }
+        }
+
+        // Add animation for achievement bars when they come into view
+        const extraCurricularSection = document.querySelector('.extra-curricular');
+        if (extraCurricularSection) {
+            const extraCurricularTop = extraCurricularSection.getBoundingClientRect().top;
+            if (extraCurricularTop < windowHeight - 150) {
+                const achievementBars = extraCurricularSection.querySelectorAll('.achievement-progress span');
+                achievementBars.forEach(bar => {
+                    const targetWidth = bar.style.width;
+                    bar.style.width = '0';
                     
                     setTimeout(() => {
-                        el.style.transition = 'all 0.6s ease';
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                    }, 500 + (index * 100)); // Staggered animation
+                        bar.style.width = targetWidth;
+                    }, 300);
                 });
-            } else {
-                console.error(`Could not find section or button for: ${sectionId}`);
             }
-        }, 450); // Slightly longer than the fade-out
-
-        // Add animations for specific sections
-        if (sectionId === 'home') {
-            setTimeout(startCounting, 1000);
-        } else if (sectionId === 'about') {
-            setTimeout(animateSkills, 800);
-        } else if (sectionId === 'projects') {
-            // Reset to first tab when switching to projects section
-            const firstTab = document.querySelector('.project-tab');
-            if (firstTab) firstTab.click();
         }
     };
     
-    // Add click event to navigation buttons
-    navButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const sectionId = button.getAttribute('data-section');
-            switchSection(sectionId);
-        });
-    });
-    
-    // Add click event to action buttons (in content) that switch sections
-    actionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const sectionId = button.getAttribute('data-section');
-            switchSection(sectionId);
-        });
-    });
-    
-    // Form submission handler
+    // Form submission handler with enhanced feedback
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -102,103 +199,30 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add a loading state to the button
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
             
             // Simulate sending (you would replace this with actual form submission)
             setTimeout(() => {
-                alert('Form submission is currently disabled. This is a demo portfolio.');
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                submitBtn.classList.remove('loading');
+                submitBtn.classList.add('success');
                 contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('success');
+                }, 2000);
             }, 1500);
         });
     }
     
-    // Make sure the initial section is properly displayed
-    const activeSection = document.querySelector('.section.active');
-    if (activeSection) {
-        activeSection.style.display = 'block';
-        activeSection.style.opacity = '1';
-        activeSection.style.transform = 'translateY(0)';
-    }
-    
-    // Add scroll reveal animations for elements as they come into view
-    const revealElements = document.querySelectorAll('.project-card, .timeline-item, .skills, .tools, .extra-curricular');
-    
-    const revealOnScroll = () => {
-        for (let i = 0; i < revealElements.length; i++) {
-            const elementTop = revealElements[i].getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                revealElements[i].classList.add('active');
-            }
-        }
-    };
-    
-    window.addEventListener('scroll', revealOnScroll);
-    
-    // Trigger on initial load
-    revealOnScroll();
-    
-    // Typing effect for the home page
-    const typingText = document.querySelector('.typing-text');
-    if (typingText) {
-        const phrases = ['Web Developer & Designer', 'UI/UX Designer', 'Front-End Developer'];
-        let currentPhraseIndex = 0;
-        let currentCharIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 100;
-        
-        function typeEffect() {
-            const currentPhrase = phrases[currentPhraseIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentPhrase.substring(0, currentCharIndex - 1);
-                currentCharIndex--;
-                typingSpeed = 50;
-            } else {
-                typingText.textContent = currentPhrase.substring(0, currentCharIndex + 1);
-                currentCharIndex++;
-                typingSpeed = 100;
-            }
-            
-            if (!isDeleting && currentCharIndex === currentPhrase.length) {
-                isDeleting = true;
-                typingSpeed = 1500; // Pause at the end
-            } else if (isDeleting && currentCharIndex === 0) {
-                isDeleting = false;
-                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                typingSpeed = 500; // Pause before typing new phrase
-            }
-            
-            setTimeout(typeEffect, typingSpeed);
-        }
-        
-        setTimeout(typeEffect, 1000);
-    }
-    
-    // Parallax effect for particles
-    if (document.querySelector('.particles-container')) {
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            particles.forEach((particle, index) => {
-                const speed = 30 + (index * 5);
-                const x = (mouseX * speed) - (speed/2);
-                const y = (mouseY * speed) - (speed/2);
-                
-                particle.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        });
-    }
-
-    // Stats counter animation
+    // Enhanced stats counter animation with easing
     const statCounts = document.querySelectorAll('.stat-count');
     let countersStarted = false;
+    let skillsAnimated = false;
     
     function startCounting() {
         if (countersStarted) return;
@@ -206,26 +230,33 @@ document.addEventListener('DOMContentLoaded', () => {
         statCounts.forEach(counter => {
             const target = parseInt(counter.getAttribute('data-count'));
             const duration = 2500; // Longer duration for smoother counting
-            const increment = target / (duration / 16); // Update roughly every 16ms (60fps)
-            let current = 0;
+            let startTime = null;
             
-            const updateCounter = () => {
-                current += increment;
-                const value = Math.min(Math.round(current), target);
+            function easeOutQuart(t) {
+                return 1 - Math.pow(1 - t, 4);
+            }
+            
+            function animateCount(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const easedProgress = easeOutQuart(progress);
+                const value = Math.floor(easedProgress * target);
+                
                 counter.textContent = value;
                 
-                if (value < target) {
-                    requestAnimationFrame(updateCounter);
+                if (progress < 1) {
+                    requestAnimationFrame(animateCount);
                 } else {
+                    counter.textContent = target;
                     // Add a pulse animation when counting completes
                     counter.style.animation = 'pulse 0.5s ease-in-out';
                     setTimeout(() => {
                         counter.style.animation = '';
                     }, 500);
                 }
-            };
+            }
             
-            updateCounter();
+            requestAnimationFrame(animateCount);
         });
         
         // Animate the stat bars when counting starts
@@ -240,12 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         countersStarted = true;
-    }
-    
-    // Start the counter when the section becomes visible
-    const homeSection = document.getElementById('home');
-    if (homeSection && homeSection.classList.contains('active')) {
-        setTimeout(startCounting, 500); // Delay to let the section load
     }
     
     // Add animation to skill tags when about section becomes visible
@@ -300,34 +325,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Add scroll down indicator to first section
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+        const scrollIndicator = document.createElement('div');
+        scrollIndicator.className = 'scroll-indicator';
+        scrollIndicator.innerHTML = '<i class="fas fa-chevron-down"></i><p>Scroll Down</p>';
+        homeSection.appendChild(scrollIndicator);
+        
+        scrollIndicator.addEventListener('click', () => {
+            window.scrollTo({
+                top: homeSection.offsetHeight,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // Initialize project tabs
     initProjectTabs();
 
-    // Initialize cursor effect
+    // Initialize cursor effect with enhanced interactivity
     initCursorEffect();
     
-    // Initialize animations for the active section
-    if (activeSection) {
-        const fadeElements = activeSection.querySelectorAll('.feature-box, .stat-item, .project-card, .about-card, .skills, .tools, .extra-curricular');
-        fadeElements.forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
+    // Add parallax effect to decorations on mouse move
+    document.addEventListener('mousemove', (e) => {
+        const decorations = document.querySelectorAll('.decoration');
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        
+        decorations.forEach((decoration, index) => {
+            const speed = 30 + (index * 10);
+            const x = (mouseX * speed) - (speed/2);
+            const y = (mouseY * speed) - (speed/2);
             
-            setTimeout(() => {
-                el.style.transition = 'all 0.6s ease';
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            }, 500 + (index * 100)); // Staggered animation
+            decoration.style.transform = `translate(${x}px, ${y}px) rotate(${x * 0.5}deg)`;
+        });
+    });
+    
+    // Tilt effect for feature boxes
+    const tiltElements = document.querySelectorAll('.feature-box, .project-card');
+    
+    tiltElements.forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+            const boundingRect = element.getBoundingClientRect();
+            const centerX = boundingRect.left + boundingRect.width / 2;
+            const centerY = boundingRect.top + boundingRect.height / 2;
+            const percentX = (e.clientX - centerX) / (boundingRect.width / 2);
+            const percentY = (e.clientY - centerY) / (boundingRect.height / 2);
+            
+            element.style.transform = `perspective(1000px) rotateX(${percentY * -3}deg) rotateY(${percentX * 3}deg) scale3d(1.02, 1.02, 1.02)`;
         });
         
-        // Start counting if we're on the home section
-        if (activeSection.id === 'home') {
-            setTimeout(startCounting, 1000);
-        }
-    }
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+    });
+    
+    // Add event listeners for scroll events
+    window.addEventListener('scroll', scrollSpy);
+    window.addEventListener('scroll', revealOnScroll);
+    
+    // Trigger reveal on initial load
+    revealOnScroll();
+    scrollSpy();
 });
 
-// Add animated cursor effect to hero section (new feature)
+// Enhanced cursor effect
 function initCursorEffect() {
     const cursor = document.createElement('div');
     cursor.className = 'cursor-fx';
@@ -344,7 +407,7 @@ function initCursorEffect() {
     });
     
     // Items that trigger the cursor effect
-    const hoverItems = document.querySelectorAll('.btn, .nav-btn, .project-card, .feature-box, .social-links a');
+    const hoverItems = document.querySelectorAll('.btn, .nav-link, .project-card, .feature-box, .social-links a, .stat-item, .timeline-item');
     
     hoverItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
@@ -367,4 +430,13 @@ function initCursorEffect() {
     }
     
     animateCursor();
+    
+    // Hide cursor when mouse leaves window
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+    });
+    
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+    });
 }
