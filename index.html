@@ -5,8 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom cursor effect */
+        .cursor-fx {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
+            opacity: 0.5;
+        }
+        
+        .cursor-fx.active {
+            width: 65px;
+            height: 65px;
+            border-color: transparent;
+            background: rgba(157, 78, 221, 0.2);
+            opacity: 0.8;
+        }
+        
+        body {
+            cursor: none;
+        }
+        
+        a, button, input, textarea {
+            cursor: none;
+        }
+    </style>
 </head>
 <body>
     <header>

@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => {
             if (section.classList.contains('active')) {
                 section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
+                section.style.transform = 'translateY(30px)';
                 
                 setTimeout(() => {
                     section.classList.remove('active');
                     section.style.display = 'none';
-                }, 300); // Match this with transition-speed
+                }, 400); // Longer fade for smoother transition
             } else {
                 section.classList.remove('active');
                 section.style.display = 'none';
@@ -47,16 +47,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: 0,
                     behavior: 'smooth'
                 });
+                
+                // Animate elements within the section
+                const fadeElements = targetSection.querySelectorAll('.feature-box, .stat-item, .project-card, .about-card, .skills, .tools, .extra-curricular');
+                fadeElements.forEach((el, index) => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    
+                    setTimeout(() => {
+                        el.style.transition = 'all 0.6s ease';
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, 500 + (index * 100)); // Staggered animation
+                });
             } else {
                 console.error(`Could not find section or button for: ${sectionId}`);
             }
-        }, 350); // Slightly longer than the fade-out
+        }, 450); // Slightly longer than the fade-out
 
         // Add animations for specific sections
         if (sectionId === 'home') {
-            setTimeout(startCounting, 800);
+            setTimeout(startCounting, 1000);
         } else if (sectionId === 'about') {
-            setTimeout(animateSkills, 500);
+            setTimeout(animateSkills, 800);
         } else if (sectionId === 'projects') {
             // Reset to first tab when switching to projects section
             const firstTab = document.querySelector('.project-tab');
@@ -192,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         statCounts.forEach(counter => {
             const target = parseInt(counter.getAttribute('data-count'));
-            const duration = 2000; // 2 seconds
+            const duration = 2500; // Longer duration for smoother counting
             const increment = target / (duration / 16); // Update roughly every 16ms (60fps)
             let current = 0;
             
@@ -203,6 +216,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (value < target) {
                     requestAnimationFrame(updateCounter);
+                } else {
+                    // Add a pulse animation when counting completes
+                    counter.style.animation = 'pulse 0.5s ease-in-out';
+                    setTimeout(() => {
+                        counter.style.animation = '';
+                    }, 500);
                 }
             };
             
@@ -217,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 bar.style.width = targetWidth;
-            }, 300);
+            }, 500);
         });
         
         countersStarted = true;
@@ -283,4 +302,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize project tabs
     initProjectTabs();
+
+    // Initialize cursor effect
+    initCursorEffect();
+    
+    // Initialize animations for the active section
+    if (activeSection) {
+        const fadeElements = activeSection.querySelectorAll('.feature-box, .stat-item, .project-card, .about-card, .skills, .tools, .extra-curricular');
+        fadeElements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                el.style.transition = 'all 0.6s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 500 + (index * 100)); // Staggered animation
+        });
+        
+        // Start counting if we're on the home section
+        if (activeSection.id === 'home') {
+            setTimeout(startCounting, 1000);
+        }
+    }
 });
+
+// Add animated cursor effect to hero section (new feature)
+function initCursorEffect() {
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor-fx';
+    document.body.appendChild(cursor);
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    // Items that trigger the cursor effect
+    const hoverItems = document.querySelectorAll('.btn, .nav-btn, .project-card, .feature-box, .social-links a');
+    
+    hoverItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            cursor.classList.add('active');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            cursor.classList.remove('active');
+        });
+    });
+    
+    function animateCursor() {
+        const speed = 0.1;
+        cursorX += (mouseX - cursorX) * speed;
+        cursorY += (mouseY - cursorY) * speed;
+        
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
+        requestAnimationFrame(animateCursor);
+    }
+    
+    animateCursor();
+}
