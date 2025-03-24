@@ -25,7 +25,7 @@
     --card-blur: blur(20px);
 }
 
-/* Base styles */
+/* Base styles - Consolidated text handling properties */
 * {
     margin: 0;
     padding: 0;
@@ -55,12 +55,61 @@ body {
     position: relative;
 }
 
+/* Consolidated text handling for all text elements */
+p, h1, h2, h3, h4, h5, h6, span, a, button, div, li {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    line-height: 1.6;
+}
+
+/* Apply justified text to content paragraphs */
+p, .timeline-item p, .project-card p, .activity-content p, 
+.about-summary p, .about-text p, .category-description, 
+.timeline-item li, .hero-description p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Consolidated container styles */
+.container, .project-content, .activity-content, .feature-box, 
+.about-card, .skill-category, .contact-content, 
+.timeline-item, .hero-description {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    padding-left: clamp(15px, 5%, 30px);
+    padding-right: clamp(15px, 5%, 30px);
+}
+
 .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 30px;
-    width: 100%;
-    box-sizing: border-box;
+}
+
+/* Universal image sizing */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Optimized style for interactive elements */
+.nav-link, .btn, .skill-name, .project-tags span, .activity-tags span {
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
+}
+
+/* Fix for links and code */
+a, code, pre {
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 /* Common animations */
@@ -149,11 +198,28 @@ body {
     100% { transform: translate(0); }
 }
 
-@keyframes rotateText {
-    0%, 20%   { content: 'build things for the web'; }
-    25%, 45%  { content: 'create digital experiences'; }
-    50%, 70%  { content: 'design user interfaces'; }
-    75%, 95%  { content: 'develop web applications'; }
+/* Replace the rotateText animation with typewriter styling */
+@keyframes blink {
+    0%, 100% { border-right-color: transparent; }
+    50% { border-right-color: var(--accent-color); }
+}
+
+.text-rotate {
+    display: inline-block;
+    color: var(--accent-color);
+    position: relative;
+    padding-right: 3px;
+    min-width: 10px; /* Ensure space for cursor when empty */
+}
+
+.text-rotate.typing {
+    border-right: 2px solid var(--accent-color);
+    animation: blink 0.7s infinite;
+}
+
+/* Remove the old rotateText animation and after pseudo-element */
+.text-rotate::after {
+    content: none; /* Remove the content that was using rotateText animation */
 }
 
 /* Layout and sections */
@@ -403,7 +469,7 @@ nav ul {
     color: var(--text-primary);
     font-weight: 800;
     letter-spacing: -1.5px;
-    background-image: var(--gradient-primary);
+    background-image: var (--gradient-primary);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -507,6 +573,8 @@ nav ul {
     width: 100%;
     box-sizing: border-box;
     max-width: 100%;
+    padding-left: clamp(15px, 5%, 30px);
+    padding-right: clamp(15px, 5%, 30px);
 }
 
 .feature-box::before {
@@ -796,6 +864,8 @@ nav ul {
     width: 100%;
     box-sizing: border-box;
     max-width: 100%;
+    padding-left: clamp(15px, 5%, 30px);
+    padding-right: clamp(15px, 5%, 30px);
 }
 
 .about-card::before {
@@ -890,6 +960,8 @@ nav ul {
     margin-bottom: 10px;
     font-size: 16px;
     line-height: 1.7;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .timeline-item ul {
@@ -902,6 +974,8 @@ nav ul {
     color: var(--text-secondary);
     font-size: 15px;
     line-height: 1.7;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .timeline-item li::marker {
@@ -910,12 +984,13 @@ nav ul {
 
 /* Skills section */
 .skills-container {
-    margin: 60px 0;
+    margin: 60px auto; /* Changed to auto for proper centering */
     position: relative;
     overflow: visible;
     max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%; /* Added explicit width */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    padding: 0 20px; /* Added consistent padding */
 }
 
 .skills-heading {
@@ -927,15 +1002,13 @@ nav ul {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    display: inline-block;
+    display: block; /* Changed from inline-block */
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.skills-heading i {
-    margin-right: 10px;
-    animation: pulseBolt 2s infinite;
+    width: 100%; /* Added to ensure full width */
+    margin-left: auto; /* Center properly */
+    margin-right: auto;
+    left: 0; /* Reset left positioning */
+    transform: none; /* Remove transform that was causing misalignment */
 }
 
 .skills-wrapper {
@@ -946,7 +1019,7 @@ nav ul {
 .skills-orbit {
     position: relative;
     min-height: auto;
-    padding: 20px;
+    padding: 20px 0; /* Changed padding to vertical only */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -994,6 +1067,8 @@ nav ul {
     width: 100%;
     box-sizing: border-box;
     max-width: 100%;
+    padding-left: clamp(15px, 5%, 30px);
+    padding-right: clamp(15px, 5%, 30px);
 }
 
 .skill-category::before {
@@ -1120,6 +1195,9 @@ nav ul {
     color: var(--text-primary);
     margin-bottom: 15px;
     text-align: center;
+    text-overflow: ellipsis;
+    white-space: normal; /* Allow wrapping */
+    overflow: visible;
 }
 
 .skill-level-bar {
@@ -1307,6 +1385,8 @@ nav ul {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding-left: clamp(15px, 5%, 30px);
+    padding-right: clamp(15px, 5%, 30px);
 }
 
 .project-card h3 {
@@ -1329,6 +1409,7 @@ nav ul {
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 .project-tags span {
@@ -1340,6 +1421,9 @@ nav ul {
     font-weight: 500;
     position: relative;
     overflow: hidden;
+    display: inline-block;
+    white-space: normal;
+    max-width: 100%;
 }
 
 .project-tags span::before {
@@ -1366,11 +1450,11 @@ nav ul {
     margin-top: auto;
 }
 
-/* Extra-curricular activities */
+/* Enhanced Extra-curricular activities section */
 .extra-curricular {
     margin: 80px 0;
-    padding: 50px;
-    background: rgba(21, 21, 21, 0.5);
+    padding: 60px;
+    background: rgba(21, 21, 21, 0.7);
     border-radius: var(--border-radius);
     border: var(--card-border);
     box-shadow: var(--box-shadow);
@@ -1400,23 +1484,37 @@ nav ul {
 }
 
 .extra-curricular h3 {
-    font-size: 28px;
-    margin-bottom: 40px;
+    font-size: 32px;
+    margin-bottom: 50px;
     text-align: center;
     position: relative;
-    display: inline-block;
+    display: block;
     color: var(--text-primary);
+    width: 100%;
 }
 
 .extra-curricular h3 i {
     margin-right: 15px;
     color: var(--accent-color);
+    animation: pulse 2s infinite;
+}
+
+.extra-curricular h3::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
 }
 
 .activity-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
+    gap: 40px;
     width: 100%;
     max-width: 100%;
 }
@@ -1427,140 +1525,173 @@ nav ul {
     overflow: hidden;
     display: flex;
     border: var(--card-border);
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
     transform-style: preserve-3d;
     perspective: 1000px;
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.activity-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
 }
 
 .activity-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--box-shadow);
-    border-color: rgba(157, 78, 221, 0.1);
+    transform: translateY(-15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: rgba(157, 78, 221, 0.3);
+}
+
+.activity-card:hover::before {
+    opacity: 1;
 }
 
 .activity-icon {
-    width: 80px;
-    background: rgba(17, 17, 17, 0.7);
+    width: 100px;
+    background: var(--bg-card);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 32px;
     color: var(--accent-color);
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
+    z-index: 1;
 }
 
 .activity-icon::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    inset: 0;
     background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    transform: rotate(35deg);
-    z-index: 0;
+    opacity: 0.1;
+    transition: opacity 0.5s ease;
+}
+
+.activity-card:hover .activity-icon {
+    width: 120px;
 }
 
 .activity-card:hover .activity-icon::before {
-    opacity: 0.1;
-    animation: rotateBackground 5s linear infinite;
+    opacity: 0.2;
+    animation: rotateBackground 8s linear infinite;
 }
 
 .activity-icon i {
     position: relative;
     z-index: 1;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 0 10px var(--accent-glow));
 }
 
 .activity-card:hover .activity-icon i {
-    transform: scale(1.2);
+    transform: scale(1.3);
     color: var(--accent-hover);
 }
 
+/* Modified activity-content to remove dependency on achievement bars */
 .activity-content {
-    padding: 25px;
+    padding: 35px;
     flex: 1;
+    position: relative;
+    z-index: 1;
+    padding-left: clamp(15px, 5%, 30px);
+    padding-right: clamp(15px, 5%, 30px);
 }
 
 .activity-content h4 {
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    margin-bottom: 12px;
     color: var(--text-primary);
     font-weight: 600;
+    display: inline-block;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .activity-period {
     display: inline-block;
-    font-size: 13px;
+    font-size: 14px;
     color: var(--accent-color);
     background: rgba(157, 78, 221, 0.1);
-    padding: 3px 12px;
+    padding: 5px 15px;
     border-radius: 50px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    box-shadow: 0 2px 10px rgba(157, 78, 221, 0.1);
 }
 
 .activity-content p {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     line-height: 1.7;
 }
 
-.achievement-bar {
-    margin-bottom: 15px;
-}
+/* Remove achievement bars */
+/* Delete or comment out these styles:
+.achievement-bar { ... }
+.achievement-label { ... }
+.achievement-progress { ... }
+.achievement-progress span { ... }
+.achievement-progress span::after { ... }
+*/
 
-.achievement-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 5px;
-}
-
-.achievement-progress {
-    height: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.achievement-progress span {
-    display: block;
-    height: 100%;
-    background: var(--gradient-primary);
-    border-radius: 10px;
-    width: 0;
-    transition: width 1.5s ease;
-}
-
+/* Position tags directly after paragraph */
 .activity-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 20px;
+    gap: 10px;
+    margin-top: 0; /* Changed from 25px to 0 since there's no achievement bar now */
+    width: 100%;
 }
 
 .activity-tags span {
-    font-size: 12px;
-    background: rgba(157, 78, 221, 0.1);
-    color: var(--text-primary);
-    padding: 4px 10px;
-    border-radius: 50px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    display: inline-block;
+    white-space: normal;
+    max-width: 100%;
 }
 
-.activity-tags span:hover {
-    background: rgba(157, 78, 221, 0.3);
-    transform: translateY(-3px);
+/* Mobile adjustments for extra-curricular section */
+@media (max-width: 768px) {
+    .extra-curricular {
+        padding: 40px 20px;
+    }
+    
+    .activity-icon {
+        width: 80px;
+        font-size: 28px;
+    }
+    
+    .activity-content {
+        padding: 25px;
+    }
+    
+    .activity-content h4 {
+        font-size: 20px;
+    }
+    
+    .activity-period {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
 }
 
 /* Contact section */
@@ -1579,6 +1710,8 @@ nav ul {
     width: 100%;
     box-sizing: border-box;
     max-width: 100%;
+    padding-left: clamp(15px, 5%, 30px);
+    padding-right: clamp(15px, 5%, 30px);
 }
 
 .contact-info {
@@ -1901,11 +2034,6 @@ footer p {
     color: #f0f;
     z-index: -2;
     animation: glitch-effect 2s infinite;
-}
-
-.text-rotate::after {
-    content: '';
-    animation: rotateText 8s infinite;
 }
 
 /* Tech orbit */
@@ -2523,6 +2651,18 @@ img {
     .contact-info {
         padding: 30px 20px;
     }
+    
+    .project-content, .activity-content {
+        padding: 15px 12px;
+    }
+    
+    .btn, .nav-link, .project-tags span {
+        padding: 8px 12px;
+    }
+    
+    .project-image {
+        height: 180px;
+    }
 }
 
 /* Enhanced Mobile Menu Button */
@@ -2602,4 +2742,214 @@ img {
 img {
     max-width: 100%;
     height: auto;
+}
+
+p, h1, h2, h3, h4, h5, h6, span, a, button, div, li {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-word;
+    word-break: break-word; /* For non-CJK languages */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    line-height: 1.6;
+}
+
+.nav-link, .btn, .skill-name, .project-tags span, .activity-tags span {
+    text-overflow: ellipsis;
+    white-space: normal; /* Allow wrapping */
+    overflow: visible;
+}
+
+h1, h2, h3, h4 {
+    max-width: 100%;
+    overflow: visible;
+}
+
+a, code, pre {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/* Additional Typography Fixes for Mobile Screens */
+@media (max-width: 768px) {
+    /* Improve text wrapping and prevent cutoff */
+    body {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+    }
+    
+    /* Adjust line heights for better readability on mobile */
+    p, li, .timeline-item p, .project-card p, .activity-content p {
+        line-height: 1.7;
+        font-size: 15px;
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    /* Ensure all container elements have adequate padding */
+    .container, .about-card, .project-content, .activity-content, 
+    .skill-category, .contact-content, .feature-box {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box;
+    }
+    
+    /* Specific fixes for common text-overflow issues */
+    .project-tags span, .activity-tags span {
+        max-width: 100%;
+        display: inline-block;
+        padding: 5px 10px;
+        margin-bottom: 8px;
+        white-space: normal;
+    }
+    
+    /* Fix for tight spacing in skill names */
+    .skill-name {
+        font-size: 14px;
+        line-height: 1.3;
+        margin-bottom: 10px;
+        padding: 0 5px;
+    }
+    
+    /* Ensure all text containers can fit their content */
+    .timeline-item, .activity-content, .project-content {
+        width: auto;
+        max-width: 100%;
+        overflow-x: visible;
+    }
+    
+    /* Prevent fixed widths that might cause overflow */
+    .activity-card, .project-card, .about-card {
+        min-width: 0;
+        width: 100%;
+    }
+    
+    /* Adjust headings to better fit mobile screens */
+    h1, h2, h3, h4 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Fix contact information wrapping */
+    .contact-item p {
+        word-break: break-all;
+    }
+}
+
+/* Fix for very specific component issues */
+@media (max-width: 480px) {
+    /* Further reduce text size for very small screens */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Fix timeline item spacing and wrapping */
+    .timeline-item {
+        padding-left: 15px;
+        padding-right: 0;
+    }
+    
+    /* Ensure all cards have proper internal spacing */
+    .project-content, .activity-content {
+        padding: 15px 12px;
+    }
+    
+    /* Fix any touch target issues */
+    .btn, .nav-link, .project-tags span {
+        padding: 8px 12px;
+    }
+    
+    /* Fix for project card images on small screens */
+    .project-image {
+        height: 180px;
+    }
+}
+
+/* Text Justification and Line Wrapping Improvements */
+p, .timeline-item p, .project-card p, .activity-content p, 
+.about-summary p, .about-text p, .category-description, 
+.timeline-item li, .hero-description p {
+    text-align: justify;
+    text-justify: inter-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+}
+
+/* Enhance text containers to prevent overflow */
+.project-content, .activity-content, .feature-box, 
+.about-card, .skill-category, .contact-content, 
+.timeline-item, .hero-description {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    padding-left: clamp(15px, 5%, 30px);
+    padding-right: clamp(15px, 5%, 30px);
+}
+
+/* Improve mobile text display */
+@media (max-width: 768px) {
+    /* Adjust text justification for smaller screens */
+    p, .timeline-item p, .project-card p, .activity-content p, 
+    .about-summary p, .about-text p, .category-description, 
+    .timeline-item li, .hero-description p {
+        text-align: justify;
+        font-size: 15px;
+        line-height: 1.7;
+        letter-spacing: 0.01em;
+        word-spacing: 0.02em;
+    }
+    
+    /* Increase spacing between paragraphs for better readability */
+    p, .timeline-item p, .project-card p {
+        margin-bottom: 18px;
+    }
+    
+    /* Add extra padding to mobile containers */
+    .container, .about-card, .project-content, .activity-content, 
+    .skill-category, .contact-content, .feature-box, .timeline-item {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+    
+    /* Ensure contact info doesn't overflow */
+    .contact-item p {
+        font-size: 14px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+    }
+    
+    /* Fix font sizes for better mobile readability */
+    .activity-content h4, .project-card h3, .timeline-item h4 {
+        font-size: 20px;
+        letter-spacing: -0.01em;
+    }
+}
+
+/* Further improvements for smaller screens */
+@media (max-width: 480px) {
+    p, .timeline-item p, .project-card p, .activity-content p, 
+    .about-summary p, .about-text p, .category-description, 
+    .timeline-item li, .hero-description p {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+    
+    /* Adjust spacing for container elements */
+    .container, .about-card, .project-content, .activity-content, 
+    .skill-category, .contact-content, .feature-box, .timeline-item {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
 }

@@ -171,23 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 skillsAnimated = true;
             }
         }
-
-        // Add animation for achievement bars when they come into view
-        const extraCurricularSection = document.querySelector('.extra-curricular');
-        if (extraCurricularSection) {
-            const extraCurricularTop = extraCurricularSection.getBoundingClientRect().top;
-            if (extraCurricularTop < windowHeight - 150) {
-                const achievementBars = extraCurricularSection.querySelectorAll('.achievement-progress span');
-                achievementBars.forEach(bar => {
-                    const targetWidth = bar.style.width;
-                    bar.style.width = '0';
-                    
-                    setTimeout(() => {
-                        bar.style.width = targetWidth;
-                    }, 300);
-                });
-            }
-        }
     };
     
     // Form submission handler with enhanced feedback
@@ -454,6 +437,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenuToggle.classList.remove('active');
             }
         });
+    }
+
+    // Typewriter effect for hero section
+    const typewriterElement = document.querySelector('.text-rotate');
+    if (typewriterElement) {
+        const phrases = [
+            'build things for the web',
+            'create digital experiences',
+            'design user interfaces',
+            'develop web applications'
+        ];
+        
+        let currentPhraseIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100; // Base typing speed in ms
+        
+        function typeText() {
+            const currentPhrase = phrases[currentPhraseIndex];
+            
+            // If deleting, remove a character, otherwise add a character
+            if (isDeleting) {
+                currentCharIndex--;
+                typingSpeed = 50; // Faster when deleting
+            } else {
+                currentCharIndex++;
+                typingSpeed = 100; // Normal speed when typing
+            }
+            
+            // Set text with current number of characters
+            typewriterElement.textContent = currentPhrase.substring(0, currentCharIndex);
+            
+            // Add blinking cursor effect
+            typewriterElement.classList.toggle('typing');
+            
+            // If completed typing the phrase
+            if (!isDeleting && currentCharIndex === currentPhrase.length) {
+                // Pause at end of phrase
+                isDeleting = true;
+                typingSpeed = 1000; // Pause before deleting
+            } 
+            // If completed deleting the phrase
+            else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; // Move to next phrase
+                typingSpeed = 500; // Pause before typing new phrase
+            }
+            
+            // Continue the typing effect with appropriate speed
+            setTimeout(typeText, typingSpeed);
+        }
+        
+        // Start the typing effect
+        typeText();
     }
 });
 
