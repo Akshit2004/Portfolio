@@ -177,28 +177,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Add a loading state to the button
+            // Let Formspree handle the actual submission
+            // But we'll still provide visual feedback to the user
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             submitBtn.classList.add('loading');
             
-            // Simulate sending (you would replace this with actual form submission)
+            // We don't prevent default anymore as we want the form to actually submit
+            // The rest of this is just UI feedback, the actual submission is handled by Formspree
             setTimeout(() => {
+                // This might run if the submission is very fast, otherwise the page will refresh
                 submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
                 submitBtn.classList.remove('loading');
                 submitBtn.classList.add('success');
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('success');
-                }, 2000);
-            }, 1500);
+            }, 1000);
         });
     }
     
