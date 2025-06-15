@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 80,
+                    value: 40,
                     density: {
                         enable: true,
                         value_area: 800
@@ -173,22 +173,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    // Form submission handler with enhanced feedback
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            // Let Formspree handle the actual submission
-            // But we'll still provide visual feedback to the user
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             submitBtn.classList.add('loading');
             
-            // We don't prevent default anymore as we want the form to actually submit
-            // The rest of this is just UI feedback, the actual submission is handled by Formspree
             setTimeout(() => {
-                // This might run if the submission is very fast, otherwise the page will refresh
                 submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
                 submitBtn.classList.remove('loading');
                 submitBtn.classList.add('success');
@@ -196,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Enhanced stats counter animation with easing
     const statCounts = document.querySelectorAll('.stat-count');
     let countersStarted = false;
     let skillsAnimated = false;
@@ -348,9 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize project tabs
     initProjectTabs();
-
-    // Initialize cursor effect with enhanced interactivity
-    initCursorEffect();
     
     // Add parallax effect to decorations on mouse move
     document.addEventListener('mousemove', (e) => {
@@ -507,54 +497,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-// Enhanced cursor effect
-function initCursorEffect() {
-    const cursor = document.createElement('div');
-    cursor.className = 'cursor-fx';
-    document.body.appendChild(cursor);
-    
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    // Items that trigger the cursor effect
-    const hoverItems = document.querySelectorAll('.btn, .nav-link, .project-card, .feature-box, .social-links a, .stat-item, .timeline-item');
-    
-    hoverItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            cursor.classList.add('active');
-        });
-        
-        item.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-        });
-    });
-    
-    function animateCursor() {
-        const speed = 0.1;
-        cursorX += (mouseX - cursorX) * speed;
-        cursorY += (mouseY - cursorY) * speed;
-        
-        cursor.style.left = `${cursorX}px`;
-        cursor.style.top = `${cursorY}px`;
-        requestAnimationFrame(animateCursor);
-    }
-    
-    animateCursor();
-    
-    // Hide cursor when mouse leaves window
-    document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
-    });
-    
-    document.addEventListener('mouseenter', () => {
-        cursor.style.opacity = '1';
-    });
-}
