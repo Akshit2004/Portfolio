@@ -176,20 +176,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             submitBtn.classList.add('loading');
-            
+
             setTimeout(() => {
                 submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
                 submitBtn.classList.remove('loading');
                 submitBtn.classList.add('success');
+                // Show toast message
+                showToast('Message sent successfully!');
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('success');
+                    contactForm.reset();
+                }, 2000);
             }, 1000);
         });
     }
-    
+
+    // Toast message function
+    function showToast(message) {
+        let toast = document.createElement('div');
+        toast.className = 'custom-toast';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 100);
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 400);
+        }, 2500);
+    }
+
     const statCounts = document.querySelectorAll('.stat-count');
     let countersStarted = false;
     let skillsAnimated = false;

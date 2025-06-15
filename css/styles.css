@@ -3033,3 +3033,26 @@ img {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
+
+/* Toast message styles */
+.custom-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  background: var(--accent-color);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.4s, transform 0.4s;
+}
+.custom-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
