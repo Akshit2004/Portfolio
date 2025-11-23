@@ -11,22 +11,22 @@ export default function Contact() {
   const links = [
     {
       name: "Email",
-      url: "mailto:hello@example.com",
+      url: "mailto:akshumahajan2004@gmail.com",
       image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=2070&auto=format&fit=crop"
     },
     {
       name: "LinkedIn",
-      url: "#",
+      url: "https://www.linkedin.com/in/akshit0mahajan/",
       image: "https://tse1.mm.bing.net/th/id/OIP.mtmVoOewnfe3PRfHxahTqwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
     },
     {
       name: "GitHub",
-      url: "#",
+      url: "https://github.com/Akshit2004",
       image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2088&auto=format&fit=crop"
     },
     {
       name: "Instagram",
-      url: "#",
+      url: "https://www.instagram.com/_akshitmahajan",
       image: "https://colorlib.com/wp/wp-content/uploads/sites/2/instagram-image-size.jpg"
     }
   ];

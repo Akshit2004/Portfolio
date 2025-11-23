@@ -19,7 +19,8 @@ export default function Work() {
       color: "bg-[#0B1120]",
       accent: "text-blue-400",
       year: "2025",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2070&auto=format&fit=crop",
+      url: "https://github.com/Akshit2004/EonDesk"
     },
     {
       id: 2,
@@ -29,7 +30,8 @@ export default function Work() {
       color: "bg-[#1a0505]",
       accent: "text-red-400",
       year: "2024",
-      image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070&auto=format&fit=crop"
+      image: "https://img.freepik.com/premium-photo/office-documents-papers-office-documents-papers_912214-68300.jpg",
+      url: "https://github.com/Akshit2004/Pdfeditor"
     },
     {
       id: 3,
@@ -39,7 +41,8 @@ export default function Work() {
       color: "bg-[#051a05]",
       accent: "text-green-400",
       year: "2023",
-      image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=2080&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=2080&auto=format&fit=crop",
+      url: "https://github.com/Akshit2004/Recipe-Finder"
     },
     {
       id: 4,
@@ -49,7 +52,8 @@ export default function Work() {
       color: "bg-[#050a1a]",
       accent: "text-cyan-400",
       year: "2023",
-      image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2070&auto=format&fit=crop",
+      url: "https://github.com/TenSketch/Aaradhaya-UI-React"
     }
   ];
 
@@ -138,7 +142,12 @@ export default function Work() {
                 </div>
 
                 <div className="mt-8 md:mt-0">
-                  <button className="group flex items-center gap-3 text-lg font-medium hover:text-white/80 transition-colors">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-3 text-lg font-medium hover:text-white/80 transition-colors"
+                  >
                     View Project
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all group-hover:scale-110">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform -rotate-45 group-hover:rotate-0 transition-transform duration-300">
@@ -146,7 +155,7 @@ export default function Work() {
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
                     </div>
-                  </button>
+                  </a>
                 </div>
               </div>
 
