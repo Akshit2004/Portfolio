@@ -29,7 +29,7 @@ export default function Work() {
       description: "A privacy-focused PDF editor built with React and PDF.js. Features merging, page reordering, and annotation tools with zero server-side processing.",
       color: "bg-[#1a0505]",
       accent: "text-red-400",
-      year: "2024",
+      year: "2025",
       image: "https://img.freepik.com/premium-photo/office-documents-papers-office-documents-papers_912214-68300.jpg",
       url: "https://github.com/Akshit2004/Pdfeditor"
     },
@@ -40,7 +40,7 @@ export default function Work() {
       description: "Smart recipe discovery platform with dietary filtering and personalized recommendations. Integrated with external APIs for real-time culinary data.",
       color: "bg-[#051a05]",
       accent: "text-green-400",
-      year: "2023",
+      year: "2025",
       image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=2080&auto=format&fit=crop",
       url: "https://github.com/Akshit2004/Recipe-Finder"
     },
@@ -51,7 +51,7 @@ export default function Work() {
       description: "Modernized legacy platform for the SP Balasubramaniam trust. React frontend with Node.js backend for transaction tracking and admin management.",
       color: "bg-[#050a1a]",
       accent: "text-cyan-400",
-      year: "2023",
+      year: "2025",
       image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2070&auto=format&fit=crop",
       url: "https://github.com/TenSketch/Aaradhaya-UI-React"
     }

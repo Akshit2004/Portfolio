@@ -104,7 +104,7 @@ export default function Experience() {
       id: 2,
       role: "Software Developer Intern",
       company: "Eon Infotech Limited (Chandigarh)",
-      period: "June 2024 — July 2024",
+      period: "June 2025 — July 2025",
       summary: "Developed an internal ticketing system for the support team to manage and resolve client issues efficiently using React.js and PostgreSQL.",
       stack: ["React.js", "PostgreSQL", "Node.js", "Express"],
       impact: "Improved issue resolution time by streamlining support operations with live status tracking and efficient escalation processes.",
@@ -113,6 +113,15 @@ export default function Experience() {
 
   const education: EducationItem[] = [
     {
+      id: 2,
+      degree: "Product Management & Agentic AI",
+      institution: "MASAIxBITSOM",
+      period: "2025 - 2026",
+      summary: "Advanced certification program focusing on product management principles and cutting-edge AI agent technologies.",
+      coursework: ["Product Strategy", "Agentic AI", "Product Management"],
+      achievements: "Completed intensive program combining business strategy with modern AI implementation.",
+    },
+    {
       id: 1,
       degree: "B.Tech — Computer Science Engineering",
       institution: "Jaypee University of Information Technology",
@@ -120,16 +129,7 @@ export default function Experience() {
       summary: "Focused on full-stack development, data structures, and modern web technologies.",
       coursework: ["Data Structures", "Web Development", "Database Management"],
       achievements: "Comprehensive computer science education with hands-on project experience.",
-    },
-    {
-      id: 2,
-      degree: "Product Management & Agentic AI",
-      institution: "MASAIxBITSOM",
-      period: "2025 - 2026",
-      summary: "Advanced certification program focusing on product management principles and cutting-edge AI agent technologies.",
-      coursework: ["Product Strategy", "Agentic AI", "ML Systems"],
-      achievements: "Completed intensive program combining business strategy with modern AI implementation.",
-    },
+    }
   ];
 
   useEffect(() => {
