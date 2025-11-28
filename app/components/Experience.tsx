@@ -6,13 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Highlight = {
-  id: string;
-  title: string;
-  value: string;
-  detail: string;
-};
-
 type ExperienceItem = {
   id: number;
   role: string;
@@ -67,29 +60,7 @@ const ScrambleText = ({ text, className }: { text: string; className?: string })
 
 export default function Experience() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const kineticRef = useRef<HTMLDivElement>(null);
-
-  const highlights: Highlight[] = [
-    {
-      id: "projects",
-      title: "Projects Shipped",
-      value: "04",
-      detail: "Full-stack applications deployed",
-    },
-    {
-      id: "stack",
-      title: "Tech Stack",
-      value: "10+",
-      detail: "Modern frameworks & tools mastered",
-    },
-    {
-      id: "focus",
-      title: "Current Focus",
-      value: "AI",
-      detail: "Product Management & Agentic AI",
-    },
-  ];
-
+  
   const experiences: ExperienceItem[] = [
     {
       id: 1,
@@ -134,34 +105,57 @@ export default function Experience() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Kinetic Typography Parallax
-      const kineticRows = gsap.utils.toArray<HTMLElement>(".kinetic-row");
-      kineticRows.forEach((row, i) => {
-        gsap.to(row, {
-          xPercent: i % 2 === 0 ? -20 : 20,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.5,
-          },
+      // Spotlight Effect
+      const cards = document.querySelectorAll(".holo-card");
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (e: any) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          (card as HTMLElement).style.setProperty("--mouse-x", `${x}px`);
+          (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
         });
       });
 
-      // Data Slate Card Entrance
-      const cards = gsap.utils.toArray<HTMLElement>(".data-slate");
-      cards.forEach((card) => {
-        gsap.from(card, {
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
+      // Staggered Entrance for Cards
+      gsap.utils.toArray<HTMLElement>(".reveal-card").forEach((card) => {
+        gsap.fromTo(
+          card,
+          { 
+            y: 100, 
+            opacity: 0,
+            rotateX: -10,
+            scale: 0.9
           },
-        });
+          {
+            y: 0,
+            opacity: 1,
+            rotateX: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            },
+          }
+        );
+      });
+
+      // Sticky Title Animation
+      const sections = gsap.utils.toArray<HTMLElement>(".sticky-section");
+      sections.forEach((section) => {
+        const title = section.querySelector(".sticky-title");
+        if (title) {
+          ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            end: "bottom bottom",
+            pin: title,
+            pinSpacing: false,
+          });
+        }
       });
 
     }, containerRef);
@@ -172,128 +166,155 @@ export default function Experience() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-32 bg-black text-white overflow-hidden"
+      className="relative w-full py-32 bg-black text-white overflow-hidden selection:bg-cyan-500/30"
     >
-      {/* Kinetic Typography Background */}
-      <div ref={kineticRef} className="absolute inset-0 flex flex-col justify-center opacity-[0.03] pointer-events-none select-none overflow-hidden">
-        <div className="kinetic-row text-[20vw] font-black leading-[0.8] whitespace-nowrap text-white">
-          EXPERIENCE EDUCATION BUILD SHIP
-        </div>
-        <div className="kinetic-row text-[20vw] font-black leading-[0.8] whitespace-nowrap text-white ml-[-50vw]">
-          DESIGN CODE DEPLOY SCALE INNOVATE
-        </div>
-        <div className="kinetic-row text-[20vw] font-black leading-[0.8] whitespace-nowrap text-white">
-          FUTURE ORIGIN ORBIT SYSTEM DATA
-        </div>
+      {/* Ambient Background Glow */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[20%] left-[-10%] w-[50vw] h-[50vw] bg-cyan-500/10 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[50vw] h-[50vw] bg-purple-500/10 rounded-full blur-[120px] mix-blend-screen animate-pulse delay-1000" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-10 z-10">
         
-        {/* Header Section */}
+        {/* Header */}
         <div className="mb-32">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/20 pb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 bg-cyan-500 animate-pulse" />
-                <span className="font-mono text-xs text-cyan-500 tracking-widest uppercase">
-                  <ScrambleText text="System Log: v2.4.0" />
-                </span>
-              </div>
-              <h2 className="text-6xl md:text-8xl font-bold tracking-tighter">
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">
-                  JOURNEY
-                </span>
-              </h2>
-            </div>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-2 h-2 bg-cyan-500 animate-pulse shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
+            <span className="font-mono text-xs text-cyan-500 tracking-[0.2em] uppercase">
+              <ScrambleText text="System Log: v2.4.0" />
+            </span>
           </div>
+          <h2 className="text-7xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/10">
+            JOURNEY
+          </h2>
         </div>
 
-
-        {/* Main Content Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          
-          {/* Experience Column */}
-          <div className="space-y-16">
-            <div className="flex items-center gap-4 mb-12">
-              <span className="font-mono text-4xl text-cyan-500/50">01</span>
-              <h3 className="text-3xl font-bold tracking-tight">Professional Orbit</h3>
+        {/* Experience Section */}
+        <div className="sticky-section grid grid-cols-1 lg:grid-cols-12 gap-12 mb-40">
+          <div className="lg:col-span-4 relative">
+            <div className="sticky-title lg:h-screen lg:sticky lg:top-32 flex flex-col justify-start">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="font-mono text-6xl text-cyan-500/20 font-bold">01</span>
+                <h3 className="text-4xl font-bold tracking-tight">Experience</h3>
+              </div>
+              <p className="text-neutral-500 max-w-xs leading-relaxed hidden lg:block">
+                Professional milestones and contributions to the digital ecosystem.
+              </p>
+              <div className="mt-12 hidden lg:block w-px h-32 bg-gradient-to-b from-cyan-500/50 to-transparent" />
             </div>
+          </div>
 
-            <div className="space-y-8">
-              {experiences.map((item) => (
-                <div key={item.id} className="data-slate group relative">
-                  {/* Chromatic Aberration Effect on Hover */}
-                  <div className="absolute inset-0 bg-cyan-500/0 group-hover:bg-cyan-500/5 transition-colors duration-300 -skew-x-6 rounded-sm" />
-                  
-                  <div className="relative border-l-2 border-white/10 pl-8 py-2 group-hover:border-cyan-500 transition-colors duration-300">
-                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-4">
-                      <h4 className="text-2xl font-bold group-hover:translate-x-2 transition-transform duration-300">
+          <div className="lg:col-span-8 space-y-8">
+            {experiences.map((item) => (
+              <div 
+                key={item.id} 
+                className="holo-card reveal-card group relative bg-neutral-900/40 border border-white/5 p-8 rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 hover:border-cyan-500/30"
+                style={{ "--mouse-x": "0px", "--mouse-y": "0px" } as React.CSSProperties}
+              >
+                {/* Spotlight Gradient */}
+                <div 
+                  className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(6,182,212,0.15), transparent 40%)`
+                  }}
+                />
+                
+                <div className="relative z-10">
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                    <div>
+                      <h4 className="text-3xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
                         {item.role}
                       </h4>
-                      <span className="font-mono text-xs text-neutral-500 group-hover:text-cyan-500 transition-colors">
-                        {item.period}
-                      </span>
+                      <p className="text-xl text-neutral-400 mt-1">{item.company}</p>
                     </div>
-                    
-                    <p className="text-lg text-neutral-400 mb-4 font-medium">{item.company}</p>
-                    <p className="text-neutral-400 leading-relaxed mb-6 text-sm max-w-md">
-                      {item.summary}
-                    </p>
+                    <span className="font-mono text-xs px-3 py-1 rounded-full border border-white/10 bg-white/5 text-cyan-200 whitespace-nowrap">
+                      {item.period}
+                    </span>
+                  </div>
 
-                    <div className="flex flex-wrap gap-3">
-                      {item.stack.map((tech) => (
-                        <span key={tech} className="font-mono text-[10px] uppercase border border-white/20 px-2 py-1 text-neutral-400 group-hover:border-cyan-500/50 group-hover:text-cyan-400 transition-colors">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  <p className="text-neutral-300 leading-relaxed mb-8 text-lg">
+                    {item.summary}
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
+                    {item.stack.map((tech) => (
+                      <span 
+                        key={tech} 
+                        className="font-mono text-xs uppercase px-3 py-1.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-colors"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education Section */}
+        <div className="sticky-section grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4 relative">
+            <div className="sticky-title lg:h-screen lg:sticky lg:top-32 flex flex-col justify-start">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="font-mono text-6xl text-purple-500/20 font-bold">02</span>
+                <h3 className="text-4xl font-bold tracking-tight">Education</h3>
+              </div>
+              <p className="text-neutral-500 max-w-xs leading-relaxed hidden lg:block">
+                Academic foundations and specialized certifications.
+              </p>
+              <div className="mt-12 hidden lg:block w-px h-32 bg-gradient-to-b from-purple-500/50 to-transparent" />
             </div>
           </div>
 
-          {/* Education Column */}
-          <div className="space-y-16 pt-0 lg:pt-32">
-            <div className="flex items-center gap-4 mb-12">
-              <span className="font-mono text-4xl text-purple-500/50">02</span>
-              <h3 className="text-3xl font-bold tracking-tight">Academic Origin</h3>
-            </div>
-
-            <div className="space-y-8">
-              {education.map((item) => (
-                <div key={item.id} className="data-slate group relative">
-                  <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/5 transition-colors duration-300 -skew-x-6 rounded-sm" />
-                  
-                  <div className="relative border-l-2 border-white/10 pl-8 py-2 group-hover:border-purple-500 transition-colors duration-300">
-                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-4">
-                      <h4 className="text-2xl font-bold group-hover:translate-x-2 transition-transform duration-300">
+          <div className="lg:col-span-8 space-y-8">
+            {education.map((item) => (
+              <div 
+                key={item.id} 
+                className="holo-card reveal-card group relative bg-neutral-900/40 border border-white/5 p-8 rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 hover:border-purple-500/30"
+                style={{ "--mouse-x": "0px", "--mouse-y": "0px" } as React.CSSProperties}
+              >
+                {/* Spotlight Gradient */}
+                <div 
+                  className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(168,85,247,0.15), transparent 40%)`
+                  }}
+                />
+                
+                <div className="relative z-10">
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                    <div>
+                      <h4 className="text-3xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
                         {item.degree}
                       </h4>
-                      <span className="font-mono text-xs text-neutral-500 group-hover:text-purple-500 transition-colors">
-                        {item.period}
-                      </span>
+                      <p className="text-xl text-neutral-400 mt-1">{item.institution}</p>
                     </div>
-                    
-                    <p className="text-lg text-neutral-400 mb-4 font-medium">{item.institution}</p>
-                    <p className="text-neutral-400 leading-relaxed mb-6 text-sm max-w-md">
-                      {item.summary}
-                    </p>
+                    <span className="font-mono text-xs px-3 py-1 rounded-full border border-white/10 bg-white/5 text-purple-200 whitespace-nowrap">
+                      {item.period}
+                    </span>
+                  </div>
 
-                    <div className="flex flex-wrap gap-3">
-                      {item.coursework.map((course) => (
-                        <span key={course} className="font-mono text-[10px] uppercase border border-white/20 px-2 py-1 text-neutral-400 group-hover:border-purple-500/50 group-hover:text-purple-400 transition-colors">
-                          {course}
-                        </span>
-                      ))}
-                    </div>
+                  <p className="text-neutral-300 leading-relaxed mb-8 text-lg">
+                    {item.summary}
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
+                    {item.coursework.map((course) => (
+                      <span 
+                        key={course} 
+                        className="font-mono text-xs uppercase px-3 py-1.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors"
+                      >
+                        {course}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-
         </div>
+
       </div>
     </section>
   );
