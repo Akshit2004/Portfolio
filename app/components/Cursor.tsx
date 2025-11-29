@@ -3,6 +3,13 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
+/**
+ * Renders a custom cursor and a larger follower that track the mouse and animate on interactive element hover.
+ *
+ * The component attaches mouse movement and hover listeners (links and buttons) to animate the two cursor elements and removes those listeners on unmount.
+ *
+ * @returns A React element containing two fixed-position divs: a small primary cursor and a larger follower used for animations.
+ */
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);

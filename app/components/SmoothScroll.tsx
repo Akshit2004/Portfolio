@@ -7,6 +7,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * Initializes Lenis smooth vertical scrolling and integrates it with GSAP ScrollTrigger for the component subtree.
+ *
+ * Sets up a Lenis instance with custom easing and duration, subscribes ScrollTrigger updates to Lenis scroll events,
+ * attaches a GSAP ticker callback that drives Lenis's RAF, and cleans up all listeners and the Lenis instance on unmount.
+ *
+ * @param children - The elements to render inside the smooth-scroll context
+ * @returns The rendered `children` wrapped in a fragment
+ */
 export default function SmoothScroll({
   children,
 }: {

@@ -7,6 +7,13 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * Renders a "Selected Works" portfolio section with stacked, scroll-animated project cards.
+ *
+ * Sets up GSAP ScrollTrigger animations that scale, dim, and blur the previous card as the next card scrolls into view.
+ *
+ * @returns The JSX element for the portfolio section containing project cards and their interactive image/content layout.
+ */
 export default function Work() {
   const containerRef = useRef<HTMLDivElement>(null);
 

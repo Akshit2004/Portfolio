@@ -3,6 +3,11 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
+/**
+ * Render the fullscreen animated hero section containing a split-character title, a scramble-revealed subheading, interactive parallax blobs, and a scroll indicator.
+ *
+ * @returns A JSX element containing the animated hero section
+ */
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);

@@ -4,6 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 
+/**
+ * Render the contact section with animated entrance and hover-driven background imagery.
+ *
+ * Sets up a scroll-triggered reveal for each contact link and updates background visibility and text emphasis based on hover state.
+ *
+ * @returns The rendered contact section element
+ */
 export default function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
