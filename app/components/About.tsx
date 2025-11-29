@@ -7,6 +7,14 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * Render the "About" section containing a bento-style grid of profile, bio, status, and a tech-stack marquee.
+ *
+ * The section includes a live clock display, entrance animations for grid items, and two continuously scrolling
+ * marquee rows showcasing technologies.
+ *
+ * @returns The About section as a React element.
+ */
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
   const marqueeRef1 = useRef<HTMLDivElement>(null);

@@ -65,6 +65,15 @@ const ScrambleText = ({ text, className }: { text: string; className?: string })
   return <span className={className}>{display}</span>;
 };
 
+/**
+ * Render the "JOURNEY" section presenting professional experience and education with interactive UI elements.
+ *
+ * The component displays two columns (Experience and Education), decorative kinetic typography in the background,
+ * animated entrance effects for content cards, and hover interactions for slate cards and tech/coursework badges.
+ * It sets up GSAP ScrollTrigger-driven animations for the kinetic rows (parallax) and for card entrance animations.
+ *
+ * @returns The section JSX containing the Journey content and its associated animations and interactions.
+ */
 export default function Experience() {
   const containerRef = useRef<HTMLDivElement>(null);
   const kineticRef = useRef<HTMLDivElement>(null);
