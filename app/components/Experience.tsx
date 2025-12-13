@@ -64,12 +64,12 @@ export default function Experience() {
   const experiences: ExperienceItem[] = [
     {
       id: 1,
-      role: "Frontend Developer",
+      role: "Full-Stack Developer",
       company: "TenSketch (Remote)",
       period: "March 2025 — Present",
-      summary: "Developing and optimizing responsive web projects for business clients. Redesigned corporate website for Paris region using HTML5, SCSS, and vanilla JavaScript.",
-      stack: ["HTML5", "SCSS", "JavaScript", "GSAP"],
-      impact: "Enhanced UX through GSAP animations resulting in a 50% increase in organic traffic within the first month.",
+      summary: "Contributed across frontend, backend, and end-to-end projects—building responsive UIs, designing and implementing APIs, and shipping full-stack features for client-facing products.",
+      stack: ["HTML5", "SCSS", "JavaScript", "GSAP", "Tailwind CSS", "React.js", "Next.js", "Node.js"],
+      impact: "Delivered cross-functional features that improved UX and performance, while collaborating closely with designers and backend teams.",
     },
     {
       id: 2,
@@ -106,9 +106,9 @@ export default function Experience() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Spotlight Effect
-      const cards = document.querySelectorAll(".holo-card");
+      const cards = document.querySelectorAll<HTMLElement>(".holo-card");
       cards.forEach((card) => {
-        card.addEventListener("mousemove", (e: any) => {
+        card.addEventListener("mousemove", (e: MouseEvent) => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;

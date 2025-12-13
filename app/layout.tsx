@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://akshitmahajan.com"),
   title: "Akshit Mahajan | Portfolio",
   description: "Portfolio of Akshit Mahajan, a Full Stack Developer building digital experiences with precision and passion.",
   keywords: ["Akshit Mahajan", "Portfolio", "Full Stack Developer", "Web Developer", "Next.js", "React", "TypeScript", "Frontend Developer", "Software Engineer"],

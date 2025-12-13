@@ -44,17 +44,34 @@ export default function Work() {
       image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=2080&auto=format&fit=crop",
       url: "https://github.com/Akshit2004/Recipe-Finder"
     },
-    {
+     {
       id: 4,
+      title: "Trip Buddy",
+      category: "AI Travel Platform",
+      description: "An AI-powered travel companion built with Next.js and Firebase that generates personalized day-by-day itineraries, integrates hotel & flight search, and manages bookings through a secure user profile.",
+      note: "Personal project — built end-to-end features including AI trip planning, booking flows, and user profiles.",
+      color: "bg-[#071524]",
+      accent: "text-amber-400",
+      year: "2025",
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2080&auto=format&fit=crop",
+      url: "https://github.com/Akshit2004/Trip-Buddy"
+    },
+
+    {
+      id: 5,
       title: "Aaradhya Trust",
       category: "Full Stack Modernization",
-      description: "Modernized legacy platform for the SP Balasubramaniam trust. React frontend with Node.js backend for transaction tracking and admin management.",
+      description: "Modernized the Aaradhya Trust website by rebuilding it with React and Node.js, adding transaction tracking, and enhancing content management through admin tools.",
+      note: "Built at TenSketch — special thanks to Balachandiran for the invaluable internship opportunity.",
       color: "bg-[#050a1a]",
       accent: "text-cyan-400",
       year: "2025",
-      image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2070&auto=format&fit=crop",
-      url: "https://github.com/TenSketch/Aaradhaya-UI-React"
+      image: "/Aaradhya-Trust-Honouring-the-Eternal-Legacy-of-S-P-Balasubrahmanyam-12-03-2025_12_56_AM.png",
+      url: "https://github.com/TenSketch/Aaradhaya-UI-React",
+      companyUrl: "https://tensketch.com",
+      creditLink: "https://www.linkedin.com/in/balachandirantensketch/"
     }
+   
   ];
 
   useEffect(() => {
@@ -64,8 +81,8 @@ export default function Work() {
       cards.forEach((card, i) => {
         const scale = 1 - (cards.length - i) * 0.05;
         
-        // Set initial z-index to ensure correct stacking order
-        gsap.set(card, { zIndex: i + 1 });
+        // Set initial z-index and scale to ensure correct stacking order and layout
+        gsap.set(card, { zIndex: i + 1, scale });
 
         // Animate the previous card when the current card enters
         if (i > 0) {
@@ -113,7 +130,7 @@ export default function Work() {
 
       {/* Stacked Cards Container */}
       <div className="flex flex-col items-center w-full gap-10 pb-40">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <div 
             key={project.id}
             className="project-card sticky top-20 w-full max-w-5xl h-[70vh] md:h-[80vh] rounded-3xl overflow-hidden border border-white/10 shadow-2xl origin-top"
@@ -139,6 +156,24 @@ export default function Work() {
                   <p className="text-neutral-400 text-lg leading-relaxed">
                     {project.description}
                   </p>
+                  {project.note && (
+                    <div className="mt-6 text-sm text-neutral-400">
+                      <p>
+                        {project.note} {project.companyUrl && (
+                          <a href={project.companyUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-white/80 ml-1">
+                            TenSketch
+                          </a>
+                        )}
+                      </p>
+                      {project.creditLink && (
+                        <p className="mt-2">
+                          <a href={project.creditLink} target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-white/80 underline">
+                            Thank you, Balachandiran
+                          </a>
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-8 md:mt-0">
@@ -162,14 +197,9 @@ export default function Work() {
               {/* Image Side */}
               <div className="relative w-full md:w-1/2 h-full overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/20 z-10" />
-                {/* Using a standard img tag for the example if Next Image is tricky with external URLs without config, 
-                    but I'll use Next Image and assume domains are configured or I'll just use standard img for safety if I can't check config.
-                    Actually, I checked next.config.ts and it was small, likely didn't have images configured. 
-                    I'll use a regular img tag to avoid 'hostname not configured' errors for these unsplash images.
-                */}
                 <Image 
                   src={project.image} 
-                  alt={project.title}
+                  alt={`${project.title} website screenshot`}
                   fill
                   className="object-cover transform hover:scale-105 transition-transform duration-700"
                   unoptimized
