@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
+import { CommandMenu } from "./components/CommandMenu";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -66,6 +68,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <SmoothScroll>
+          <CommandMenu />
           {children}
         </SmoothScroll>
       </body>

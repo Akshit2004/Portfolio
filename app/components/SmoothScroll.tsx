@@ -21,6 +21,9 @@ export default function SmoothScroll({
       smoothWheel: true,
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).lenis = lenis;
+
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
@@ -30,6 +33,8 @@ export default function SmoothScroll({
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).lenis = null;
       lenis.destroy();
       gsap.ticker.remove((time) => {
         lenis.raf(time * 1000);

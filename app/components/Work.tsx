@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -35,14 +35,14 @@ export default function Work() {
     },
     {
       id: 3,
-      title: "CulinaryQ",
-      category: "Web Application",
-      description: "Smart recipe discovery platform with dietary filtering and personalized recommendations. Integrated with external APIs for real-time culinary data.",
-      color: "bg-[#051a05]",
-      accent: "text-green-400",
+      title: "Flow",
+      category: "Project Management",
+      description: "A high-performance, Jira-style Kanban board built for speed and clarity. Features drag-and-drop task management, real-time collaboration, and a professional dark-mode interface.",
+      color: "bg-[#0a0a0a]",
+      accent: "text-blue-500",
       year: "2025",
-      image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=2080&auto=format&fit=crop",
-      url: "https://github.com/Akshit2004/Recipe-Finder"
+      image: "/flow_dashboard.png",
+      url: "https://github.com/Akshit2004/flow"
     },
      {
       id: 4,

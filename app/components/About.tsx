@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { GitHubCalendar } from 'react-github-calendar';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -133,7 +134,7 @@ export default function About() {
              </div>
           </div>
 
-          {/* Location & Time Card */}
+          {/* Location Card */}
           <div className="bento-item md:col-span-1 p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-sm hover:bg-neutral-900/80 transition-colors duration-500 flex flex-col justify-between min-h-[180px]">
             <div className="flex justify-between items-start">
               <div className="p-2 bg-white/5 rounded-full">
@@ -142,7 +143,6 @@ export default function About() {
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </div>
-              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Location</span>
             </div>
             <div>
               <h4 className="text-3xl font-bold text-white mb-1">{time}</h4>
@@ -150,35 +150,29 @@ export default function About() {
             </div>
           </div>
 
-          {/* Music/Soundtrack Card */}
-          <div className="bento-item md:col-span-1 p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-sm hover:bg-neutral-900/80 transition-colors duration-500 flex flex-col justify-between min-h-[180px]">
-             <div className="flex justify-between items-start">
-              <div className="flex gap-1 items-end h-5">
-                <div className="w-1 bg-green-500 h-2 animate-[bounce_1s_infinite]"></div>
-                <div className="w-1 bg-green-500 h-4 animate-[bounce_1.2s_infinite]"></div>
-                <div className="w-1 bg-green-500 h-3 animate-[bounce_0.8s_infinite]"></div>
-                <div className="w-1 bg-green-500 h-5 animate-[bounce_1.1s_infinite]"></div>
+          {/* GitHub Activity Card */}
+          <div className="bento-item md:col-span-2 p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-sm hover:bg-neutral-900/80 transition-colors duration-500 flex flex-col justify-between min-h-[180px] overflow-hidden">
+             <div className="flex justify-between items-start mb-4">
+              <div className="p-2 bg-white/5 rounded-full">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-400">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
               </div>
-              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">On Repeat</span>
+              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Contributions</span>
             </div>
-            <div>
-              <h4 className="text-xl font-bold text-white mb-1 truncate">20 Mins</h4>
-              <p className="text-neutral-400 text-sm">Lil Uzi Vert</p>
-            </div>
-          </div>
-
-          {/* Status Card */}
-          <div className="bento-item md:col-span-1 p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-sm hover:bg-neutral-900/80 transition-colors duration-500 flex flex-col justify-between min-h-[180px]">
-             <div className="flex justify-between items-start">
-              <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-              </div>
-              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Status</span>
-            </div>
-            <div>
-              <h4 className="text-xl font-bold text-white mb-1">Available</h4>
-              <p className="text-neutral-400 text-sm">For Freelance Work</p>
+            <div className="w-full flex items-center justify-center">
+               <GitHubCalendar 
+                 username="Akshit2004" 
+                 colorScheme="dark"
+                 transformData={(data) => data.slice(100)}
+                 blockSize={12}
+                 blockMargin={4}
+                 fontSize={12}
+                 theme={{
+                   dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+                 }}
+                 style={{ color: '#a3a3a3' }}
+               />
             </div>
           </div>
 
