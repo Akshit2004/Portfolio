@@ -40,3 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 temp_backup/
+
+# AI and Agent tools
+.agents/
+.claude/
+.codex/
+.opencode/
+.agent/

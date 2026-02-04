@@ -59,14 +59,11 @@ export function CommandMenu() {
       document.body.style.textShadow = 'none';
     } else {
       html.classList.add('matrix-mode');
-      // Simple matrix effect via class
     }
     setMatrixMode(!matrixMode);
   };
 
-  // Manage Lenis state when menu opens/closes
   React.useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const lenis = (window as any).lenis;
     if (lenis) {
       if (open) {
