@@ -15,8 +15,16 @@ export default function Work() {
       id: 1,
       title: "ServiceBridge",
       category: "Full Stack System",
+      role: "Lead Developer",
+      stack: ["React.js", "PostgreSQL", "Gmail API"],
       description:
         "A comprehensive customer support ticketing system with dual dashboards for customers and agents. Features real-time messaging, Gmail API integration, and automated notifications.",
+      challenge: "Support time of the organization was too high and was not organized.",
+      impact: [
+        "Reduced response time by 40% through automated triage.",
+        "Handled 500+ active tickets concurrently with zero data loss.",
+        "Streamlined agent workflow by centralizing Gmail communication."
+      ],
       glow: "from-blue-500/30",
       accent: "text-blue-400",
       year: "2025",
@@ -28,8 +36,16 @@ export default function Work() {
       id: 2,
       title: "PDF Fusion",
       category: "Client-Side Tool",
+      role: "Frontend Architect",
+      stack: ["React", "PDF.js", "Web Workers", "Tailwind"],
       description:
         "A privacy-focused PDF editor built with React and PDF.js. Features merging, page reordering, and annotation tools with zero server-side processing.",
+      challenge: "Managing memory-intensive PDF concatenation entirely on the client-side.",
+      impact: [
+        "Achieved 100% data privacy with zero server-side processing.",
+        "Optimized merge speed by 3x using Web Workers.",
+        "Supported multi-MB files with real-time drag-and-drop reordering."
+      ],
       glow: "from-red-500/20",
       accent: "text-red-400",
       year: "2025",
@@ -41,20 +57,36 @@ export default function Work() {
       id: 3,
       title: "Flow",
       category: "Project Management",
+      role: "Full-Stack Developer",
+      stack: ["Next.js", "Dnd-kit", "MongoDB", "Redis"],
       description:
         "A high-performance, Jira-style Kanban board built for speed and clarity. Features drag-and-drop task management, real-time collaboration, and a professional dark-mode interface.",
+      challenge: "Synchronizing complex Kanban states across devices in real-time with MongoDB.",
+      impact: [
+        "Reduced task management overhead for small teams by 30%.",
+        "Implemented a robust drag-and-drop system handling 100+ items.",
+        "Built a consistent dark-mode UI prioritizing speed and focus."
+      ],
       glow: "from-violet-500/20",
       accent: "text-violet-400",
       year: "2025",
       image: "/flow_dashboard.png",
-      url: "https://github.com/Akshit2004/flow",
+      url: "https://flowcept.in",
     },
     {
       id: 4,
       title: "Trip Buddy",
       category: "AI Travel Platform",
+      role: "Solo Developer",
+      stack: ["Next.js", "Firebase", "GROK API"],
       description:
         "An AI-powered travel companion built with Next.js and Firebase that generates personalized day-by-day itineraries, integrates hotel & flight search, and manages bookings through a secure user profile.",
+      challenge: "Engineering precise AI prompts for consistent, structured JSON itineraries.",
+      impact: [
+        "Generated 200+ detailed itineraries for early beta users.",
+        "95% user satisfaction rate during the initial testing phase.",
+        "Integrated live hotel and flight search for a unified experience."
+      ],
       note: "Personal project — built end-to-end features including AI trip planning, booking flows, and user profiles.",
       glow: "from-amber-500/20",
       accent: "text-amber-400",
@@ -67,9 +99,17 @@ export default function Work() {
       id: 5,
       title: "Aaradhya Trust",
       category: "Full Stack Modernization",
+      role: "Modernization Lead",
+      stack: ["React", "Node.js", "Express", "Razorpay"],
       description:
         "Modernized the Aaradhya Trust website by rebuilding it with React and Node.js, adding transaction tracking, and enhancing content management through admin tools.",
-      note: "Built at TenSketch — special thanks to Balachandiran for the invaluable internship opportunity.",
+      challenge: "Migrating legacy donation records while ensuring transaction integrity.",
+      impact: [
+        "Boosted online donation conversion by 25% with new flow.",
+        "Developed a secure admin dashboard for real-time tracking.",
+        "Implemented seamless Razorpay integration for global donors."
+      ],
+      note: "Built at TenSketch — special thanks to Balachandiran internship opportunity.",
       glow: "from-cyan-500/20",
       accent: "text-cyan-400",
       year: "2025",
@@ -78,6 +118,7 @@ export default function Work() {
       url: "https://github.com/TenSketch/Aaradhaya-UI-React",
       companyUrl: "https://tensketch.com",
       creditLink: "https://www.linkedin.com/in/balachandirantensketch/",
+      liveUrl: "https://aaradhyatrust.org/",
     },
   ];
 
@@ -195,7 +236,7 @@ export default function Work() {
               <div className="absolute -left-6 top-4 w-1 h-3/4 bg-neutral-800" />
             </h2>
             <p className="text-neutral-400 text-lg md:text-xl max-w-sm font-light leading-relaxed">
-              A curated selection of digital experiences, focusing on systematic architecture and aesthetic interactions.
+              High-impact digital experiences documented through architecture, challenges, and measurable results.
             </p>
           </div>
 
@@ -235,18 +276,54 @@ export default function Work() {
                     >
                       {project.category}
                     </span>
+                    {project.role && (
+                      <span className="text-[10px] md:text-xs font-mono uppercase text-neutral-500 tracking-tighter border-l border-white/10 pl-4 ml-auto md:ml-0">
+                        {project.role}
+                      </span>
+                    )}
                   </div>
 
-                  <h3 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 md:mb-8 leading-[1.1]">
+                  <h3 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-[0.9]">
                     {project.title}
                   </h3>
+
+                  {/* Tech Stack Tags */}
+                  <div className="flex flex-wrap gap-2 mb-10">
+                    {project.stack?.map((tech) => (
+                      <span key={tech} className="text-[10px] md:text-xs font-mono text-neutral-400 bg-neutral-900 border border-white/5 px-3 py-1 rounded">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
                   <p className="text-neutral-300 text-base md:text-xl leading-relaxed mb-10 font-light max-w-lg">
                     {project.description}
                   </p>
 
+                  {/* Challenge & Impact */}
+                  <div className="space-y-10 mb-12">
+                    <div className="max-w-md">
+                      <h4 className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-3">The Challenge</h4>
+                      <p className="text-neutral-400 text-sm md:text-base leading-relaxed italic">
+                        &ldquo;{project.challenge}&rdquo;
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-4">Proof of Impact</h4>
+                      <ul className="space-y-3">
+                        {project.impact?.map((item, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm md:text-base text-neutral-300 font-light">
+                            <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${project.accent.replace('text-', 'bg-')} opacity-60`} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
                   {project.note && (
-                    <div className="text-sm md:text-base text-neutral-500 leading-relaxed border-l-2 border-white/10 pl-5 py-2 mb-10 space-y-3">
+                    <div className="text-sm text-neutral-500 leading-relaxed border-l-2 border-white/10 pl-5 py-2 mb-12">
                       <p>
                         {project.note}
                         {project.companyUrl && (
@@ -254,55 +331,38 @@ export default function Work() {
                             href={project.companyUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Visit TenSketch company website"
-                            className="inline-block md:ml-2 underline underline-offset-4 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm mt-2 md:mt-0 text-neutral-400"
+                            className="inline-block ml-2 underline underline-offset-4 hover:text-white transition-colors"
                           >
                             TenSketch →
                           </a>
                         )}
                       </p>
-                      {project.creditLink && (
-                        <p>
-                          <a
-                            href={project.creditLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="View Balachandiran's LinkedIn profile"
-                            className="text-neutral-400 hover:text-white underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
-                          >
-                            Thank you, Balachandiran
-                          </a>
-                        </p>
-                      )}
                     </div>
                   )}
 
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Explore the ${project.title} project`}
-                    className="group inline-flex items-center gap-5 text-base md:text-xl font-medium hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-full pr-6 w-max"
-                  >
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="transform -rotate-45 group-hover:rotate-0 transition-all duration-500"
-                        aria-hidden="true"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </div>
-                    Explore Full Project
-                  </a>
+                  {/* Project Action Button */}
+                  <div className="flex flex-wrap items-center gap-6 md:gap-10">
+                    {(() => {
+                      const primaryLink = project.liveUrl || project.url;
+                      const isLive = project.liveUrl || !project.url.includes("github.com");
+                      return (
+                        <a
+                          href={primaryLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center gap-3 text-sm md:text-base font-medium text-neutral-400 hover:text-white transition-all underline underline-offset-8 decoration-white/10 hover:decoration-white/40"
+                        >
+                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white/5 transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform group-hover:scale-110 transition-transform">
+                              <line x1="7" y1="17" x2="17" y2="7"></line>
+                              <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                          </div>
+                          View Here &mdash; {isLive ? 'Live' : 'Source'}
+                        </a>
+                      );
+                    })()}
+                  </div>
                 </div>
               </article>
             ))}

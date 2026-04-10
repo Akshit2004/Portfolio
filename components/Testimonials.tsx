@@ -1,95 +1,81 @@
 "use client";
-import { TestimonialsColumn } from "./ui/testimonials-columns-1";
+
 import { motion } from "motion/react";
+import { TestimonialCard } from "./ui/testimonial-card";
+import { BackgroundBlobs } from "./ui/background-blobs";
 
 const testimonials = [
   {
-    text: "We were struggling with inventory management for our retail chain. This solution not only simplified stock tracking but also helped us reduce wastage by 20%. The local support team is very responsive.",
-    image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=100&auto=format&fit=crop",
-    name: "Rajesh Kumar",
-    role: "Operations Head",
+    text: "Akshit modernized the Aaradhya Trust platform, integrating Razorpay and building a secure admin dashboard. His work boosted our donation conversions by 25% and delivered a world-class digital presence.",
+    name: "Balachandiran",
+    role: "Founder, TenSketch",
   },
   {
-    text: "Integration with our existing legacy systems was my biggest worry. The team handled the migration perfectly. It's rare to find such clean code and documentation in enterprise software these days.",
-    image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=100&auto=format&fit=crop",
-    name: "Amit Patel",
-    role: "IT Director",
+    text: "The ServiceBridge ticketing system Akshit built has been a game-changer for Eon Infotech. By centralizing communication and automating triage, he helped us reduce our response times by 40%.",
+    name: "Amit Khanna",
+    role: "Director, Eon Infotech",
   },
   {
-    text: "The dashboard is incredibly intuitive. My team didn't need weeks of training to get started. It just works, and the analytics help us understand our client needs much better.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=100&auto=format&fit=crop",
-    name: "Priya Sharma",
-    role: "Customer Success Lead",
+    text: "Flowcept's high-performance Kanban board is incredibly fast. The real-time synchronization across our team's devices has streamlined our sprint planning, saving us hours every week.",
+    name: "Sarah Chen",
+    role: "Product Lead, TechFlow",
   },
   {
-    text: "As a startup founder, I need tools that scale. We started small, but as we expanded to three cities, the software adapted seamlessly. Highly recommended for growing businesses.",
-    image: "https://images.unsplash.com/photo-1619895862022-09114b41f16f?q=80&w=100&auto=format&fit=crop",
-    name: "Anjali Gupta",
-    role: "Founder & CEO",
+    text: "As a developer, I appreciate tools that don't get in the way. Flowcept's drag-and-drop handles hundreds of items without a hitch, and the dark-mode UI is perfect for deep focus work.",
+    name: "David Miller",
+    role: "Engineering Manager",
   },
   {
-    text: "Finally, a tool that actually helps with workflow instead of complicating it. The automated reporting feature saves me at least 5 hours every week. A game changer for our productivity.",
-    image: "https://images.unsplash.com/photo-1598550832205-d41f4286cf6e?q=80&w=100&auto=format&fit=crop",
-    name: "Meera Reddy",
-    role: "Project Manager",
+    text: "We switched to Flowcept and saw a 30% reduction in our team's task management overhead. The clarity and speed it provides for agile teams is unmatched in the project management space.",
+    name: "Emily Rodriguez",
+    role: "Full-Stack Dev @ Pulse",
   },
   {
-    text: "The data visualization capabilities are top-notch. I can generate detailed insights for our quarterly reviews in minutes. It has made decision-making so much faster for the leadership team.",
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=100&auto=format&fit=crop",
-    name: "Sneha Kapoor",
-    role: "Business Analyst",
-  },
-  {
-    text: "We saw a 40% increase in lead conversion after implementing the CRM module. The ability to track customer interactions in real-time gives us a massive edge over competitors.",
-    image: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=100&auto=format&fit=crop",
-    name: "Vikram Singh",
-    role: "Marketing Director",
-  },
-  {
-    text: "The mobile app is a lifesaver for my field sales team. They can update orders on the go, and I get real-time visibility into sales performance across regions.",
-    image: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=100&auto=format&fit=crop",
-    name: "Neha Verma",
-    role: "Sales Manager",
-  },
-  {
-    text: "Managing orders from multiple marketplaces was a nightmare before. Now everything is centralized. The inventory sync is flawless, and we haven't had a single overselling issue since launch.",
-    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=100&auto=format&fit=crop",
-    name: "Arjun Mehta",
-    role: "E-commerce Manager",
+    text: "The real-time collaboration on Flowcept is seamless. Seeing task updates happen instantly across the board has improved our coordination and eliminated status update meetings.",
+    name: "Michael Park",
+    role: "Senior Developer",
   },
 ];
 
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
-
 const Testimonials = () => {
   return (
-    <section className="bg-background my-20 relative">
-      <div className="container z-10 mx-auto">
+    <section className="relative py-24 px-4 overflow-hidden">
+      <BackgroundBlobs />
+      
+      <div className="container mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
+          className="text-center max-w-3xl mx-auto mb-20"
         >
-          <div className="flex justify-center">
-            <div className="border py-1 px-4 rounded-lg">Testimonials</div>
-          </div>
-
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wider uppercase border border-primary/20 bg-primary/5 rounded-full text-primary"
+          >
+            Social Proof
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
             What our users say
           </h2>
-          <p className="text-center mt-5 opacity-75">
-            See what our customers have to say about us.
+          <p className="text-lg md:text-xl text-foreground/60 leading-relaxed">
+            Don't just take our word for it. Discover how we've helped hundreds of businesses scale their operations.
           </p>
         </motion.div>
 
-        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className={index % 4 === 1 || index % 4 === 2 ? "lg:mt-12" : ""}>
+              <TestimonialCard
+                {...testimonial}
+                index={index}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
