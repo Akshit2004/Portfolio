@@ -1,277 +1,149 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import Image from "next/image";
-import { GitHubCalendar } from "react-github-calendar";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger, DrawSVGPlugin);
+
+const facts = ["📍 Solan, India", "💼 Full-stack @ TenSketch", "🎓 B.Tech CSE '26", "🤖 PM & Agentic AI"];
+
+const skills = [
+  { name: "React", color: "bg-blue text-white" },
+  { name: "Next.js", color: "bg-white" },
+  { name: "TypeScript", color: "bg-purple" },
+  { name: "Node.js", color: "bg-mint" },
+  { name: "Tailwind", color: "bg-pink" },
+  { name: "GSAP", color: "bg-orange" },
+  { name: "Three.js", color: "bg-white" },
+  { name: "PostgreSQL", color: "bg-blue text-white" },
+  { name: "AWS", color: "bg-orange" },
+  { name: "Docker", color: "bg-mint" },
+  { name: "Figma", color: "bg-pink" },
+  { name: "Git", color: "bg-purple" },
+];
+
+// Hand-drawn loop scribbled around a phrase as it scrolls into view
+function Scribble({ children, color = "stroke-pink" }: { children: React.ReactNode; color?: string }) {
+  return (
+    <span className="relative inline-block whitespace-nowrap">
+      {children}
+      <svg viewBox="0 0 200 60" preserveAspectRatio="none" className="pointer-events-none absolute -inset-x-3 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+1.5rem)] overflow-visible" aria-hidden>
+        <path
+          className={`scribble ${color}`}
+          fill="none"
+          strokeWidth="4"
+          strokeLinecap="round"
+          d="M150 8 C90 0 20 6 8 28 C-2 48 60 58 110 55 C170 52 198 40 194 24 C190 10 150 4 112 6"
+        />
+      </svg>
+    </span>
+  );
+}
 
 export default function About() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const marqueeRef1 = useRef<HTMLDivElement>(null);
-  const marqueeRef2 = useRef<HTMLDivElement>(null);
-  const [time, setTime] = useState("");
+  const root = useRef<HTMLElement>(null);
 
-  const skillsRow1 = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Node.js",
-    "Tailwind CSS",
-    "GSAP",
-  ];
-  const skillsRow2 = [
-    "Three.js",
-    "PostgreSQL",
-    "AWS",
-    "Docker",
-    "Figma",
-    "Git",
-  ];
-
-  useEffect(() => {
-    // Clock
-    const updateTime = () => {
-      const now = new Date();
-      setTime(
-        now.toLocaleTimeString("en-US", {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        }),
+  useGSAP(
+    () => {
+      // Yellow floods the screen from the top as you arrive
+      gsap.fromTo(
+        ".about-bg",
+        { clipPath: "circle(0% at 50% 0%)" },
+        { clipPath: "circle(150% at 50% 0%)", ease: "none", scrollTrigger: { trigger: root.current, start: "top 90%", end: "top 10%", scrub: true } }
       );
-    };
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
 
-    const ctx = gsap.context(() => {
-      // Bento Grid Entry Animation
-      const items = gsap.utils.toArray(".bento-item");
-      gsap.from(items, {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-        y: 50,
+      // Photo gets slapped on like a sticker
+      gsap.from(".photo", {
+        scale: 2.4,
+        rotate: -30,
         opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power3.out",
+        duration: 0.7,
+        ease: "back.out(2.5)",
+        scrollTrigger: { trigger: ".photo", start: "top 75%" },
       });
 
-      // Marquee Animation
-      if (marqueeRef1.current) {
-        gsap.to(marqueeRef1.current, {
-          xPercent: -50,
-          repeat: -1,
-          duration: 20,
-          ease: "linear",
-        });
-      }
+      gsap.utils.toArray<SVGPathElement>(".scribble").forEach((p) => {
+        gsap.from(p, { drawSVG: 0, duration: 0.9, ease: "power2.inOut", scrollTrigger: { trigger: p, start: "top 75%" } });
+      });
 
-      if (marqueeRef2.current) {
-        gsap.set(marqueeRef2.current, { xPercent: -50 });
-        gsap.to(marqueeRef2.current, {
-          xPercent: 0,
-          repeat: -1,
-          duration: 20,
-          ease: "linear",
-        });
-      }
-    }, containerRef);
+      gsap.from(".fact", {
+        scale: 0,
+        rotate: () => gsap.utils.random(-30, 30),
+        stagger: 0.08,
+        duration: 0.8,
+        ease: "elastic.out(1, 0.5)",
+        scrollTrigger: { trigger: ".facts", start: "top 85%" },
+      });
 
-    return () => {
-      ctx.revert();
-      clearInterval(timer);
-    };
-  }, []);
-
-  const MarqueeItem = ({ text }: { text: string }) => (
-    <span className="mx-8 text-4xl md:text-6xl font-bold uppercase tracking-tighter text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.3)] hover:[-webkit-text-stroke:0px] hover:text-white transition-all duration-300 cursor-default select-none">
-      {text}
-    </span>
+      gsap.from(".skill", {
+        y: -200,
+        rotate: () => gsap.utils.random(-90, 90),
+        opacity: 0,
+        stagger: { each: 0.05, from: "random" },
+        duration: 1.1,
+        ease: "bounce.out",
+        scrollTrigger: { trigger: ".skills", start: "top 80%" },
+      });
+    },
+    { scope: root }
   );
 
   return (
-    <section
-      id="about"
-      ref={containerRef}
-      className="relative w-full py-32 px-4 md:px-10 bg-black text-white overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-20 text-center">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bento-item text-center">
-            About <span className="text-neutral-600">Me.</span>
-          </h2>
-          <p className="text-neutral-400 text-xl max-w-lg bento-item mx-auto">
-            Full-stack developer bridging design and scalable backend systems.
-          </p>
+    <section id="about" ref={root} className="relative px-4 py-32 md:px-10 md:py-40">
+      <div className="about-bg absolute inset-0 bg-yellow" />
+
+      <div className="relative mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-[0.8fr_1.2fr]">
+        <div className="photo relative mx-auto w-full max-w-sm rotate-[-4deg]">
+          <span className="absolute -top-4 left-1/2 z-10 h-8 w-28 -translate-x-1/2 rotate-3 bg-white/70 border-2 border-ink/20" aria-hidden />
+          <div className="brut rounded-3xl bg-white p-3 pb-14 transition-transform duration-300 hover:rotate-6 hover:scale-105">
+            <div className="relative aspect-square overflow-hidden rounded-2xl border-[3px] border-ink">
+              <Image src="/pic%20with%20nmae.png" alt="Portrait of Akshit Mahajan" fill className="object-cover" unoptimized />
+            </div>
+            <p className="absolute bottom-3 left-0 right-0 text-center font-display text-2xl font-bold">that&apos;s me!</p>
+          </div>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
-          {/* Bio Card - Large */}
-          <div className="bento-item md:col-span-2 row-span-2 p-8 md:p-12 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-sm hover:bg-neutral-900/80 transition-colors duration-500 group">
-            <div className="h-full flex flex-col justify-between gap-8">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </div>
-              <div className="space-y-6 text-lg md:text-2xl text-neutral-300 leading-relaxed font-light text-center">
-                <p>
-                  I&apos;m a full-stack developer based in India, building
-                  scalable, user-focused applications from pixel-perfect
-                  frontends to reliable backend services. With a foundation in
-                  UI/UX design and engineering, I take a product-first approach
-                  to build solutions that are both delightful and performant.
-                </p>
-                <p>
-                  My journey grew from designing interfaces into building APIs,
-                  databases, and cloud infrastructure. I enjoy solving problems
-                  across the stack using modern tools like React, Next.js,
-                  TypeScript, Node.js, PostgreSQL, Docker, and AWS, while
-                  keeping accessibility and performance at the core. Outside of
-                  work, I explore new technologies and contribute to open-source
-                  projects.
-                </p>
-              </div>
-            </div>
+        <div>
+          <p className="brut-sm mb-6 inline-block rounded-full bg-white px-4 py-1 font-display text-sm font-semibold">About me</p>
+          <h2 className="mb-8 font-display text-5xl leading-[0.95] font-extrabold tracking-tight md:text-7xl">
+            I make the web feel <Scribble>alive.</Scribble>
+          </h2>
+          <div className="space-y-5 text-lg leading-relaxed md:text-xl">
+            <p>
+              I&apos;m a <Scribble color="stroke-blue">full-stack developer</Scribble> based in India, building scalable,
+              user-focused apps from pixel-perfect frontends to reliable backend services.
+            </p>
+            <p>
+              I started out designing interfaces and grew into APIs, databases and cloud infrastructure. I care about
+              products that are both delightful and performant, with accessibility baked in.
+            </p>
           </div>
-
-          {/* Image Card */}
-          <div className="bento-item md:col-span-1 row-span-2 relative rounded-3xl overflow-hidden border border-white/10 min-h-[400px]">
-            <Image
-              src="/pic%20with%20nmae.png"
-              alt="Profile photo"
-              fill
-              className="object-cover hover:scale-110 transition-transform duration-700"
-              unoptimized
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-            <div className="absolute bottom-8 left-8">
-              <p className="text-2xl font-bold">Akshit Mahajan</p>
-            </div>
-          </div>
-
-          {/* Location Card */}
-          <div className="bento-item md:col-span-1 p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-sm hover:bg-neutral-900/80 transition-colors duration-500 flex flex-col justify-between min-h-[180px]">
-            <div className="flex justify-between items-start">
-              <div className="p-2 bg-white/5 rounded-full">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-neutral-400"
-                >
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div>
-              <h4 className="text-3xl font-bold text-white mb-1">{time}</h4>
-              <p className="text-neutral-400 text-sm">Solan, India</p>
-            </div>
-          </div>
-
-          {/* GitHub Activity Card */}
-          <div className="bento-item md:col-span-2 p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-sm hover:bg-neutral-900/80 transition-colors duration-500 flex flex-col justify-between min-h-[180px] overflow-hidden">
-            <div className="flex justify-between items-start mb-4">
-              <div className="p-2 bg-white/5 rounded-full">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-neutral-400"
-                >
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-              </div>
-              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
-                Contributions
+          <div className="facts mt-8 flex flex-wrap gap-3">
+            {facts.map((f) => (
+              <span key={f} className="fact brut-sm rounded-full bg-white px-4 py-2 font-display font-semibold">
+                {f}
               </span>
-            </div>
-            <div className="w-full flex items-center justify-center">
-              <GitHubCalendar
-                username="Akshit2004"
-                colorScheme="dark"
-                transformData={(data) => data.slice(100)}
-                blockSize={12}
-                blockMargin={4}
-                fontSize={12}
-                theme={{
-                  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-                }}
-                style={{ color: "#a3a3a3" }}
-              />
-            </div>
+            ))}
           </div>
+        </div>
+      </div>
 
-          {/* Tech Stack Marquee - Wide */}
-          <div className="bento-item md:col-span-3 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-sm overflow-hidden py-12 flex flex-col gap-8">
-            <div className="px-10">
-              <h3 className="text-2xl font-semibold text-white mb-2">
-                Tech Stack
-              </h3>
-              <p className="text-neutral-500 text-sm">
-                The tools I use to build the future.
-              </p>
-            </div>
-
-            {/* Row 1 */}
-            <div className="relative flex overflow-hidden w-full">
-              <div ref={marqueeRef1} className="flex whitespace-nowrap">
-                {[
-                  ...skillsRow1,
-                  ...skillsRow1,
-                  ...skillsRow1,
-                  ...skillsRow1,
-                ].map((skill, i) => (
-                  <MarqueeItem key={`r1-${i}`} text={skill} />
-                ))}
-              </div>
-            </div>
-
-            {/* Row 2 */}
-            <div className="relative flex overflow-hidden w-full">
-              <div ref={marqueeRef2} className="flex whitespace-nowrap">
-                {[
-                  ...skillsRow2,
-                  ...skillsRow2,
-                  ...skillsRow2,
-                  ...skillsRow2,
-                ].map((skill, i) => (
-                  <MarqueeItem key={`r2-${i}`} text={skill} />
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="relative mx-auto mt-28 max-w-6xl text-center">
+        <h3 className="mb-10 font-display text-3xl font-extrabold md:text-5xl">My toolbox 🧰</h3>
+        <div className="skills flex flex-wrap justify-center gap-4">
+          {skills.map((s, i) => (
+            <span
+              key={s.name}
+              style={{ rotate: `${(i % 3) * 3 - 3}deg` }}
+              className={`skill brut-sm rounded-2xl px-5 py-3 font-display text-xl font-bold transition-transform hover:-translate-y-2 md:text-2xl ${s.color}`}
+            >
+              {s.name}
+            </span>
+          ))}
         </div>
       </div>
     </section>

@@ -1,68 +1,86 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #fff4e4;
+  --ink: #141414;
+  --pink: #ff7ac0;
+  --yellow: #ffd23f;
+  --blue: #4d7cfe;
+  --mint: #3ddc97;
+  --orange: #ff7a45;
+  --purple: #a98bff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-pink: var(--pink);
+  --color-yellow: var(--yellow);
+  --color-blue: var(--blue);
+  --color-mint: var(--mint);
+  --color-orange: var(--orange);
+  --color-purple: var(--purple);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-bricolage);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--cream);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: clip;
 }
 
-/* Lenis Recommended CSS */
-html.lenis, html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
+::selection {
+  background: var(--pink);
+  color: var(--ink);
 }
 
+/* Neo-brutalist sticker look: thick outline + hard shadow */
+.brut {
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.brut-sm {
+  border: 2.5px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+/* Buttons that physically press into their shadow */
+.press {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.press:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.press:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 var(--ink);
+}
 
-/* Custom animations for About section */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee var(--duration, 30s) linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee var(--duration, 30s) linear infinite reverse;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin-reverse {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
-}
-
-.animate-spin-reverse {
-  animation: spin-reverse 6s linear infinite;
 }

@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
-import { TestimonialCard } from "./ui/testimonial-card";
-import { BackgroundBlobs } from "./ui/background-blobs";
+import { useState } from "react";
+import { motion, useMotionValue, useTransform } from "motion/react";
 
 const testimonials = [
   {
@@ -37,49 +36,80 @@ const testimonials = [
   },
 ];
 
-const Testimonials = () => {
-  return (
-    <section className="relative py-24 px-4 overflow-hidden">
-      <BackgroundBlobs />
-      
-      <div className="container mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-20"
-        >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wider uppercase border border-primary/20 bg-primary/5 rounded-full text-primary"
-          >
-            Social Proof
-          </motion.div>
-          
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
-            What our users say
-          </h2>
-          <p className="text-lg md:text-xl text-foreground/60 leading-relaxed">
-            Don't just take our word for it. Discover how we've helped hundreds of businesses scale their operations.
-          </p>
-        </motion.div>
+const colors = ["bg-pink", "bg-yellow", "bg-blue", "bg-mint", "bg-purple", "bg-orange"];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className={index % 4 === 1 || index % 4 === 2 ? "lg:mt-12" : ""}>
-              <TestimonialCard
-                {...testimonial}
-                index={index}
-              />
-            </div>
-          ))}
+function Card({ index, depth, onSwipe }: { index: number; depth: number; onSwipe: () => void }) {
+  const t = testimonials[index];
+  const x = useMotionValue(0);
+  const rotate = useTransform(x, [-250, 250], [-20, 20]);
+  const top = depth === 0;
+
+  return (
+    <motion.figure
+      className={`brut absolute inset-0 flex flex-col justify-between rounded-[2rem] p-8 md:p-10 ${colors[index % colors.length]} ${
+        top ? "cursor-grab active:cursor-grabbing" : ""
+      }`}
+      style={{ x, rotate: top ? rotate : undefined, zIndex: 10 - depth }}
+      animate={{ scale: 1 - depth * 0.06, y: depth * 22, rotate: top ? undefined : index % 2 ? 4 : -4 }}
+      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+      drag={top ? "x" : false}
+      dragSnapToOrigin
+      onDragEnd={(_, info) => {
+        if (Math.abs(info.offset.x) > 120 || Math.abs(info.velocity.x) > 600) onSwipe();
+      }}
+      whileDrag={{ scale: 1.04 }}
+    >
+      <blockquote className="font-display text-lg leading-snug font-semibold select-none md:text-xl">
+        <span className="block text-6xl leading-none">&ldquo;</span>
+        {t.text}
+      </blockquote>
+      <figcaption className="mt-6 flex items-center gap-4 select-none">
+        <span className="brut-sm flex h-12 w-12 items-center justify-center rounded-full bg-white font-display text-xl font-extrabold">
+          {t.name[0]}
+        </span>
+        <span>
+          <span className="block font-display text-lg font-bold">{t.name}</span>
+          <span className="block text-sm opacity-75">{t.role}</span>
+        </span>
+      </figcaption>
+    </motion.figure>
+  );
+}
+
+export default function Testimonials() {
+  const [order, setOrder] = useState(() => testimonials.map((_, i) => i));
+  const next = () => setOrder((o) => [...o.slice(1), o[0]]);
+  const prev = () => setOrder((o) => [o[o.length - 1], ...o.slice(0, -1)]);
+
+  return (
+    <section className="overflow-hidden px-4 py-32 md:px-10 md:py-40">
+      <div className="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="brut-sm mb-6 inline-block rounded-full bg-white px-4 py-1 font-display text-sm font-semibold">Kind words</p>
+          <h2 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight md:text-7xl">
+            People I&apos;ve built with 💬
+          </h2>
+          <p className="mt-6 max-w-sm text-lg">Swipe the cards, or use the buttons.</p>
+          <div className="mt-8 flex items-center gap-4">
+            <button onClick={prev} aria-label="Previous testimonial" className="brut-sm press h-14 w-14 rounded-full bg-white font-display text-2xl font-bold">
+              ←
+            </button>
+            <button onClick={next} aria-label="Next testimonial" className="brut-sm press h-14 w-14 rounded-full bg-yellow font-display text-2xl font-bold">
+              →
+            </button>
+            <span className="font-display text-lg font-bold" aria-live="polite">
+              {order[0] + 1} / {testimonials.length}
+            </span>
+          </div>
+        </div>
+
+        <div className="relative mx-auto h-[26rem] w-full max-w-md md:h-[28rem]">
+          {order
+            .slice(0, 3)
+            .map((idx, depth) => <Card key={idx} index={idx} depth={depth} onSwipe={next} />)
+            .reverse()}
         </div>
       </div>
     </section>
   );
-};
-
-export default Testimonials;
+}
